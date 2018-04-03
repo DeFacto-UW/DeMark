@@ -17,7 +17,8 @@ Progress made:
 
     Challenges:
 
-Plans: 
+Plans:
+    * Set up local environments (Tony, Tuan, Andrew, Jeff).
     * Project proposal (Tony, Tuan, Andrew, Jeff).
     * Get familiar with IntelliJ plugin development environment (Tony, Tuan, Andrew, Jeff).
-    * Draft implementations details.
+    * Draft implementations details. (Tony, Tuan, Andrew, Jeff).
