@@ -1,0 +1,22 @@
+﻿Status Report: Week 2
+Last week’s goals:
+* Pitch projects and form teams.
+
+Progress made:
+    Accomplished:
+        * Created git repository
+           * Created organization
+           * Invited members and staff
+           * Set up git layout
+        * Created Google Drive folders
+           * Invited all members and staff
+           * Added previous project pitch documentation and staff feedback
+        * Team Report
+    Learned:
+
+    Challenges:
+
+Plans: 
+    * Project proposal (Tony, Tuan, Andrew, Jeff).
+    * Get familiar with IntelliJ plugin development environment (Tony, Tuan, Andrew, Jeff).
+    * Draft implementations details.
