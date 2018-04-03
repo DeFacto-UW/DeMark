@@ -1,6 +1,7 @@
 ﻿Status Report: Week 2
+
 Last week’s goals:
-* Pitch projects and form teams.
+    * Pitch projects and form teams.
 
 Progress made:
     Accomplished:
