@@ -5,3 +5,4 @@ Change this to something more interesting
 - Tony Vo
 - Andrew Tran
 - Tuan Ma
+- Ranhao Xu
