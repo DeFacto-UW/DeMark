@@ -14,15 +14,15 @@ Progress made:
            * Added previous project pitch documentation and staff feedback
         * Team Report
     Learned:
-		* Flesh out idea for project more.
-			* What is ideal and what is possible. 
-		* Coordinating meetings both online and offline. 
-			* Finding efficient ways to communicate ideas and plans. 
-				i.e. Slack, Discord, GoogleDrive.
+	* Flesh out idea for project more.
+		* What is ideal and what is possible. 
+	* Coordinating meetings both online and offline. 
+		* Finding efficient ways to communicate ideas and plans. 
+			i.e. Slack, Discord, GoogleDrive.
     Challenges:
-		* Making sure everyone's vision align with the project and the class. 
-		* Working around schedule conflicts.
-		* Dividing the work (working together or partitioning work).   
+	* Making sure everyone's vision align with the project and the class. 
+	* Working around schedule conflicts.
+	* Dividing the work (working together or partitioning work).   
 
 Plans:
     * Set up local environments (Tony, Tuan, Andrew, Jeff).
