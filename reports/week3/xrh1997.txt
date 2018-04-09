@@ -1,0 +1,31 @@
+Ranhao Xu
+xrh1997
+CSE403 week3 personal status report
+4/9/2018
+
+Last week’s goals:
+ • Set up local environments (Tony, Tuan, Andrew, Jeff)
+ • Project proposal (Tony, Tuan, Andrew, Jeff)
+ • Get familiar with IntelliJ plugin development environment (Tony, Tuan, Andrew, Jeff)
+ • Draft implementations details (algorithm, functionalities) (Tony, Tuan, Andrew, Jeff)
+ • Choose plugin environment (which IDE to develop plugin for)
+
+Progress made:
+ • Accomplished:
+   • Set up IntelliJ IDE and plugin development environment
+   • Create a temporary plugin project and get familiar with the library
+   • Finished project proposal
+   • Have a draft implementation, including algorithm and data structure
+ • Learned:
+   • What IntelliJ plugin development requires, and how to get the environment set up
+   • How to build projects with Maven and Gradle
+ • Challenges:
+   • First time experience with IntelliJ, so it takes some time to get familiar with how to use the software
+   • It is hard to figure out every detail in the algorithm part
+   • Learning plugin development for IntelliJ is difficult
+
+Plans:
+   • Think of a more detailed algorithm for each functionality
+   • Create a working IntelliJ plugin that has a predictable behavior to learn how to actually develop a plugin
+   • Look through the documentation of IntelliJ plugin development documentation to check what APIs are provided in the library
+
