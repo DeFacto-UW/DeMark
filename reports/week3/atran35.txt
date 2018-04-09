@@ -4,7 +4,7 @@ CSE 403
 Team DeFacto 
 
 Last week's goals (team):
-    * Set up local environments (Tony, Tuan, Andrew, Jeff).
+		* Set up local environments (Tony, Tuan, Andrew, Jeff).
 		* Project proposal (Tony, Tuan, Andrew, Jeff).
 		* Get familiar with IntelliJ plugin development environment (Tony, Tuan, Andrew, Jeff).
 		* Draft implementations details (algorithm, functionalities). (Tony, Tuan, Andrew, Jeff).
@@ -25,7 +25,7 @@ Progress made:
 				* Making gradle work with VCS so other team members will be able to use it as well.
 				* Personal time management between working on the project and other classes. 
 
-Personal Plans: 
+Personal Plans:
 		* Gradle fully up and functional. 
 		* Prototype plug-in completed to increase familiarity with IDEA plug-in development. 
 		* Ideas for architecture and implementation drafted. 
