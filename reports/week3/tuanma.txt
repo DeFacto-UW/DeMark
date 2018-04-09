@@ -1,0 +1,34 @@
+Last Week Goals:
+    * Set up local environments.
+    * Project proposal.
+    * Get familiar with IntelliJ plugin development environment.
+    * Draft implementations details (algorithm, functionalities).
+	* Choose plugin environment (which IDE to develop plug in for).
+
+Progress made:
+    Accomplished:
+        * Drafted implementation details
+	   * Chose plugin developer environment (Intellij).
+           * Designed first iteration of the core algorithm
+        * Individual report
+	* Coordinated with team on a near daily base to work on idea and proposal
+	* Project proposoal round 2
+    Learned:
+	* How to build a project with Maven.
+	* How to read Intellij documents.
+
+    Challenges:
+	* Understanding the Intellij API
+	* Working around schedule conflicts.
+	* Creating a concise document
+	* Getting example Intellij plugin to build using Gradle.
+
+Plans:
+    * Get familiar with IntelliJ plugin development environment.
+	* Read API documentation.
+	* Find what the API offers in terms of functionality.
+    * Ask TA for help on how to build Gradle projects.
+    * Start implementation of plugin.
+	* Start with core algorithim.
+
+
