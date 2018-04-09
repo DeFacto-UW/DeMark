@@ -4,28 +4,28 @@ CSE 403
 Team DeFacto 
 
 Last week's goals (team):
-		* Set up local environments (Tony, Tuan, Andrew, Jeff).
-		* Project proposal (Tony, Tuan, Andrew, Jeff).
-		* Get familiar with IntelliJ plugin development environment (Tony, Tuan, Andrew, Jeff).
-		* Draft implementations details (algorithm, functionalities). (Tony, Tuan, Andrew, Jeff).
-		* Choose plugin environment (which IDE to develop plug in for). 
+	* Set up local environments (Tony, Tuan, Andrew, Jeff).
+	* Project proposal (Tony, Tuan, Andrew, Jeff).
+	* Get familiar with IntelliJ plugin development environment (Tony, Tuan, Andrew, Jeff).
+	* Draft implementations details (algorithm, functionalities). (Tony, Tuan, Andrew, Jeff).
+	* Choose plugin environment (which IDE to develop plug in for). 
 
 Progress made:
-		Accomplished: 
-				* Attempted set up of Gradle for local environment. 
-				* Finished the first iteration of project proposal (worked on formatting and sections 5, 5.1, half of section 1, and section 2. 
-				* Some implementation details discussed. 
-				* Chosen IntelliJ as the plugin environment. 
-		Learned:
-				* Basic documentation of IntelliJ IDEA plugin development. 
-				* Some Gradle prerequisites. 
-				* Setting up IntelliJ to work with Gradle. 
-		Challenges: 
-				* Unfamilarity with Gradle lead to some unsolvable errors. 
-				* Making gradle work with VCS so other team members will be able to use it as well.
-				* Personal time management between working on the project and other classes. 
+	Accomplished: 
+		* Attempted set up of Gradle for local environment. 
+		* Finished the first iteration of project proposal (worked on formatting and sections 5, 5.1, half of section 1, and section 2. 
+		* Some implementation details discussed. 
+		* Chosen IntelliJ as the plugin environment. 
+	Learned:
+		* Basic documentation of IntelliJ IDEA plugin development. 
+		* Some Gradle prerequisites. 
+		* Setting up IntelliJ to work with Gradle. 
+	Challenges: 
+		* Unfamilarity with Gradle lead to some unsolvable errors. 
+		* Making gradle work with VCS so other team members will be able to use it as well.
+		* Personal time management between working on the project and other classes. 
 
 Personal Plans:
-		* Gradle fully up and functional. 
-		* Prototype plug-in completed to increase familiarity with IDEA plug-in development. 
-		* Ideas for architecture and implementation drafted. 
+	* Gradle fully up and functional. 
+	* Prototype plug-in completed to increase familiarity with IDEA plug-in development. 
+	* Ideas for architecture and implementation drafted. 
