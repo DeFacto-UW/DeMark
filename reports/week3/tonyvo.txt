@@ -1,0 +1,65 @@
+Tony Vo
+tonyvo
+CSE 403 Software Engineering
+Team DeFaction
+
+Last week's goals (Team)
+
+Plns:
+    * Set up local environments (Tony, Tuan, Andrew, Jeff).
+    * Project proposal (Tony, Tuan, Andrew, Jeff).
+    * Get familiar with IntelliJ plugin development environment (Tony, Tuan, Andrew, Jeff).
+    * Draft implementations details (algorithm, functionalities). (Tony, Tuan, Andrew, Jeff).
+	* Choose plugin environment (which IDE to develop plug in for). 
+
+Progress:
+	Accomplished:
+		- Team agreed to make IntelliJ plugin
+		- Met with TA to discuss some concerns about project such as:
+			- How realistic is this project?
+			- Would it be useful?
+			- Further explored the experiments section
+		- Project Proposal draft finished
+			- I helped with sections:
+				- Motivation
+				- Schedule
+				- Proofreading various other aspects.
+			- Team worked together via ShareLatex to put together a draft and ensure
+			  our visions and ideas were aligned
+		- Started Quickstart for IntelliJ plugin (Getting environment set up)
+			- Trying to follow this tutorial (https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started.html)
+			- Installed all necessary downloads for first stage development.
+	Learned:
+		- Gradle is a build tool to help manage projects.
+			- Our project uses gradle to build the project along with all its dependencies.
+		- Setting up an environment can be a challenging aspect of getting started. 
+		- Coordinating with team mates can be challenging and so having a central hub for communication is
+		  very useful. Our team uses discord and has multiple channels to keep track of different topics (announcements, todos, links ect.)
+		- Every member has a role and is important to the team. (Class) In order for the project to succeed,
+		  every member must have a very good understanding of the vision for the project and its purpose.
+	Challenges:
+		- Setting up the environment and running the example code was hard as this was the first time I've been exposed
+	      to a build tool like gradle.
+		- Planning on how to use gradle so that all users can work on the same project as once. (Once cloned the user can build)
+			- What to commit
+			- Project layout (file structure, necessary files etc.)
+		- Making sure every one has the same vision.
+			- When first discussing the project, everyone had different features to implement. We then agreed
+			  to start with the basics and then work on proposed features if planned. Writing the motivation aspect of the
+			  project proposal helped with this because it helped the members know what the problem we were trying to solve and
+			  what we wanted out of our tool.
+
+Personal Plans
+	- Meet with TA (with team) and discuss design especially with how gradle works and how it fits into our project.
+		- What is expected of build.gradle and how can we ensure the user can build upon a fresh clone from git?
+	- Finish the quickstart from the IntelliJ plugin documentation and start experimenting with the API
+		- What does it have to offer?
+		- Look around for features that may be applicable to our project and present it to the group.
+	- Coordinate with team to have a day where we all look at the documentation, experiment, share knowledge and make plans
+	  for how to move foward. 
+	  	- How do we want to design our tool? (Files, Folder structure, Classes, metadata ect.)
+	- Have basic understanding of API and start project development by end of this week or early next week.
+		- Design is important part and will vastly help our project if we spend time on it now rather than later.
+		- Learning the API is the biggest obsticle right now and by spending the time now to learn the basics and really understand
+	      plugin development, we will some time later. Having a basic understanding will get us farther than trying to learn from nothing
+		  as we go.
