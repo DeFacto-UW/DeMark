@@ -1,0 +1,30 @@
+<idea-plugin>
+    <id>DeFacto.DeMark</id>
+    <name>DeMark</name>
+    <vendor email="atran35@uw.edu" url="http://github.com/DeFacto/DeMark">DeMark</vendor>
+
+    <description><![CDATA[
+    Allows user to add and delete temp code
+    ]]></description>
+
+    <change-notes><![CDATA[
+      Release 0.1: Initial release.<br>
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <group id="DeMark.SampleMenu" text="Greeting" description="Greeting Menu">
+            <add-to-group group-id="MainMenu" anchor="last"/>
+            <action id="DeMark.Textboxes" class="HelloAction" text="Hello" description="Says 'Hello, World!'"/>
+        </group>
+    </actions>
+</idea-plugin>
