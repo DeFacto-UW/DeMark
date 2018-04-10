@@ -32,3 +32,10 @@ patchPluginXml {
       Add change notes here.<br>
       <em>most HTML tags may be used</em>"""
 }
+
+// Example task
+task hello {
+    doLast {
+        println 'Hello'
+    }
+}
