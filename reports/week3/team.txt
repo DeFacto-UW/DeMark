@@ -1,0 +1,17 @@
+Status Report: Week 3
+
+Last week's goals:
+    * Set up local environments (Tony, Tuan, Andrew, Jeff).
+    * Project proposal (Tony, Tuan, Andrew, Jeff).
+    * Get familiar with IntelliJ plugin development environment (Tony, Tuan, Andrew, Jeff).
+    * Draft implementations details (algorithm, functionalities). (Tony, Tuan, Andrew, Jeff).
+	* Choose plugin environment (which IDE to develop plug in for). 
+
+Progress made:
+    Accomplished:
+    
+    Learned:
+
+    Challenges:
+
+Plans:
