@@ -6,3 +6,4 @@ Change this to something more interesting
 - Andrew Tran
 - Tuan Ma
 - Ranhao Xu
+- Lemei Zhang
