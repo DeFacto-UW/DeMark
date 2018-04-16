@@ -1,0 +1,31 @@
+Anh (Andrew) Tran
+atran35
+CSE 403
+Team DeFacto
+
+Last week's goals:
+    * Gradle fully up and functional.
+    * Prototype plug-in completed to increase familiarity with IDEA plug-in development.
+    * Ideas for architecture and implementation drafted.
+
+Progress made:
+    Accomplished:
+        * Gradle set up completed with one issue.
+        * Finished drafting ideas for architecture and algorithm.
+        * Finished making presenations.
+        * GUI mockup for plugin made.
+        * Example plug-in made.
+    Learned:
+        * Similar plug-ins exists, using those for reference.
+        * Team coordination procedures.
+        * How to write better technical papers.
+    Challenges:
+        * Lack of documentation on how to actually work with IntelliJ platform SDK.
+        * Making sure that all team members are on the same page.
+        * Scheduling conflicts and finding time to work on project.
+
+Personal plans:
+    * Get mockup GUI implemented without functionalities.
+    * Organize team to work on different parts of the project so that we don't fall behind.
+    * Start drafting out actual implementation plans.
+    * Draft specific schedule for components.
