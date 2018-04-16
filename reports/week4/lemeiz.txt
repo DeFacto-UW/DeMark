@@ -1,0 +1,34 @@
+Name: Lemei Zhang
+CSE netID: lemeiz
+CSE 403 Software Engineering
+Week 4 individual report
+
+Goals from last week:
+  - Due to the fact that I just joined this team last week as my original team 
+    (SAIT) was disbanded, no goals were set last week for me in this team
+
+Progress of this week:
+  - Accomplished:
+    - Read through the project proposal so make sure that I am on the same page
+      as other team members
+    - Helped finished architecture and implementation plan
+    - Read through the quick start guide for IntelliJ Platform SDK
+    - Finish the first of the three presentations
+
+  - Learned:
+    - How to build a project with Gradle
+    - The importance on making sure that everyone is on the same page 
+
+  - Challenges:
+    - Reading through API documentations is not an easy task, especially when I 
+      don't much experience on doing it before
+    - Preparing for presentations
+      - need to memorize the information for a lot of slides, and need to ensure 
+        that we can finish talking within the time limit
+
+Goals and plans for next week:
+  - Finish setting up the IntelliJ plugin development environment
+  - Discuss with other team members about the division of work for implementation 
+    (i.e. who should be doing what part), and start implementing as soon as 
+    possible afterwars
+  - Work with team members to finish writing the user manual
