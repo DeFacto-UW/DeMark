@@ -1,0 +1,34 @@
+Last Week Goals:
+    * Get familiar with IntelliJ plugin development environment.
+	* Read API documentation.
+	* Find what the API offers in terms of functionality.
+    * Ask TA for help on how to build Gradle projects.
+    * Start implementation of plugin.
+	* Start with core algorithm.
+
+Progress made:
+    Accomplished:
+    * Asked TA for Gradle help
+	* Created architecture design
+    * Wrote design documentation
+    * Individual report
+	* Coordinated with team every other day to work on idea and proposal
+	* Delved into Intellij SDK to explore what it offers
+	* Created powerpoint slides for first presentation.
+    Learned:
+	* Basic idea behind Intellij SDK
+	* How to read Intellij documents.
+
+    Challenges:
+	* Understanding the Intellij API
+	* Creating a diagram that is not confusing and communicate our ideas well
+	* Organizing a powerpoint slide to be effective and concise is difficult
+	* Presenting can also be very difficult
+	    * Difficult to remember all of the slides without large amounts of practice.
+	* Coordinating meetings where everyone is present.
+
+Plans:
+    * Start implementing algorithm.
+        * Putting more details into the classes that will be used.
+        * Created the skeleton for the user interface.
+	* Write user documentation/manual.
