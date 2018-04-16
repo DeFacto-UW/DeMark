@@ -1,0 +1,70 @@
+Tony Vo
+tonyvo
+CSE 403 Software Engineering
+Team DeFaction
+
+Last weeks goals:
+	- Meet with TA (with team) and discuss design especially with how gradle works and how it fits into our project.
+		- What is expected of build.gradle and how can we ensure the user can build upon a fresh clone from git?
+	- Finish the quickstart from the IntelliJ plugin documentation and start experimenting with the API
+		- What does it have to offer?
+		- Look around for features that may be applicable to our project and present it to the group.
+	- Coordinate with team to have a day where we all look at the documentation, experiment, share knowledge and make plans
+	  for how to move foward. 
+	  	- How do we want to design our tool? (Files, Folder structure, Classes, metadata ect.)
+	- Have basic understanding of API and start project development by end of this week or early next week.
+		- Design is important part and will vastly help our project if we spend time on it now rather than later.
+		- Learning the API is the biggest obsticle right now and by spending the time now to learn the basics and really understand
+	      plugin development, we will some time later. Having a basic understanding will get us farther than trying to learn from nothing
+		  as we go.
+
+Progress:
+	Accomplished: 
+		- Met with TA to explain how gradle works.
+		- Finished quickstart guide from Intellij website
+			- Was able to add another menu action in the plugin
+			- Hello world action and Good bye world action that displayed messages when clicked.
+		- Learned more about the API, specifically found out that classes like these exist: 
+			- BookMarkManager class
+			- Extending the Actions class to have more actions in the plugin window
+			- Document class
+				- How intellij interprets the source file and how to interact with it
+		- Finished 1st presentation	
+			- I have alot to work on when it comes to presenting
+
+	Learned
+		- Gradle is an awesome build tool.
+		- Reading through documentation and looking through examples can be a great way
+		  to approach starting
+		- Presenting is hard.
+			- CSE classes don't give alot of opportunities to present
+			- Need to practice more
+			- One of my week points and I want to get better.
+				- Essential for later on in life and communicating with others
+		- Having everyone on the same page is essential
+			- Is every ones vision the same?
+			- Finding corner cases of our design that we did not cover	
+				- How does the file interact with other editors?
+
+	Challenges:
+		- Presenting
+			- I was super nervous and could practice more to better articulate my ideas
+		- Getting every one on the same page
+			- When it comes to meetings, and project design details, everyone has to have a good understanding
+			  of what our project is and is not
+		- Learning more about design patterns
+			- I noticed how alot of classes in the API have a _Manager class and wondered why that is.
+			  Getting more familiar with this type of API design and why they chose to have what they have since
+			  I've never dealt with a library this massive.
+
+Personal Plans:
+	- Start implementing ASAP
+		- Play around with the classes discoverd
+		- See what I can accomplished with the knowledge I have and propose that to the group.
+		- Work some of the other members to have a "hackathon" day where we code and see what can be done.
+		- Get basic layout of GUI finished and have a "skeleton" of the plugin so we can fill in the blanks with what is needed
+	- Be a better teammate
+		- Be prompt to meetings, be more vocal, voice my opinion, be cooperative and ask questions
+	- Evaluate schedule and see if what we have plan is doable in the time we have left. 
+		- Look over where we are at at the end of the week. 
+		- Possibly tfalk to teammates about what needs to change to stay on track 
