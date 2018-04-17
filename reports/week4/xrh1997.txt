@@ -1,0 +1,25 @@
+Ranhao Xu
+xrh1997
+CSE403 week4 individual status report
+4/16/2018
+
+Last week's goals:
+ • Think of a more detailed algorithm for each functionality
+ • Create a working IntelliJ plugin that has a predictable behavior to learn how to actually develop a plugin
+ • Look through the documentation of IntelliJ plugin development documentation to check what APIs are provided in the library
+
+Progress made:
+ • Accomplished:
+   • Decided the architecture and core functionality of the product
+   • Implemented the menu bar GUI
+   • Having a working gradle build file
+ • Learned:
+   • How to implement GUI for IntelliJ
+   • More about LaTeX
+ • Challenges:
+   • There are not much examples or documentations for implementing desired features
+   • Meeting during weekend is hard because there is no time that everyone is available
+
+Plans:
+ • Complete the implemention for GUI
+ • Finish user manual and specification
