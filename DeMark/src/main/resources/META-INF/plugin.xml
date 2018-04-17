@@ -22,9 +22,14 @@
 
     <actions>
         <!-- Add your actions here -->
-        <group id="DeMark.SampleMenu" text="Greeting" description="Greeting Menu">
+        <group id="DeMark.SampleMenu" text="DeMark" description="DeMark Menu">
             <add-to-group group-id="MainMenu" anchor="last"/>
-            <action id="DeMark.Textboxes" class="HelloAction" text="Hello" description="Says 'Hello, World!'"/>
+            <action id="clear" class="HelloAction" text="Clear Marked Line" description="Clear marked lines"/>
+            <action id="mark" class="HelloAction" text="Mark Line" description="Mark the current line"/>
+            <action id="toggle" class="HelloAction" text="Toggle" description="Toggle debug mode on and off"/>
+            <action id="undo" class="HelloAction" text="Undo" description="Undo the last clear"/>
+            <action id="display" class="HelloAction" text="Display" description="Display all marked lines"/>
+
         </group>
     </actions>
 </idea-plugin>
