@@ -1,0 +1,37 @@
+Status Report: Week 3
+
+Last week's goals:
+    - Set up local environments (Tony, Tuan, Andrew, Jeff).
+    - Project proposal (Tony, Tuan, Andrew, Jeff).
+    - Get familiar with IntelliJ plugin development environment (Tony, Tuan, Andrew, Jeff).
+    - Draft implementations details (algorithm, functionalities). (Tony, Tuan, Andrew, Jeff).
+        - Choose plugin environment (which IDE to develop plug in for). 
+
+Progress made:
+    Accomplished:
+        - Everyone has set up the environment (Intellij install + plugin sdk)
+        - Finished project proposal draft (Tony, Tuan, Andrew, Jeff).
+        - Picked IntelliJ as IDE to develop for (Team choice)
+        - Started the quickstart plugin development guide (Everyone)
+            - Finished gradle install
+        - Reviewed our specification and drafted algorithm
+        - Reviewed documentation and looked around for what may be provided
+    
+    Learned:
+        - How to start working with Gradle as a build tool. 
+        - Reading through documentation is hard, especially for what we may need
+        - Basic xml for plugin.xml used for gradle projects
+    Challenges:
+        - Finding relevant documentation that was also in depth (existing sources fairly vague).
+        - Different OS’s handled the environment set up differently so setting up was especially hard
+            - Ubuntu worked
+            - Windows caused gradle to have errors
+            - Mac couldn’t compile
+Plans:
+    - Fix gradle issues. 
+    - Finish architecture and design draft
+    - What files we may need (classes, files, metadata) ect.
+    - How does our design fit into what’s provided in the API
+    - Implement first iteration of core algorithms and plugin architecture.
+    - Draft user interface and design. 
+    - Determine workflow, divide jobs, determine team leader. 
