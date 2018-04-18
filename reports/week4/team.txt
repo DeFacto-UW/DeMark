@@ -1,33 +1,6 @@
-Status Report: Week 3
+Status Report: Week 4 
 
-Last week's goals:
-    - Set up local environments (Tony, Tuan, Andrew, Jeff).
-    - Project proposal (Tony, Tuan, Andrew, Jeff).
-    - Get familiar with IntelliJ plugin development environment (Tony, Tuan, Andrew, Jeff).
-    - Draft implementations details (algorithm, functionalities). (Tony, Tuan, Andrew, Jeff).
-        - Choose plugin environment (which IDE to develop plug in for). 
-
-Progress made:
-    Accomplished:
-        - Everyone has set up the environment (Intellij install + plugin sdk)
-        - Finished project proposal draft (Tony, Tuan, Andrew, Jeff).
-        - Picked IntelliJ as IDE to develop for (Team choice)
-        - Started the quickstart plugin development guide (Everyone)
-            - Finished gradle install
-        - Reviewed our specification and drafted algorithm
-        - Reviewed documentation and looked around for what may be provided
-    
-    Learned:
-        - How to start working with Gradle as a build tool. 
-        - Reading through documentation is hard, especially for what we may need
-        - Basic xml for plugin.xml used for gradle projects
-    Challenges:
-        - Finding relevant documentation that was also in depth (existing sources fairly vague).
-        - Different OS’s handled the environment set up differently so setting up was especially hard
-            - Ubuntu worked
-            - Windows caused gradle to have errors
-            - Mac couldn’t compile
-Plans:
+Last week's goal:
     - Fix gradle issues. 
     - Finish architecture and design draft
     - What files we may need (classes, files, metadata) ect.
@@ -35,3 +8,55 @@ Plans:
     - Implement first iteration of core algorithms and plugin architecture.
     - Draft user interface and design. 
     - Determine workflow, divide jobs, determine team leader. 
+
+Progress Made:
+    Accomplished:
+      - Every member has finished quickstart
+      - Finished the architecture and design draft.
+      - Still implementing the skeleton
+          - Top window has menu and each menu item corrosponds to an action
+      - Finished mock up of user interface and design
+      - Divided up the jobs and how we are going to approach the development process
+          - Team leader: Andrew Tran
+          - Tony, Tuan, Jeff are developers
+          - Mei and Andrew are developers as well but also work with guiding the project. 
+      - Looked through various plugin examples
+          - LineOps
+          - Line Highlighter
+          - IdeaVim
+      - Worked on User Manual for this week's assignment.
+    Learned:
+      - Various Classes in IntelliJ SDK
+          - Document (Dealing with the document itself)
+          - Editor
+          - BookMark Manger
+      - Looking through examples is far better than reading through documentation
+          - Use documentation as supplement
+      - Learned how to develop plugins in a very basic way
+          - Create Actions
+          - Link those actions to the xml as components
+
+    Challenges:
+      - Flushing out all edge cases of our design
+          - Group decided that marked lines in a different editor should be shown
+            - Only when the user clicks clear will the lines be deleted.
+          - Unless cleared, marked lines will be pushed to git.
+            - Our plugin helps manage temporary code, not automate deletion of it.
+
+      - Looking through API is hard still. Trying to figure ouot the architecture behind IntelliJ SDK
+
+Plans: 
+    - Get skeleton finished by end of Sunday 4/22
+    - Frequently meet and discuss our code (code review) and ensure all code push is okay with all members
+        - Every commit should be addressed by all members
+            - What they did 
+            - Why they did it
+            - What functionality does it add
+    - Push towards draft before next Wednesday
+    - Start thinking about experiments
+        - Stage One Testing
+          - Test subjects
+          - Procedure plan
+    - Finish user manual
+        - Possibly thinking about help menu where user is able to get more information about usage.
+    
