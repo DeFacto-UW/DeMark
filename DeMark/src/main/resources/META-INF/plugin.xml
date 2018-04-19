@@ -24,10 +24,10 @@
         <!-- Add your actions here -->
         <group id="DeMark.SampleMenu" text="DeMark" description="DeMark Menu">
             <add-to-group group-id="MainMenu" anchor="last"/>
-            <action id="clear" class="HelloAction" text="Clear Marked Line" description="Clear marked lines"/>
-            <action id="mark" class="HelloAction" text="Mark Line" description="Mark the current line"/>
+            <action id="clear" class="HelloAction" text="Clear Marked Lines" description="Clear marked lines"/>
+            <action id="unclear" class="HelloAction" text="Unclear Marked Lines" description="Undo the last clear"/>
+            <action id="mark" class="HelloAction" text="Mark" description="Mark the current line"/>
             <action id="toggle" class="HelloAction" text="Toggle" description="Toggle debug mode on and off"/>
-            <action id="undo" class="HelloAction" text="Undo" description="Undo the last clear"/>
             <action id="display" class="HelloAction" text="Display" description="Display all marked lines"/>
 
         </group>
