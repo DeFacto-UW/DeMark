@@ -24,9 +24,21 @@
         <!-- Add your actions here -->
         <group id="DeMark.SampleMenu" text="DeMark" description="DeMark Menu">
             <add-to-group group-id="MainMenu" anchor="last"/>
-            <action id="clear" class="HelloAction" text="Clear Marked Lines" description="Clear marked lines"/>
-            <action id="unclear" class="HelloAction" text="Unclear Marked Lines" description="Undo the last clear"/>
-            <action id="mark" class="HelloAction" text="Mark" description="Mark the current line"/>
+            <action id="clear" class="HelloAction" text="Clear Marked Lines" description="Clear marked lines">
+                <keyboard-shortcut keymap="Mac OS X" first-keystroke="alt D"/>
+                <keyboard-shortcut keymap="Mac OS X 10.5+" first-keystroke="alt D"/>
+                <keyboard-shortcut keymap="$default" first-keystroke="alt D"/>
+            </action>
+            <action id="unclear" class="HelloAction" text="Unclear Marked Lines" description="Undo the last clear">
+                <keyboard-shortcut keymap="Mac OS X" first-keystroke="alt shift D"/>
+                <keyboard-shortcut keymap="Mac OS X 10.5+" first-keystroke="alt shift D"/>
+                <keyboard-shortcut keymap="$default" first-keystroke="alt shift D"/>
+            </action>
+            <action id="mark" class="HelloAction" text="Mark" description="Mark the current line">
+                <keyboard-shortcut keymap="Mac OS X" first-keystroke="alt M"/>
+                <keyboard-shortcut keymap="Mac OS X 10.5+" first-keystroke="alt M"/>
+                <keyboard-shortcut keymap="$default" first-keystroke="alt M"/>
+            </action>
             <action id="toggle" class="HelloAction" text="Toggle" description="Toggle debug mode on and off"/>
             <action id="display" class="HelloAction" text="Display" description="Display all marked lines"/>
 
