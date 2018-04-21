@@ -22,7 +22,7 @@ of temporary code.
 The following instruction is a modified version of the official IntelliJ help documentation on the
 JetBrains website[1]:
 
-1. Press [Ctrl + Alt + S] or choose **File|Settings** (for Windows and Linux) or **IntelliJ IDEA
+1. Press `[Ctrl + Alt + S]` or choose **File|Settings** (for Windows and Linux) or **IntelliJ IDEA
     |Preferences** (for macOS) from the main menu, then go to Plugins.
 2. Click the **Install JetBrains plugin** or the **Browse repositories** button.
 3. In the dialog that opens, search for the plugin by typing “DeMark” into the search bar.
@@ -168,8 +168,7 @@ behaviors with some overlapping features.
 
 ## 5 Reporting Bugs
 
-If you find any bugs in our plugin, please submit an issue to our GitHub page:https://github.
-com/DeFacto-UW/DeMark/issueswith the following information:
+If you find any bugs in our plugin, please submit an issue to our GitHub page:https://github.com/DeFacto-UW/DeMark/issueswith the following information:
 
 - IntelliJ Version located by going to **Help|About**.
 - A brief description of the bug.
@@ -179,7 +178,6 @@ com/DeFacto-UW/DeMark/issueswith the following information:
 
 ## References
 
-[1]Installing, updating and uninstalling repository plugins. Available athttps://www.jetbrains.
-com/help/idea/installing-updating-and-uninstalling-repository-plugins.html.
+[1]Installing, updating and uninstalling repository plugins. Available athttps://www.jetbrains.com/help/idea/installing-updating-and-uninstalling-repository-plugins.html.
 
 
