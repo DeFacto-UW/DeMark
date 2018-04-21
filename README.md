@@ -168,7 +168,7 @@ behaviors with some overlapping features.
 
 ## 5 Reporting Bugs
 
-If you find any bugs in our plugin, please submit an issue to our GitHub page:https://github.com/DeFacto-UW/DeMark/issueswith the following information:
+If you find any bugs in our plugin, please submit an issue to our GitHub page:https://github.com/DeFacto-UW/DeMark/issues with the following information:
 
 - IntelliJ Version located by going to **Help|About**.
 - A brief description of the bug.
