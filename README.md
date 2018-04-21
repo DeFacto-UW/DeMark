@@ -39,7 +39,7 @@ next to the quick tools area.
 
 For each behavior, the keyboard shortcuts listed are their default shortcuts, the user can change
 the key bindings to any functions of DeMark if they choose to. To configure keyboard shortcuts
-for IntelliJ, please follow the instructions on this page:https://www.jetbrains.com/help/idea/
+for IntelliJ, please follow the instructions on this page: https://www.jetbrains.com/help/idea/
 configuring-keyboard-and-mouse-shortcuts.html.
 
 ### 3.1 Mark and Unmark
@@ -48,14 +48,15 @@ Marking a line will highlight the line and put a check mark next to its line num
 ways to mark a line:
 
 - Click on the line number located to the right of the code editor of the line you want to mark.
-- Place the cursor on the line you want to mark and press [Alt + M].
+- Place the cursor on the line you want to mark and press `[Alt + M]`.
 
 Unmarking a line will remove the highlight on the line and the check mark next to its line number.
 There are two ways to unmark a line:
 
 - Click on the line number located to the right of the code editor of the currently marked line.
-- Place the cursor on the marked line you want to unmark and press [Alt + M].
-    For specific behaviors of marking and unmarking, please refer to section 4.1 on page 3.
+- Place the cursor on the marked line you want to unmark and press `[Alt + M]`.
+    
+For specific behaviors of marking and unmarking, please refer to section 4.1 on page 3.
 
 ### 3.2 Clear and Unclear
 
@@ -63,14 +64,15 @@ Clear will clear all currently marked lines from the current file. There are two
 marked lines:
 
 - Choose **DeMark|Clear** in the toolbar.
-- Press [Alt + D + D].
+- Press `[Alt + D + D]`.
 
 Unclear will restore all previously cleared line for a file. There are two ways to unclear all previously
 cleared lines:
 
 - Choose **DeMark|Unclear**.
-- Press [Alt + Shift + D + D].
-    For specific behaviors of clear and unclear, please refer to section 4.2 on page 3.
+- Press `[Alt + Shift + D + D]`.
+
+For specific behaviors of clear and unclear, please refer to section 4.2 on page 3.
 
 ### 3.3 Toggle
 
@@ -78,7 +80,8 @@ The Toggle feature allows the user to comment/uncomment all the marked lines at 
 
 - Choose **DeMark|Toggle**.
 - Click the green and white toggle button located in the quick tools bar.
-    For specific behaviors of toggle, please refer to section 4.3 on page 4.
+    
+For specific behaviors of toggle, please refer to section 4.3 on page 4.
 
 
 ### 3.4 Display
@@ -87,7 +90,8 @@ Display allows the user to view all marked lines in a file from a more project o
 displaying the marked lines along with a range of lines above and below to provide context:
 
 - Choose **DeMark|Display** in the toolbar.
-    For specific behaviors of display, please refer to section 4.4 on page 4.
+    
+For specific behaviors of display, please refer to section 4.4 on page 4.
 
 ## 4 Specific Behaviors of Functionality
 
