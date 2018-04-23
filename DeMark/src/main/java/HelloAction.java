@@ -26,6 +26,8 @@ public class HelloAction extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         Project project = anActionEvent.getProject();
+
+
         if (project == null) {
             return;
         }
@@ -33,7 +35,6 @@ public class HelloAction extends AnAction {
         // Get list of all books
         BookmarkManager bookmarkManager = BookmarkManager.getInstance(project);
         List<Bookmark> bookmarkList = bookmarkManager.getValidBookmarks();
-
         // Get a document based off an action
         Document document = anActionEvent.getData(LangDataKeys.EDITOR).getDocument();
 
@@ -52,7 +53,7 @@ public class HelloAction extends AnAction {
 //        Messages.showMessageDialog(project, "Adding bookmark at " + cursorPos, "Greeting", Messages.getInformationIcon());
 
         // Adding text at cursor
-        Runnable r = ()-> EditorModificationUtil.insertStringAtCaret(editor, "ANOOOYSAEYOOOOOO");
+        Runnable r = () -> EditorModificationUtil.insertStringAtCaret(editor, "ANOOOYSAEYOOOOOO");
         WriteCommandAction.runWriteCommandAction(project, r);
 
         // Removing text given the start and end
