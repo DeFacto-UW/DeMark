@@ -13,13 +13,15 @@ Goals from last week:
 Progress of this week:
   - Accomplished:
     - Finished setting up the IntelliJ plugin development environment
-    - Finish writing the user manuals
+    - Finish writing the user manual and revising the project proposal
   - Learned:
     - Knowing how to use existing tools and APIs can help a lot on building the project
   - Challenges:
     - Coming up with edge cases for functionalities are hard
+    - Based on the feedback, coming up with concrete and strong motivation for the project 
+      is hard
 
 Goals and plans for next week:
   - Help team members to finish implementing the core functionality
   - Revise the user manual and project proposal based on course feedback
-  - Start drafting and writing test cases
+  - Start writing test cases
