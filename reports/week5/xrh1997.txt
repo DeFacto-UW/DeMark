@@ -1,0 +1,22 @@
+Ranhao Xu
+xrh1997
+CSE403 week5 individual status report
+4/23/2018
+
+Last week's goals:
+ • Complete the implementation for GUI
+ • Finish user manual and specification
+
+Progress made:
+ • Accomplished:
+   • User manual and specification details finished
+   • Refined specification to include specific behaviors
+ • Learned:
+   • Basic IntelliJ API
+   • How to define an action, and perform operations after an user action
+ • Challenges:
+   • Hard to figure out how to edit code files and mark lines
+
+Plans:
+ • Complete the implementation for GUI
+ • Complete the implementation of bookmarking
