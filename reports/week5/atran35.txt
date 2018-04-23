@@ -1,0 +1,32 @@
+Anh (Andrew) Tran
+atran35
+CSE 403
+Team DeFacto
+
+Last week's goals:
+    * Get mockup GUI implemented without functionalities.
+    * Organize team to work on different parts of the project so that we don't fall behind.
+    * Start drafting out actual implementation plans.
+    * Draft specific schedule for components.
+
+Progress made:
+    Accomplished:
+        * Mockup GUI up and running. 
+        * Team divided: Tony, Jeff, Tuan - development team; Andrew, Mei - write up team
+        * Implementation plans completed. 
+        * Rough schedule complete. 
+        * Gradle up and running completely. 
+        * User manual written. 
+    Learned:
+        * Different parts of the IntelliJ platform SDK. 
+        * Other methods of keeping track of logging and temporary code. 
+        * Functions of Git that pertains to patches. 
+    Challenges:
+        * Clarity of report is hard to achieve due to lack of understanding of other available tools. 
+        * User manual apparently still incomplete, needs to be more specific with figures. 
+        * Arguments against other tools still weak and needs strengthening. 
+
+Personal plans:
+    * More fixing up of writeup for project, specifcially add stronger arguments against other tools and for our tool. 
+    * Discuss a tool that already exists in the writeup. 
+    * Add pictures to the user manual. 
