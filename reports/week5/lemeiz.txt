@@ -1,0 +1,25 @@
+Name: Lemei Zhang
+CSE netID: lemeiz
+CSE 403 Software Engineering
+Week 5 individual report
+
+Goals from last week:
+  - Finish setting up the IntelliJ plugin development environment
+  - Discuss with other team members about the division of work for implementation 
+    (i.e. who should be doing what part), and start implementing as soon as 
+    possible afterwars
+  - Work with team members to finish writing the user manual
+
+Progress of this week:
+  - Accomplished:
+    - Finished setting up the IntelliJ plugin development environment
+    - Finish writing the user manuals
+  - Learned:
+    - Knowing how to use existing tools and APIs can help a lot on building the project
+  - Challenges:
+    - Coming up with edge cases for functionalities are hard
+
+Goals and plans for next week:
+  - Help team members to finish implementing the core functionality
+  - Revise the user manual and project proposal based on course feedback
+  - Start drafting and writing test cases
