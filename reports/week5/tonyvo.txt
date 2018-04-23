@@ -1,0 +1,52 @@
+Tony Vo
+tonyvo
+CSE 403 Software Engineering
+Team DeFacto
+
+Last weeks goals:
+	- Start implementing ASAP
+		- Play around with the classes discoverd
+		- See what I can accomplished with the knowledge I have and propose that to the group.
+		- Work some of the other members to have a "hackathon" day where we code and see what can be done.
+		- Get basic layout of GUI finished and have a "skeleton" of the plugin so we can fill in the blanks with what is needed
+	- Be a better teammate
+		- Be prompt to meetings, be more vocal, voice my opinion, be cooperative and ask questions
+	- Evaluate schedule and see if what we have plan is doable in the time we have left. 
+		- Look over where we are at at the end of the week. 
+		- Possibly tfalk to teammates about what needs to change to stay on track 
+
+Progress:
+	Accomplished: 
+        - Explored and played around with the Intellij SDK
+        - Worked with other developers and watched some YouTube videos to understand plugin development and read documentation
+        - Looked at example plugins and looked for the functionality we wanted
+        - Implemented the clear and mark drafts
+	Learned
+        - Playing with the API is alot better than trying to read through it.
+        - Existing plugins can be used as very helpful examples
+        - Designing functionality is hard especially when we have to create the spec for it and later implement it.
+        
+	Challenges:
+        - Digging around the API can be a huge scavenger hunt when trying to figure out what we want
+        - Getting the classes we want to utilize can be hard.
+        - When creating the plugin and using it, there can be additions and refactors that I may want to suggest that goes against our
+          current spec.
+            - Mark should just toggle mark and unmark
+        - Trying to split up the work between the developers and making sure everything is consistent and can connect can be hard
+            - have to make sure every one is on the same page
+Personal Plans:
+    Finish a draft of the plugin and start using it myself
+      - Find bugs, find what we may want to revise
+    Work with teammates to find a better motivation behind our project and how to better portray it
+      - Specific examples for use cases
+      - Refining specification and use manual
+    Explore the IntelliJ API more, I found a very useful method and looking at others peoples plugins is very cool.
+        - Find a cool plugin
+        - Look at source code
+        - Browse files
+        - Look at method names
+        - Find useful classes / code
+        - Go to official Intellij API
+        - Scavenger hunt for the class I want.
+        - Use autocomplete to find useful methods
+
