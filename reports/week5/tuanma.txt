@@ -1,0 +1,33 @@
+Tuan Ma
+tuanma
+CSE 403 Software Engineering
+Team Defacto
+
+Last Week Goals:
+    * Start implementing algorithm.
+        * Putting more details into the classes that will be used.
+        * Created the skeleton for the user interface.
+	* Write user documentation/manual.
+
+Progress made:
+    Accomplished:
+    * Created a single button that can mark lines of code and delete marked lines of code using bookmarks as a proof
+      of concept
+    * Created some keyboard shortcuts for our functions.
+    Learned:
+	* Concrete usage of the Intellij API to implement features
+	* How to interact with intellij bookmarks using the API
+
+    Challenges:
+	* Ironing out all edge cases and bugs with the management of bookmark locations.
+	* Figuring out how to add all the visual features that we want
+	* Finding further useful Intellij API we can use.
+	* The limitations of the Intellij API.
+
+Plans:
+    * Finish first beta implementation
+    * Separate all our buttons into separate buttons.
+    * Start drafting test cases.
+    * Start writing test cases.
+	* Revise user manual based on staff course feedback.
+	* Think of edge cases and weird interactions that might occur.

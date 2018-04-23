@@ -1,3 +1,8 @@
+Tuan Ma
+tuanma
+CSE 403 Software Engineering
+Team Defacto
+
 Last Week Goals:
     * Get familiar with IntelliJ plugin development environment.
 	* Read API documentation.
