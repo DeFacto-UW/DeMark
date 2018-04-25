@@ -1,0 +1,50 @@
+Status Report: Week 5
+
+Last week's goal:
+    - Get skeleton finished by end of Sunday 4/22
+    - Frequently meet and discuss our code (code review) and ensure all code push is okay with all members
+        - Every commit should be addressed by all members
+            - What they did 
+            - Why they did it
+            - What functionality does it add
+    - Push towards draft before next Wednesday
+    - Start thinking about experiments
+        - Stage One Testing
+          - Test subjects
+          - Procedure plan
+    - Finish user manual
+        - Possibly thinking about help menu where user is able to get more information about usage.
+
+Progress Made:
+    Accomplished:
+      - Skeleton up and mark and clear working, keyboard shortcuts available to users. 
+      - Code review happened on Tuesdays. 
+      - Test subjects for experiments would be dev team and friends. 
+      - User manual made. 
+      - Motivation section and experimentation section changed in report. 
+      
+    Learned:
+      - IntelliJ classes: 
+          - Virtual files. 
+          - Highlight manager. 
+          - Bookmark manager. 
+          - Editor. 
+          - Actions. 
+      - Travis CI and how to integrate it into our project. 
+      - What to think about for report and user manual. Arguments for and against our tool. 
+      - Refining specifications as we develop. 
+      
+    Challenges:
+      - Functionality of "unclear" might be difficult to implement. 
+      - How to write unit tests for our project, considering that it's an IDE plugin. 
+      - Understanding how to fully use Travis CI. 
+      - Finding what we need from the IntelliJ SDK. 
+
+Plans: 
+    - Make sure our build works. 
+    - Work out what we want to do with "toggle" feature. 
+    - Finish "unclear", "toggle", and "display" by next week. 
+    - Push plugin to the JetBrains plugin repository as an Alpha. 
+    - Start using the plugin ourselves. 
+        - Improve functionality based on what feels natural. 
+    - Ask friends to start using our tool. 
