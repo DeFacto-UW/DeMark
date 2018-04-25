@@ -1,2 +1,4 @@
-language: java
+language: generic
 sudo: enabled
+
+script: cd DeMark/ && gradle build
