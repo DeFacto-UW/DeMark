@@ -1,4 +1,6 @@
-# DeMark User Manual
+[![Build Status](https://travis-ci.org/DeFacto-UW/DeMark.svg?branch=master)](https://travis-ci.org/DeFacto-UW/DeMark)
+
+# DeMark
 
 ### Team DeFacto-UW:
 - Andrew Tran 
