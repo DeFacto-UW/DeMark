@@ -10,8 +10,16 @@ import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.util.TextRange;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.openapi.editor.markup.RangeHighlighter;
+import com.intellij.openapi.editor.markup.TextAttributes;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -31,16 +39,23 @@ public class MarkAction extends AnAction {
         VirtualFile virtualFile = FileDocumentManager.getInstance().getFile(document);
         String thisFileName = virtualFile.getName();
 
+        int currLineNum = document.getLineNumber(editor.getSelectionModel().getSelectionStart());
+        int startPos = document.getLineStartOffset(currLineNum);
+        int endPos = document.getLineEndOffset(currLineNum);
+
+        HighlightManager highlightManager = HighlightManager.getInstance(project);
+        ArrayList<RangeHighlighter> highlighters = new ArrayList();
+        TextAttributes ta = new TextAttributes();;
+        ta.setBackgroundColor(Color.GREEN);
+        Color scrollMarkColor = null;
+
+        highlightManager.addOccurrenceHighlight(editor, startPos, endPos, ta, 0, highlighters, scrollMarkColor);
 
         // TODO: Try and highlight a line??
         // TODO: Handle batch selection bookmarking
-//        int startPos = document.getLineStartOffset(currLineNum);
-//        int endPos = document.getLineEndOffset(currLineNum);
-//        HighlightManager.getInstance(project).addOccurrenceHighlight(editor, startPos, endPos,);
 
         boolean removed = false;
 
-        int currLineNum = document.getLineNumber(editor.getSelectionModel().getSelectionStart());
         // Remove bookmark if already removed
         List<Bookmark> bookmarkList = bookmarkManager.getValidBookmarks();
         for (Bookmark bookmark : bookmarkList) {
