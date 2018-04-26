@@ -7,6 +7,6 @@ public class TravisTest {
 
     @Test
     public void travisIsWorking() {
-        assertTrue(true);
+        assertFalse(false);
     }
 }
