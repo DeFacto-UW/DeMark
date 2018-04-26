@@ -1,12 +1,11 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-}
-
 plugins {
     id 'org.jetbrains.intellij' version '0.3.1'
 }
+
+repositories {
+    mavenCentral()
+}
+
 
 group 'DeFacto'
 version 'Alpha-0.1'
@@ -31,6 +30,20 @@ patchPluginXml {
     changeNotes """
       Add change notes here.<br>
       <em>most HTML tags may be used</em>"""
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+        }
+    }
+
+    test {
+        java {
+            srcDirs = ['src/tests/java']
+        }
+    }
 }
 
 // Example task
