@@ -8,7 +8,7 @@ import main.java.MarkAction;
 
 import java.util.List;
 
-public class MarkActionTest extends LightCodeInsightFixtureTestCase {
+public class MarkActionTests extends LightCodeInsightFixtureTestCase {
     //TODO: Clean up test code
 
     @Before
