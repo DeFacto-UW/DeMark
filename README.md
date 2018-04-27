@@ -84,13 +84,13 @@ Clear will clear all currently marked lines from the current file. There are two
 marked lines:
 
 - Choose **DeMark|Clear** in the toolbar.
-- Press `[Alt + D + D]`.
+- Press `[Alt + D]`.
 
 Unclear will restore all previously cleared line for a file. There are two ways to unclear all previously
 cleared lines:
 
 - Choose **DeMark|Unclear**.
-- Press `[Alt + Shift + D + D]`.
+- Press `[Alt + Shift + D]`.
 
 For specific behaviors of clear and unclear, please refer to section 4.2 on page 3.
 
