@@ -38,7 +38,7 @@ public class ClearAction extends AnAction {
             String bookmarkFileName = bookmark.getFile().getName();
 
             // Remove all bookmarks with Demark in this file
-            if (bookmark.getDescription().equals("Demark") && thisFileName.equals(bookmarkFileName)) {
+            if (bookmark.getDescription().equals("DeMark") && thisFileName.equals(bookmarkFileName)) {
                 int lineNum = bookmark.getLine();
                 bookmarkManager.removeBookmark(bookmark);
 
