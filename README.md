@@ -21,7 +21,7 @@ of temporary code.
 
 ## 2 Build Instructions
 
-## 2.1 Prerequisites
+### 2.1 Prerequisites
 - Java 8
 - Gradle 2.1+
 - Linux
@@ -29,7 +29,7 @@ of temporary code.
 - Command line using Bash
 - Note: University of Washington CSE Students or faculty may use a CSE VM or a Lab Computer to build
 
-## 2.2 Building
+### 2.2 Building
 To build DeMark, make sure all the prerequisites are installed. Afterwards, run the following commands on the command  line.
 ```
  git clone https://github.com/DeFacto-UW/DeMark.git
