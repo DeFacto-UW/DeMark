@@ -63,7 +63,7 @@ public class MarkAction extends AnAction {
             String bookmarkFileName = bookmark.getFile().getName();
 
             // Line is already contained
-            if (lineNum == currLineNum && bookmark.getDescription().equals("Demark") && thisFileName.equals(bookmarkFileName)) {
+            if (lineNum == currLineNum && bookmark.getDescription().equals("DeMark") && thisFileName.equals(bookmarkFileName)) {
                 bookmarkManager.removeBookmark(bookmark);
                 removed = true;
             }
