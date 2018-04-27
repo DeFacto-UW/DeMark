@@ -1,5 +1,3 @@
-package main.java;
-
 import com.intellij.codeInsight.highlighting.HighlightManager;
 import com.intellij.ide.bookmarks.Bookmark;
 import com.intellij.ide.bookmarks.BookmarkManager;
