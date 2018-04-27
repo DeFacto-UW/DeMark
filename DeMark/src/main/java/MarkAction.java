@@ -73,7 +73,7 @@ public class MarkAction extends AnAction {
         if (!removed) {
             bookmarkManager.addEditorBookmark(editor, currLineNum);
             Bookmark added = bookmarkManager.findEditorBookmark(document, currLineNum);
-            bookmarkManager.setDescription(added, "thiswillmakeonetestfail");
+            bookmarkManager.setDescription(added, "DeMark");
         }
     }
 }
