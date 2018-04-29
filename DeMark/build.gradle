@@ -21,7 +21,7 @@ dependencies {
 }
 
 intellij {
-    version 'IC-2017.3.5'
+    version 'IC-2018.1.2'
     plugins 'coverage'
     pluginName 'DeMark'
 }
