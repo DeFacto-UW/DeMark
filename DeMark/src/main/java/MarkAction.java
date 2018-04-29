@@ -43,7 +43,6 @@ public class MarkAction extends AnAction {
 
         int currentLine = document.getLineNumber(editor.getSelectionModel().getSelectionStart());
 
-        // TODO: Try and highlight a line??
         // TODO: Handle batch selection bookmarking
 
         // ISSUE: Bookmark persists through sessions but highlight does not.
@@ -56,8 +55,10 @@ public class MarkAction extends AnAction {
             int lineNum = bookmark.getLine();
             String bookmarkFileName = bookmark.getFile().getName();
 
+            //TODO: Optimize this so we don't have nested loops
             // Line is already contained
-            if (lineNum == currLineNum && bookmark.getDescription().equals("DeMark") && thisFileName.equals(bookmarkFileName)) {
+            if (lineNum == currentLine && bookmark.getDescription().equals("DeMark") && thisFileName.equals(bookmarkFileName)) {
+                removeHighlight(currentLine);
                 bookmarkManager.removeBookmark(bookmark);
 
                 removed = true;
@@ -71,6 +72,7 @@ public class MarkAction extends AnAction {
             if (added != null) {
                 bookmarkManager.setDescription(added, "DeMark");
             }
+            addHighlight(currentLine);
         }
     }
 
@@ -81,5 +83,27 @@ public class MarkAction extends AnAction {
         editor = anActionEvent.getData(LangDataKeys.EDITOR);
 
         highlightManager = HighlightManager.getInstance(project);
+    }
+
+    // removes a highlight on the current line
+    private void removeHighlight(int currentLine) {
+        for (RangeHighlighter highlighter : highlighters) {
+            if (highlighter.getStartOffset() == document.getLineStartOffset(currentLine) &&
+                    highlighter.getEndOffset() == document.getLineEndOffset(currentLine)) {
+                highlightManager.removeSegmentHighlighter(editor, highlighter);
+                break;
+            }
+        }
+    }
+
+    // adds highlight on current line.
+    private void addHighlight(int currentLine) {
+        int startPos = document.getLineStartOffset(currentLine);
+        int endPos = document.getLineEndOffset(currentLine);
+
+        TextAttributes ta = new TextAttributes();
+        ta.setBackgroundColor(new JBColor(Gray._220, Gray._220));
+
+        highlightManager.addOccurrenceHighlight(editor, startPos, endPos, ta, 0, highlighters, null);
     }
 }
