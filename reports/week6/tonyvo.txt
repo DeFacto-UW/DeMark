@@ -1,0 +1,48 @@
+Tony Vo
+tonyvo
+CSE 403 Software Engineering
+Team DeFacto
+
+Last weeks goals:
+    Finish a draft of the plugin and start using it myself
+      - Find bugs, find what we may want to revise
+    Work with teammates to find a better motivation behind our project and how to better portray it
+      - Specific examples for use cases
+      - Refining specification and use manual
+    Explore the IntelliJ API more, I found a very useful method and looking at others peoples plugins is very cool.
+        - Find a cool plugin
+        - Look at source code
+        - Browse files
+        - Look at method names
+        - Find useful classes / code
+        - Go to official Intellij API
+        - Scavenger hunt for the class I want.
+        - Use autocomplete to find useful methods
+
+Progress:
+	Accomplished:
+        - Team and I implemented line highlighting
+        - Fixed mark to toggle instead of creating multiple bookmarks
+        - Revised proposal to talk about how DeMark is an alternative to existing solutions
+        - Mark and Clear are drafted in functionality
+	Learned
+        - There are project componenets in intellij that exist during the span of a single session
+            - May need to implement persistent state
+        - How to write basic tests in Intellij (Thanks to Andrew)
+        - Continuous integration is cool (Travis CI)
+        - Keeping a clean and managable repository is essential
+            - Don't commit binary files
+        - Readme's are important for other people
+	Challenges:
+        - Balancing classes can be difficult but we must make progress.
+        - Reading documentation is difficult and confusing. Try to go through examples and do them to get experience.
+        - Deadlines are approaching and we need to make progress.
+
+Personal Plans:
+    Code code code
+        - Meet up with other developers and flush out the details and have sort of a hackathon
+    Help team find a clear motivation to our project and use cases
+    Try implementing persistent state in our project.
+        - Use components and lifecycle methods
+
+
