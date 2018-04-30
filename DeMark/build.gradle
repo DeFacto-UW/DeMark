@@ -42,6 +42,7 @@ sourceSets {
     test {
         java {
             srcDirs = ['src/tests/java']
+            exclude "**/testData"
         }
     }
 }
