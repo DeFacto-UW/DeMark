@@ -1,10 +1,10 @@
 package main.java;
 
-import com.intellij.codeInsight.highlighting.HighlightManager;
 import com.intellij.ide.bookmarks.Bookmark;
 import com.intellij.ide.bookmarks.BookmarkManager;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.actionSystem.LangDataKeys;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
@@ -17,22 +17,26 @@ import com.intellij.openapi.editor.markup.TextAttributes;
 import com.intellij.ui.Gray;
 import com.intellij.ui.JBColor;
 import com.intellij.util.DocumentUtil;
+import org.jetbrains.annotations.NotNull;
 
-import java.awt.*;
 import java.util.*;
 import java.util.List;
-
 
 public class MarkAction extends AnAction {
 
     private BookmarkManager bookmarkManager;
-    private HighlightManager highlightManager;
 
     private Document document;
     private Editor editor;
 
 
     private Set<RangeHighlighter> highlighters = new HashSet<RangeHighlighter>();
+
+    public void update(AnActionEvent e) {
+        //perform action if and only if EDITOR != null
+        boolean enabled = e.getData(CommonDataKeys.EDITOR) != null;
+        e.getPresentation().setEnabled(enabled);
+    }
 
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
@@ -81,12 +85,10 @@ public class MarkAction extends AnAction {
     }
 
     // initializes all fields
-    private void init(Project project, AnActionEvent anActionEvent) {
+    private void init(Project project, @NotNull AnActionEvent anActionEvent) {
         bookmarkManager = BookmarkManager.getInstance(project);
         document = anActionEvent.getData(LangDataKeys.EDITOR).getDocument();
         editor = anActionEvent.getData(LangDataKeys.EDITOR);
-
-        highlightManager = HighlightManager.getInstance(project);
     }
 
     // NOTES ON HIGHLIGHTING:
