@@ -33,9 +33,9 @@
             <action id="mark" class="main.java.MarkAction" text="Mark" description="Mark the current line">
                 <keyboard-shortcut keymap="$default" first-keystroke="alt M"/>
             </action>
-            <action id="toggle" class="HelloAction" text="Toggle" description="Toggle debug mode on and off"/>
             <action id="display" class="HelloAction" text="Display" description="Display all marked lines"/>
         </group>
+
         <group id="Demark.NavigationToolBar" text="DeMark" description="DeMark Navigation Toolbar">
             <add-to-group group-id="NavBarToolBar" anchor="first"/>
             <action id="toggle" class="main.java.MarkAction" text="Toggle" description="Toggle the debug state" icon="/toggle.png"/>

@@ -45,6 +45,7 @@ public class MarkAction extends AnAction {
             return;
         }
         init(project, anActionEvent);
+        
         // Get the current open file
         VirtualFile virtualFile = FileDocumentManager.getInstance().getFile(document);
         String thisFileName = virtualFile.getName();
@@ -64,11 +65,11 @@ public class MarkAction extends AnAction {
             String bookmarkFileName = bookmark.getFile().getName();
 
             //TODO: Optimize this so we don't have nested loops
+           
             // Line is already contained
             if (lineNum == currentLine && bookmark.getDescription().equals("DeMark") && thisFileName.equals(bookmarkFileName)) {
                 removeHighlight(currentLine);
                 bookmarkManager.removeBookmark(bookmark);
-
                 removed = true;
             }
         }
