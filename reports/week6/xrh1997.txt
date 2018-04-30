@@ -1,0 +1,26 @@
+Ranhao Xu
+xrh1997
+CSE403 week6 individual status report
+4/30/2018
+
+Last week's goals:
+ • Complete the implementation for GUI
+ • Complete the implementation of bookmarking
+
+Progress made:
+ • Accomplished:
+   • Finished GUI implementation
+   • Implemented highlight feature for mark action
+ • Learned:
+   • AnAction/AnActionEvent api
+   • Adding groups and actions to menu and navigation toolbar
+   • How to implement a controller class
+ • Challenges:
+   • Learning highlight manager api
+   • Figure out of how to add icon to the navigation toolbar from other plugin
+
+Plans:
+ • Solve the icon not displaying issue
+ • Finish implementing unclear, display, toggle features
+ • Create a controller class
+ • Clean up code
