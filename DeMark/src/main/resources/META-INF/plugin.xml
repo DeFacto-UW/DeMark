@@ -25,28 +25,20 @@
         <group id="DeMark.MainMenu" text="DeMark" description="DeMark Menu">
             <add-to-group group-id="MainMenu" anchor="last"/>
             <action id="clear" class="main.java.ClearAction" text="Clear Marked Lines" description="Clear marked lines">
-                <keyboard-shortcut keymap="Mac OS X" first-keystroke="alt D"/>
-                <keyboard-shortcut keymap="Mac OS X 10.5+" first-keystroke="alt D"/>
                 <keyboard-shortcut keymap="$default" first-keystroke="alt D"/>
             </action>
             <action id="unclear" class="HelloAction" text="Unclear Marked Lines" description="Undo the last clear">
-                <keyboard-shortcut keymap="Mac OS X" first-keystroke="alt shift D"/>
-                <keyboard-shortcut keymap="Mac OS X 10.5+" first-keystroke="alt shift D"/>
                 <keyboard-shortcut keymap="$default" first-keystroke="alt shift D"/>
             </action>
             <action id="mark" class="main.java.MarkAction" text="Mark" description="Mark the current line">
-                <keyboard-shortcut keymap="Mac OS X" first-keystroke="alt M"/>
-                <keyboard-shortcut keymap="Mac OS X 10.5+" first-keystroke="alt M"/>
                 <keyboard-shortcut keymap="$default" first-keystroke="alt M"/>
             </action>
             <action id="toggle" class="HelloAction" text="Toggle" description="Toggle debug mode on and off"/>
             <action id="display" class="HelloAction" text="Display" description="Display all marked lines"/>
-
         </group>
-        <!--<action id="DeMark.HelloAction" class= "HelloAction" text="HelloAction"
-                description="The action to clear  marked lines">
-            <keyboard-shortcut keymap="$default" first-keystroke="alt M"/>
-        </action>
-        -->
-    </actions>
+        <group id="Demark.NavigationToolBar" text="DeMark" description="DeMark Navigation Toolbar">
+            <add-to-group group-id="NavBarToolBar" anchor="first"/>
+            <action id="toggle" class="main.java.MarkAction" text="Toggle" description="Toggle the debug state" icon="/toggle.png"/>
+        </group>
+        </actions>
 </idea-plugin>
