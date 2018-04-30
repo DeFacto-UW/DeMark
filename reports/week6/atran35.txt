@@ -1,0 +1,28 @@
+Anh (Andrew) Tran
+atran35
+CSE 403
+Team DeFacto
+
+Last week's goals:
+    * More fixing up of writeup for project, specifcially add stronger arguments against other tools and for our tool. 
+    * Discuss a tool that already exists in the writeup. 
+    * Add pictures to the user manual. 
+
+Progress made:
+    Accomplished:
+        * Added testing framework to project.
+        * Wrote instructions on how to write tests. 
+        * Fixed a few compability issues with IntelliJ built-in syntax highlighting. 
+        * Fixed bug with highlighting not being deleted on unmark. 
+    Learned:
+        * How to do testing with the IntelliJ SDK. 
+        * How some of the components of IntelliJ interact with each other implementation wise. 
+        * A method on how to do persistent states in IntelliJ. 
+    Challenges:
+        * Implementing persistent state is going to be difficult. 
+        * Lots of time needed to write comprehensive tests. 
+        * Other functionalities will be difficult to implement. 
+Personal plans:
+        * Add more tests for implementation. 
+        * Help team work on persistent state implementation. 
+        * Implement other functions of plugin. 
