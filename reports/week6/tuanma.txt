@@ -1,0 +1,37 @@
+Tuan Ma
+tuanma
+CSE 403 Software Engineering
+Team Defacto
+
+Last Week Goals:
+    * Finish first beta implementation
+    * Separate all our buttons into separate buttons.
+    * Start drafting test cases.
+    * Start writing test cases.
+    * Revise user manual based on staff course feedback.
+    * Think of edge cases and weird interactions that might occur.
+
+Progress made:
+    Accomplished:
+    * Help to create build instructions.
+    * Created questions on Google survey for plugin feedback.
+        * Question regarding usefulness of DeMark.
+        * Question regarding frequency of use for DeMark.
+    * Helped to adjust the existing solutins and implementation section of our proposal.
+    * Worked with teammate to integrate Travis CI into our repository.
+        * Wrote primitive tests to test Travis CI and our project.
+
+    Learned:
+	* Learned how to integrate Travis CI into a project.
+        * Integratiing Travis CI was very confusing at first even with a tutorial.
+	* How to interact with intellij bookmarks using the API?
+
+    Challenges:
+	* Creating more meaningful test cases.
+	* Configuring Travis CI to work sucessfully can be confusing.
+
+Plans:
+    * Start ironing out cases and behavior of undo.
+    * Figure out how to define intended interaction between undo and normal editing of code.
+    * Start adding static global variables for toggle on and off.
+    * Implement toggle.
