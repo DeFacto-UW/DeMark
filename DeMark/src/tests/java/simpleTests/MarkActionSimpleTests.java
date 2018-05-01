@@ -11,7 +11,7 @@ import com.intellij.ui.Gray;
 import com.intellij.ui.JBColor;
 import com.intellij.util.DocumentUtil;
 import org.junit.Before;
-import main.java.MarkAction;
+import actions.MarkAction;
 
 import java.util.Arrays;
 import java.util.List;
