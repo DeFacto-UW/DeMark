@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class SelectionUtil {
 
     private final String COMMENT_MARKER = "//";
+
     private Editor editor;
     private Document document;
     private Project project;
