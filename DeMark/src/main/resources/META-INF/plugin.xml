@@ -27,18 +27,28 @@
             <action id="clear" class="actions.ClearAction" text="Clear Marked Lines" description="Clear marked lines">
                 <keyboard-shortcut keymap="$default" first-keystroke="alt D"/>
             </action>
+
+            <!--TODO: Change this to a better shortcut-->
+            <action id="clear all" class="actions.ClearAllAction" text="Clear All Marked Lines" description="Clear all marked lines">
+                <keyboard-shortcut keymap="$default" first-keystroke="alt N"/>
+            </action>
             <action id="unclear" class="actions.HelloAction" text="Unclear Marked Lines" description="Undo the last clear">
                 <keyboard-shortcut keymap="$default" first-keystroke="alt shift D"/>
             </action>
             <action id="mark" class="actions.MarkAction" text="Mark" description="Mark the current line">
                 <keyboard-shortcut keymap="$default" first-keystroke="alt M"/>
             </action>
+
+            <!--TODO: Change this to be on the Navbar + Change shortcut mapping + Keep track of state-->
+            <action id="toggle" class="actions.ToggleAction" text="Toggle" description="Comment out all bookmarked lines">
+                <keyboard-shortcut keymap="$default" first-keystroke="alt T"/>
+            </action>
             <action id="display" class="actions.HelloAction" text="Display" description="Display all marked lines"/>
         </group>
 
-        <group id="Demark.NavigationToolBar" text="DeMark" description="DeMark Navigation Toolbar">
-            <add-to-group group-id="NavBarToolBar" anchor="first"/>
-            <action id="toggle" class="actions.MarkAction" text="Toggle" description="Toggle the debug state" icon="/toggle.png"/>
-        </group>
+        <!--<group id="Demark.NavigationToolBar" text="DeMark" description="DeMark Navigation Toolbar">-->
+            <!--<add-to-group group-id="NavBarToolBar" anchor="first"/>-->
+            <!--<action id="toggle" class="actions.ToggleAction" text="Toggle" description="Toggle the debug state" icon="/toggle.png"/>-->
+        <!--</group>-->
         </actions>
 </idea-plugin>
