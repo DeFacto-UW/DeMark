@@ -88,7 +88,6 @@ public class DemarkUtil {
     }
 
     public void toggleDemarkComment() {
-
         List<Bookmark> bookmarkList = bookmarkManager.getValidBookmarks();
 
         for (Bookmark bookmark : bookmarkList) {
@@ -102,29 +101,7 @@ public class DemarkUtil {
             }
         }
     }
-    public void addCommentDemarkBookmarks() {
-        List<Bookmark> bookmarkList = bookmarkManager.getValidBookmarks();
 
-        for (Bookmark bookmark : bookmarkList) {
-            int lineNum = bookmark.getLine();
-
-            if (isDemarked(lineNum)) {
-                selectionUtil.addComment(lineNum);
-            }
-        }
-    }
-
-    public void removeCommentDemarkBookmarks() {
-        List<Bookmark> bookmarkList = bookmarkManager.getValidBookmarks();
-
-        for (Bookmark bookmark : bookmarkList) {
-            int lineNum = bookmark.getLine();
-
-            if (isDemarked(lineNum)) {
-                selectionUtil.addComment(lineNum);
-            }
-        }
-    }
     /**
      * Determine if the a line is already marked by Demark plugin
      *
