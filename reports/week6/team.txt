@@ -1,0 +1,41 @@
+Status Report: Week 6
+
+Last week's goal:
+    - Make sure our build works.
+    - Work out what we want to do with "toggle" feature.
+    - Finish "unclear", "toggle", and "display" by next week.
+    - Push plugin to the JetBrains plugin repository as an Alpha.
+    - Start using the plugin ourselves.
+        - Improve functionality based on what feels natural.
+    - Ask friends to start using our tool.
+
+Progress Made:
+    Accomplished:
+        - Build works.
+        - Toggle comments line for now.
+        - Finished draft of toggle.
+        - Continued Development.
+            - Created utility classes.
+            - Handled batch selection marking.
+            - Refactored code base.
+        - Started planning architecture diagram.
+        - Started testing basic features.
+
+    Learned:
+        - IntelliJ Testing Framework.
+        - Necessary Components for making plugin work.
+            - PersistantState.
+            - Component.
+        - How to make a architecture diagram and not a class diagram.
+
+    Challenges:
+        - Unclear is still unclear on how to do.
+        - Keeping track of state can be difficult.
+        - Keeping persistent state across sessions can be difficult.
+        - Testing is hard.
+
+Plans:
+    - Strive to finish implementation by Sunday.
+    - Push plugin to intelliJ.
+    - Use plugin ourselves.
+        - Get friends to use and fill out survey.
