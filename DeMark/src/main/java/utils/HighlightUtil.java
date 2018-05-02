@@ -1,15 +1,12 @@
 package main.java.utils;
 
-import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.markup.*;
-import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.ui.Gray;
 import com.intellij.ui.JBColor;
 import com.intellij.util.DocumentUtil;
-import com.intellij.vcs.log.util.PersistentSet;
 
 public class HighlightUtil {
     private Editor editor;

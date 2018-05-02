@@ -32,7 +32,7 @@ public class SelectionUtil {
 
         int currPos = selectPosStart;
         ArrayList<Integer> lineStarts = new ArrayList<>();
-
+        // TODO: Fix this logic
         // Add all line starts positions to the array
         while (currPos <= selectPosEnd) {
             lineStarts.add(currPos);
