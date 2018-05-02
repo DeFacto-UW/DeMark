@@ -46,9 +46,9 @@
             <action id="display" class="actions.HelloAction" text="Display" description="Display all marked lines"/>
         </group>
 
-        <group id="Demark.NavigationToolBar" text="DeMark" description="DeMark Navigation Toolbar">
-            <add-to-group group-id="NavBarToolBar" anchor="first"/>
-            <action id="toggle" class="actions.ToggleAction" text="Toggle" description="Toggle the debug state" icon="/toggle.png"/>
-        </group>
+        <!--<group id="Demark.NavigationToolBar" text="DeMark" description="DeMark Navigation Toolbar">-->
+            <!--<add-to-group group-id="NavBarToolBar" anchor="first"/>-->
+            <!--<action id="toggle" class="actions.ToggleAction" text="Toggle" description="Toggle the debug state" icon="/toggle.png"/>-->
+        <!--</group>-->
         </actions>
 </idea-plugin>
