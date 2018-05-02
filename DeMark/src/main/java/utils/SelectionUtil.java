@@ -5,6 +5,8 @@ import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.util.TextRange;
+import com.intellij.util.DocumentUtil;
 
 import java.util.ArrayList;
 
@@ -47,6 +49,18 @@ public class SelectionUtil {
             currPos += offSet + 1;
         }
         return lineStarts;
+    }
+
+    /**
+     *  Determine if a line is already commented
+     * @param lineNum, d
+     * @return
+     */
+    public boolean isCommented(int lineNum) {
+        TextRange textRange = DocumentUtil.getLineTextRange(document, lineNum);
+        String lineBody = document.getText(textRange);
+
+        return lineBody.startsWith(COMMENT_MARKER);
     }
 
     /**

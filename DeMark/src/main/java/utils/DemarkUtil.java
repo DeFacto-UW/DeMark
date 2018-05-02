@@ -87,6 +87,21 @@ public class DemarkUtil {
         }
     }
 
+    public void toggleDemarkComment() {
+
+        List<Bookmark> bookmarkList = bookmarkManager.getValidBookmarks();
+
+        for (Bookmark bookmark : bookmarkList) {
+            int lineNum = bookmark.getLine();
+            if (isDemarked(lineNum)) {
+               if (selectionUtil.isCommented(lineNum)) {
+                   selectionUtil.removeComment(lineNum);
+               } else {
+                   selectionUtil.addComment(lineNum);
+               }
+            }
+        }
+    }
     public void addCommentDemarkBookmarks() {
         List<Bookmark> bookmarkList = bookmarkManager.getValidBookmarks();
 

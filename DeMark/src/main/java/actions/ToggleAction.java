@@ -27,7 +27,7 @@ public class ToggleAction extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         init(anActionEvent);
-        demarkUtil.addCommentDemarkBookmarks();
+        demarkUtil.toggleDemarkComment();
 
     }
 }
