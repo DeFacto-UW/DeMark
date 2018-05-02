@@ -1,5 +1,6 @@
 package main.java.utils;
 
+import com.intellij.ide.highlighter.HighlighterFactory;
 import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;

@@ -58,7 +58,6 @@ public class MarkAction extends AnAction {
         // Partially marked: Add Demark bookmark to all lines
         //                   Only add a single layer of bookmarks
         // All marked: Remove Demark bookmarks from all lines
-
         for (int i = 0; i < lineStarts.size(); i++) {
 
             int lineNum = document.getLineNumber(lineStarts.get(i));
