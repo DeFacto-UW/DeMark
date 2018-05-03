@@ -36,6 +36,7 @@ public class SelectionUtil {
 
         ArrayList<Integer> lineStarts = new ArrayList<>();
 
+        // User didn't select anything and is in cursor mode
         if (selectPosStart == selectPosEnd) {
             lineStarts.add(selectPosStart);
             return lineStarts;
