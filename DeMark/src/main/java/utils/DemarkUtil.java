@@ -4,11 +4,17 @@ import com.intellij.ide.bookmarks.Bookmark;
 import com.intellij.ide.bookmarks.BookmarkManager;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.util.TextRange;
+import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.util.DocumentUtil;
 import main.java.utils.SelectionUtil;
 import main.java.utils.DemarkUtil;
 import main.java.utils.HighlightUtil;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.List;
 
 public class DemarkUtil {
@@ -114,5 +120,44 @@ public class DemarkUtil {
     public boolean isDemarked(int lineNum) {
         Bookmark bookmark = bookmarkManager.findEditorBookmark(document, lineNum);
         return bookmark != null && bookmark.getDescription().equals(DEMARK_INDICATOR);
+    }
+
+    /**
+     * Get the name of the current file
+     * @return the name of the current file
+     */
+    private String getDocumentName() {
+        VirtualFile vf = FileDocumentManager.getInstance().getFile(this.document);
+        return vf.getName();
+    }
+
+    /**
+     * Display the name of the current file, as well as the lines within that file that
+     * is marked with a DeMark bookmark
+     */
+    public void displayDemarkedLines() {
+        JFrame frame = new JFrame("Display");
+        JTextArea area = new JTextArea();
+        area.setEditable(false);
+
+        List<Bookmark> bookmarkList = bookmarkManager.getValidBookmarks();
+
+        area.append("File name: " + this.getDocumentName() + "\n");
+
+        for (Bookmark bookmark : bookmarkList) {
+            int lineNum = bookmark.getLine();
+
+            if (isDemarked(lineNum)) {
+                TextRange textRange = DocumentUtil.getLineTextRange(document, lineNum);
+                String lineBody = document.getText(textRange);
+                area.append("    line " + (lineNum + 1) + ": " + lineBody + "\n");
+            }
+        }
+
+        frame.add(area);
+        frame.setSize(500,500);
+        area.setBounds(500,500, 500,500);
+        frame.pack();
+        frame.setVisible(true);
     }
 }

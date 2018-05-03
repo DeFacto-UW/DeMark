@@ -2,19 +2,30 @@ package actions;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
-import exceptions.NotYetImplementedException;
+import com.intellij.openapi.actionSystem.LangDataKeys;
+import com.intellij.openapi.editor.Document;
+import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.project.Project;
+import org.jetbrains.annotations.NotNull;
 
 public class DisplayAction extends AnAction {
-    /**
-     * Not yet implemented.
-     * @param anActionEvent
-     */
+    private Editor editor;
+    private Project project;
+    private Document document;
+    private main.java.utils.DemarkUtil demarkUtil;
+
+    // TODO: Check the ones that may be null
+    // Initializes all fields
+    private void init(@NotNull AnActionEvent anActionEvent) {
+        project = anActionEvent.getProject();
+        document = anActionEvent.getData(LangDataKeys.EDITOR).getDocument();
+        editor = anActionEvent.getData(LangDataKeys.EDITOR);
+        demarkUtil = new main.java.utils.DemarkUtil(editor, project, document);
+    }
+
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
-        try {
-            throw new NotYetImplementedException();
-        } catch (NotYetImplementedException e) {
-            e.printStackTrace();
-        }
+        init(anActionEvent);
+        demarkUtil.displayDemarkedLines();
     }
 }
