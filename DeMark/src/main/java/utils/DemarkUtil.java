@@ -26,8 +26,8 @@ public class DemarkUtil {
         this.document = document;
         this.project = project;
         this.bookmarkManager = BookmarkManager.getInstance(project);
-        this.highlighterUtil = new main.java.utils.HighlightUtil(this.editor, this.project, this.document);
-        this.selectionUtil = new main.java.utils.SelectionUtil(editor, project, document);
+        this.highlighterUtil = new HighlightUtil(this.editor, this.project, this.document);
+        this.selectionUtil = new SelectionUtil(editor, project, document);
     }
 
     /**
