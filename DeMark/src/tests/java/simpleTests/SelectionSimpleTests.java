@@ -23,11 +23,25 @@ public class SelectionSimpleTests extends LightCodeInsightFixtureTestCase {
     }
 
     public void testSelectionMarksCorrectLine() {
-        int caretLine = TestingUtility.getCurrentCaretLine(myFixture);
+        List<Integer> selectedLines = TestingUtility.getSelectionStarts(myFixture);
+        // assuming only one selected line
+        int selectedLine = myFixture.getEditor().getDocument().getLineNumber(selectedLines.get(0));
 
         List<Bookmark> validBookmarks = TestingUtility.getDeMarkBookmarks(myFixture);
         Bookmark bookmark = validBookmarks.get(0);
 
-        assertEquals("Bookmark not on the correct line.", caretLine, bookmark.getLine());
+        assertEquals("Bookmark not on the correct line.", selectedLine, bookmark.getLine());
+    }
+
+    public void testSelectionMarkOnlyOneLine() {
+        List<Bookmark> deMarkBookmarks = TestingUtility.getDeMarkBookmarks(myFixture);
+        assertEquals("Selection marked more than one line", 1, deMarkBookmarks.size());
+    }
+
+    public void testSelectionUnmark() {
+        myFixture.testAction(new MarkAction());
+
+        List<Bookmark> deMarkBookmarks = TestingUtility.getDeMarkBookmarks(myFixture);
+        assertTrue("Selection did not unmark bookmark.", deMarkBookmarks.isEmpty());
     }
 }
