@@ -9,7 +9,7 @@ import com.intellij.openapi.project.Project;
 import java.util.List;
 
 public class DemarkUtil {
-    public static String DEMARK_INDICATOR = "Demark";
+    public static String DEMARK_INDICATOR = "DeMark";
 
     private Editor editor;                      // The existing editor
     private Project project;                    // The currently opened project
