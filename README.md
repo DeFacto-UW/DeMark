@@ -14,6 +14,7 @@
 One common way for a developers to debug through their code is by adding temporary, non-production
 lines of code, such as print statements, to understand the program’s state, but it can be a tedious
 task to manage them manually.
+
 DeMark is a plugin for the IntelliJ IDEA that is used to keep track of temporary debug code.
 It aims to increase software developers’ programming productivity by facilitating the management
 of temporary code.
