@@ -69,10 +69,11 @@ public class SelectionUtil {
      * @param lineNum, the line number to comment out
      */
     public void addComment(int lineNum) {
-        // TODO: Add checkers for already commented lines
-        int startPos = document.getLineStartOffset(lineNum);
-        Runnable addComment = () -> document.insertString(startPos, COMMENT_MARKER);
-        WriteCommandAction.runWriteCommandAction(project, addComment);
+        if (!isCommented(lineNum)) {
+            int startPos = document.getLineStartOffset(lineNum);
+            Runnable addComment = () -> document.insertString(startPos, COMMENT_MARKER);
+            WriteCommandAction.runWriteCommandAction(project, addComment);
+        }
     }
 
     /**
@@ -80,12 +81,12 @@ public class SelectionUtil {
      * @param lineNum, the line number to remove the comment from
      */
     public void removeComment(int lineNum) {
-        // TODO: Add checkers for already commented lines
-
-        int startPos = document.getLineStartOffset(lineNum);
-        int endPos = startPos + COMMENT_MARKER.length();
-        Runnable addComment = () -> document.deleteString(startPos, endPos);
-        WriteCommandAction.runWriteCommandAction(project, addComment);
+        if (isCommented(lineNum)) {
+            int startPos = document.getLineStartOffset(lineNum);
+            int endPos = startPos + COMMENT_MARKER.length();
+            Runnable addComment = () -> document.deleteString(startPos, endPos);
+            WriteCommandAction.runWriteCommandAction(project, addComment);
+        }
     }
 
     /**
