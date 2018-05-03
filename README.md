@@ -77,15 +77,21 @@ There are two ways to unmark a line:
     
 For specific behaviors of marking and unmarking, please refer to section 5.1 on page 3.
 
-### 4.2 Clear and Unclear
+### 4.2 Clear, Clear All and Unclear
 
-Clear will clear all currently marked lines from the current file. There are two ways to clear all
-marked lines:
+Clear will remove the line the cursor is at from the current file if it is currently marked. There are two ways to clear a
+marked line:
 
 - Choose **DeMark|Clear** in the toolbar.
 - Press `[Alt + D]`.
 
-Unclear will restore all previously cleared line for a file. There are two ways to unclear all previously
+Clear All will remove all currently marked lines from the current file. There are two ways to clear all
+marked lines:
+
+- Choose **DeMark|Clear All** in the toolbar.
+- Press `[Alt + N]`.
+
+Unclear will restore all previously cleared lines for a file. There are two ways to unclear all previously
 cleared lines:
 
 - Choose **DeMark|Unclear**.
