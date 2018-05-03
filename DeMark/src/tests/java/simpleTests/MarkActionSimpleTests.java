@@ -12,7 +12,9 @@ import com.intellij.ui.JBColor;
 import com.intellij.util.DocumentUtil;
 import main.java.utils.DemarkUtil;
 import org.junit.Before;
+
 import actions.MarkAction;
+import tests.java.TestingUtility;
 
 import java.util.Arrays;
 import java.util.List;
@@ -39,9 +41,8 @@ public class MarkActionSimpleTests extends LightCodeInsightFixtureTestCase {
     // ADDITION TESTS
     public void testMarkCorrectDescription() {
         // gets the bookmark that we are checking out
-        BookmarkManager bookmarkManager = BookmarkManager.getInstance(myFixture.getProject());
-        List<Bookmark> validBookmarks = bookmarkManager.getValidBookmarks();
-        assertEquals("There are more than one bookmark in file.", 1, validBookmarks.size());
+        List<Bookmark> validBookmarks = TestingUtility.getDeMarkBookmarks(myFixture);
+
         // assuming there is only one bookmark
         Bookmark bookmark = validBookmarks.get(0);
 
@@ -50,13 +51,11 @@ public class MarkActionSimpleTests extends LightCodeInsightFixtureTestCase {
 
     public void testMarkCorrectLine() {
         // gets necessary details on current file
-        Editor editor = myFixture.getEditor();
-        Document document = editor.getDocument();
-        int caretLine = document.getLineNumber(editor.getCaretModel().getVisualLineStart());
+        int caretLine = TestingUtility.getCurrentCaretLine(myFixture);
 
         // gets the bookmark that we are checking out
-        BookmarkManager bookmarkManager = BookmarkManager.getInstance(myFixture.getProject());
-        List<Bookmark> validBookmarks = bookmarkManager.getValidBookmarks();
+        List<Bookmark> validBookmarks = TestingUtility.getDeMarkBookmarks(myFixture);
+
         // assuming there is only one bookmark
         Bookmark bookmark = validBookmarks.get(0);
 
@@ -65,8 +64,7 @@ public class MarkActionSimpleTests extends LightCodeInsightFixtureTestCase {
 
     public void testMarkOnlyCreatesOneBookMark() {
         // gets the bookmark that we are checking out
-        BookmarkManager bookmarkManager = BookmarkManager.getInstance(myFixture.getProject());
-        List<Bookmark> validBookmarks = bookmarkManager.getValidBookmarks();
+        List<Bookmark> validBookmarks = TestingUtility.getDeMarkBookmarks(myFixture);
 
         assertEquals("There are more than one bookmark in file.", 1, validBookmarks.size());
     }
@@ -78,14 +76,12 @@ public class MarkActionSimpleTests extends LightCodeInsightFixtureTestCase {
     }
 
     public void testMarkCreatesHighlightOnCorrectLine() {
-        Editor editor = myFixture.getEditor();
-        Document document = editor.getDocument();
-        int caretLine = document.getLineNumber(editor.getCaretModel().getVisualLineStart());
-        int offset = DocumentUtil.getFirstNonSpaceCharOffset(editor.getMarkupModel().getDocument(), caretLine);
+        int caretLine = TestingUtility.getCurrentCaretLine(myFixture);
+        int offset = TestingUtility.getLineOffset(myFixture, caretLine);
 
 
-        List<RangeHighlighter> validHighlights = Arrays.asList(myFixture.getEditor().getMarkupModel().getAllHighlighters());
-        RangeHighlighter highlighter = validHighlights.get(0);          // assuming only one highlighter
+        List<RangeHighlighter> deMarkHighlights = Arrays.asList(myFixture.getEditor().getMarkupModel().getAllHighlighters());
+        RangeHighlighter highlighter = deMarkHighlights.get(0);          // assuming only one highlighter
 
         assertTrue("The highlight is on the wrong line.", highlighter.getStartOffset() == offset && highlighter.getEndOffset() == offset);
     }
