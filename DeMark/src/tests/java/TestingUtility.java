@@ -112,4 +112,61 @@ public class TestingUtility {
 
         return result;
     }
+
+    /**
+     * Shifts the caret down or up relative to its current position
+     *
+     * @param fixture
+     * @param lineShift
+     * @param withSelection
+     * @param scrollToCaret
+     */
+    public static void moveCaretLine(@Nonnull JavaCodeInsightTestFixture fixture,
+                                     int lineShift, boolean withSelection, boolean scrollToCaret) {
+        fixture.getEditor().getCaretModel().getCurrentCaret().moveCaretRelatively(0, lineShift, withSelection, scrollToCaret);
+    }
+
+    /**
+     * Shifts the caret to the right or left relative to its current position
+     *
+     * Avoid using because of wrapping
+     * @param fixture
+     * @param columnShift
+     * @param withSelection
+     * @param scrollToCaret
+     */
+    public static void moveCaretColumn(@Nonnull JavaCodeInsightTestFixture fixture,
+                                       int columnShift, boolean withSelection, boolean scrollToCaret) {
+        fixture.getEditor().getCaretModel().getCurrentCaret().moveCaretRelatively(columnShift, 0, withSelection, scrollToCaret);
+    }
+
+    /**
+     * Moves the caret to a specific offset, takes in account soft wrapping
+     *
+     * @param fixture
+     * @param offset
+     */
+    public static void moveCaretToOffset(@Nonnull JavaCodeInsightTestFixture fixture, int offset) {
+        fixture.getEditor().getCaretModel().getCurrentCaret().moveToOffset(offset);
+    }
+
+    /**
+     * Selects text between two offsets
+     *
+     * @param fixture
+     * @param selectionStartOffset
+     * @param selectionEndOffset
+     */
+    public static void selectOffsets(@Nonnull JavaCodeInsightTestFixture fixture, int selectionStartOffset, int selectionEndOffset) {
+        fixture.getEditor().getCaretModel().getCurrentCaret().setSelection(selectionStartOffset, selectionEndOffset);
+    }
+
+    /**
+     * Selects the line that the caret is currently on
+     *
+     * @param fixture
+     */
+    public static void selectLineAtCaret(@Nonnull JavaCodeInsightTestFixture fixture) {
+        fixture.getEditor().getCaretModel().getCurrentCaret().selectLineAtCaret();
+    }
 }
