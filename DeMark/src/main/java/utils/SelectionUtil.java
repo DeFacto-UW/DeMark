@@ -101,7 +101,13 @@ public class SelectionUtil {
         TextRange textRange = DocumentUtil.getLineTextRange(document, lineNum);
 
         // Remove the line content
-        Runnable removeText = () -> document.deleteString(textRange.getStartOffset(), textRange.getEndOffset() + 1);
-        WriteCommandAction.runWriteCommandAction(project, removeText);
+        if (textRange.getEndOffset() == document.getTextLength()) {
+            Runnable removeText = () -> document.deleteString(textRange.getStartOffset(), textRange.getEndOffset());
+            WriteCommandAction.runWriteCommandAction(project, removeText);
+        } else {
+            Runnable removeText = () -> document.deleteString(textRange.getStartOffset(), textRange.getEndOffset() + 1);
+            WriteCommandAction.runWriteCommandAction(project, removeText);
+
+        }
     }
 }
