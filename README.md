@@ -11,8 +11,7 @@
 
 ## 1 Introduction
 
-Debugging plays an important role in software engineering, and it can be very time-consuming. One
-common way for a developer to debug through their code is by adding temporary, non-production
+One common way for a developers to debug through their code is by adding temporary, non-production
 lines of code, such as print statements, to understand the program’s state, but it can be a tedious
 task to manage them manually.
 DeMark is a plugin for the IntelliJ IDEA that is used to keep track of temporary debug code.
@@ -39,8 +38,7 @@ To build DeMark, make sure all the prerequisites are installed. Afterwards, run 
 
 ## 3 Installation
 
-The following instruction is a modified version of the official IntelliJ help documentation on the
-JetBrains website[1]:
+This section provides the instruction for installing DeMark. It is a modified version of the official IntelliJ help documentation on the JetBrains website[1]:
 
 1. Press `[Ctrl + Alt + S]` or choose **File|Settings** (for Windows and Linux) or **IntelliJ IDEA
     |Preferences** (for macOS) from the main menu, then go to Plugins.
@@ -76,7 +74,7 @@ There are two ways to unmark a line:
 - Click on the line number located to the right of the code editor of the currently marked line.
 - Place the cursor on the marked line you want to unmark and press `[Alt + M]`.
     
-For specific behaviors of marking and unmarking, please refer to section 4.1 on page 3.
+For specific behaviors of marking and unmarking, please refer to section 5.1 on page 3.
 
 ### 4.2 Clear and Unclear
 
@@ -92,7 +90,7 @@ cleared lines:
 - Choose **DeMark|Unclear**.
 - Press `[Alt + Shift + D]`.
 
-For specific behaviors of clear and unclear, please refer to section 4.2 on page 3.
+For specific behaviors of clear and unclear, please refer to section 5.2 on page 3.
 
 ### 4.3 Toggle
 
@@ -101,7 +99,7 @@ The Toggle feature allows the user to comment/uncomment all the marked lines at 
 - Choose **DeMark|Toggle**.
 - Click the green and white toggle button located in the quick tools bar.
     
-For specific behaviors of toggle, please refer to section 4.3 on page 4.
+For specific behaviors of toggle, please refer to section 5.3 on page 4.
 
 
 ### 4.4 Display
@@ -111,13 +109,13 @@ displaying the marked lines along with a range of lines above and below to provi
 
 - Choose **DeMark|Display** in the toolbar.
     
-For specific behaviors of display, please refer to section 4.4 on page 4.
+For specific behaviors of display, please refer to section 5.4 on page 4.
 
 ## 5 Specific Behaviors of Functionality
 
 ### 5.1 Marking and unmarking:
 
-- Marked lines will have a description that says “DeMark.”
+- Marked lines will have a description that says “DeMark”.
 - Marking and unmarking can only be done in IntelliJ and the marked lines will not show up
     as marked in other text editors or IDEs.
 - Lines that are marked using DeMark will still be marked and visible in IntelliJ builds that
@@ -193,7 +191,7 @@ If you find any bugs in our plugin, please submit an issue to our GitHub page:ht
 - IntelliJ Version located by going to **Help|About**.
 - A brief description of the bug.
 - Specific steps to recreate the bug.
-- (Optional)A screen shot of the bug.
+- (Optional) A screen shot of the bug.
 
 
 ## References
