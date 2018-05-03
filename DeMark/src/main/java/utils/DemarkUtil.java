@@ -5,6 +5,9 @@ import com.intellij.ide.bookmarks.BookmarkManager;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
+import main.java.utils.SelectionUtil;
+import main.java.utils.DemarkUtil;
+import main.java.utils.HighlightUtil;
 
 import java.util.List;
 
@@ -15,8 +18,8 @@ public class DemarkUtil {
     private Project project;                    // The currently opened project
     private Document document;                  // The current file
     private BookmarkManager bookmarkManager;
-    private main.java.utils.HighlightUtil highlighterUtil;
-    private main.java.utils.SelectionUtil selectionUtil;
+    private HighlightUtil highlighterUtil;
+    private SelectionUtil selectionUtil;
 
     public DemarkUtil(Editor editor, Project project, Document document) {
         this.editor = editor;

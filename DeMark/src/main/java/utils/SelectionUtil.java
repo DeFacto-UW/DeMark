@@ -33,21 +33,23 @@ public class SelectionUtil {
         int selectPosStart = editor.getSelectionModel().getSelectionStart();
         int selectPosEnd = editor.getSelectionModel().getSelectionEnd();
 
-        int currPos = selectPosStart;
+
         ArrayList<Integer> lineStarts = new ArrayList<>();
-        // TODO: Fix this logic
+
+        // User didn't select anything and is in cursor mode
+        if (selectPosStart == selectPosEnd) {
+            lineStarts.add(selectPosStart);
+            return lineStarts;
+        }
+
+        int currPos = selectPosStart;
+
         // Add all line starts positions to the array
-        while (currPos <= selectPosEnd) {
+        while (currPos < selectPosEnd) {
             lineStarts.add(currPos);
-            int lineNum = document.getLineNumber(currPos);
-
-            // Calculate the offset from start of line to end
-            int startOffset = document.getLineStartOffset(lineNum);
-            int endOffset = document.getLineEndOffset(lineNum);
-
-            // Position of next line is 1 over currPos + offSet
-            int offSet = endOffset - startOffset;
-            currPos += offSet + 1;
+            int currLine = document.getLineNumber(currPos);
+            TextRange textRange = DocumentUtil.getLineTextRange(document, currLine);
+            currPos = textRange.getEndOffset() + 1;
         }
         return lineStarts;
     }
@@ -96,11 +98,16 @@ public class SelectionUtil {
      */
     public void removeLine(int lineNum) {
         // Convert lines to character positions
-        int startPos = document.getLineStartOffset(lineNum);
-        int endPos = document.getLineEndOffset(lineNum);
+        TextRange textRange = DocumentUtil.getLineTextRange(document, lineNum);
 
         // Remove the line content
-        Runnable removeText = () -> document.deleteString(startPos, endPos + 1);
-        WriteCommandAction.runWriteCommandAction(project, removeText);
+        if (textRange.getEndOffset() == document.getTextLength()) {
+            Runnable removeText = () -> document.deleteString(textRange.getStartOffset(), textRange.getEndOffset());
+            WriteCommandAction.runWriteCommandAction(project, removeText);
+        } else {
+            Runnable removeText = () -> document.deleteString(textRange.getStartOffset(), textRange.getEndOffset() + 1);
+            WriteCommandAction.runWriteCommandAction(project, removeText);
+
+        }
     }
 }
