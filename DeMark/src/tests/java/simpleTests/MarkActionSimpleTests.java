@@ -1,22 +1,14 @@
 package simpleTests;
 
 import com.intellij.ide.bookmarks.Bookmark;
-import com.intellij.ide.bookmarks.BookmarkManager;
-import com.intellij.openapi.editor.Document;
-import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.markup.RangeHighlighter;
-import com.intellij.openapi.editor.markup.TextAttributes;
 import com.intellij.testFramework.fixtures.LightCodeInsightFixtureTestCase;
-import com.intellij.ui.Gray;
-import com.intellij.ui.JBColor;
-import com.intellij.util.DocumentUtil;
 import main.java.utils.DemarkUtil;
 import org.junit.Before;
 
 import actions.MarkAction;
 import tests.java.TestingUtility;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -70,9 +62,9 @@ public class MarkActionSimpleTests extends LightCodeInsightFixtureTestCase {
     }
 
     public void testMarkCreatesHighlight() {
-        List<RangeHighlighter> validHighlights = Arrays.asList(myFixture.getEditor().getMarkupModel().getAllHighlighters());
+        List<RangeHighlighter> deMarkHighlights = TestingUtility.getDeMarkHighlighters(myFixture);
 
-        assertEquals("There are more than 1 highlight in the file.", 1, validHighlights.size());
+        assertEquals("There are more than 1 highlight in the file.", 1, deMarkHighlights.size());
     }
 
     public void testMarkCreatesHighlightOnCorrectLine() {
@@ -80,7 +72,7 @@ public class MarkActionSimpleTests extends LightCodeInsightFixtureTestCase {
         int offset = TestingUtility.getLineOffset(myFixture, caretLine);
 
 
-        List<RangeHighlighter> deMarkHighlights = Arrays.asList(myFixture.getEditor().getMarkupModel().getAllHighlighters());
+        List<RangeHighlighter> deMarkHighlights = TestingUtility.getDeMarkHighlighters(myFixture);
         RangeHighlighter highlighter = deMarkHighlights.get(0);          // assuming only one highlighter
 
         assertTrue("The highlight is on the wrong line.", highlighter.getStartOffset() == offset && highlighter.getEndOffset() == offset);
@@ -90,8 +82,7 @@ public class MarkActionSimpleTests extends LightCodeInsightFixtureTestCase {
     public void testUnmarkRemovesBookmark() {
         myFixture.testAction(new MarkAction());
 
-        BookmarkManager bookmarkManager = BookmarkManager.getInstance(myFixture.getProject());
-        List<Bookmark> bookmarks = bookmarkManager.getValidBookmarks();
+        List<Bookmark> bookmarks = TestingUtility.getDeMarkBookmarks(myFixture);
 
         assertTrue("Bookmark not removed.", bookmarks.isEmpty());
     }
@@ -99,28 +90,8 @@ public class MarkActionSimpleTests extends LightCodeInsightFixtureTestCase {
     public void testUnmarkRemovesHighlight() {
         myFixture.testAction(new MarkAction());
 
-        Editor editor = myFixture.getEditor();
-        Document document = editor.getDocument();
-        int caretLine = document.getLineNumber(editor.getCaretModel().getVisualLineStart());
-        int offset = DocumentUtil.getFirstNonSpaceCharOffset(editor.getMarkupModel().getDocument(), caretLine);
+        List<RangeHighlighter> deMarkHighlights = TestingUtility.getDeMarkHighlighters(myFixture);
 
-        List<RangeHighlighter> validHighlights = Arrays.asList(myFixture.getEditor().getMarkupModel().getAllHighlighters());
-
-        // considers implicit highlighters as well
-        // DeMark highlighters have TextAttributes with Gray_223, Gray_220 and startOffSet == endOffSet == offset
-        int deMarkHighlights = 0;
-        for (RangeHighlighter highlighter : validHighlights) {
-
-            TextAttributes highlightAtt = highlighter.getTextAttributes();
-
-            if (highlightAtt != null) {
-                boolean sameLine = highlighter.getStartOffset() == caretLine && highlighter.getEndOffset() == offset;
-                boolean sameTextAtt = highlightAtt.getBackgroundColor().equals(new JBColor(Gray._222, Gray._220));
-
-                deMarkHighlights += sameLine && sameTextAtt ? 1 : 0;
-            }
-        }
-
-        assertEquals("DeMark highlights not removed.", 0, deMarkHighlights);
+        assertTrue("DeMark highlights not removed.", deMarkHighlights.isEmpty());
     }
 }
