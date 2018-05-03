@@ -16,6 +16,7 @@ import main.java.utils.HighlightUtil;
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
+import java.util.TreeMap;
 
 public class DemarkUtil {
     public static String DEMARK_INDICATOR = "DeMark";
@@ -96,6 +97,7 @@ public class DemarkUtil {
         }
     }
 
+
     public void toggleDemarkComment() {
         List<Bookmark> bookmarkList = bookmarkManager.getValidBookmarks();
 
@@ -109,6 +111,58 @@ public class DemarkUtil {
                }
             }
         }
+    }
+
+    /**
+     * Display the name of the current file, as well as the lines within that file that
+     * is marked with a DeMark bookmark
+     *
+     */
+    public void displayDemarkedLines() {
+        // TODO: Make this prettier
+        JFrame frame = new JFrame("Display");
+        JTextArea area = new JTextArea();
+        area.setEditable(false);
+
+        area.append("File name: " + this.getDocumentName() + "\n");
+
+        TreeMap<Integer, String> demarks = getDemarks();
+
+        for (Integer lineNum : demarks.keySet()) {
+            String lineBody = demarks.get(lineNum);
+
+            area.append("    line " + (lineNum + 1) + ": " + lineBody + "\n");
+        }
+
+        frame.add(area);
+        frame.setSize(500,500);
+        area.setBounds(500,500, 500,500);
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+    /**
+     * Get all Demark bookmarks
+     *
+     * @return, a sorted map from line numbers to their corresponding line body
+     */
+    private TreeMap<Integer, String> getDemarks() {
+        TreeMap<Integer, String> demarks = new TreeMap<>();
+
+        List<Bookmark> bookmarkList = bookmarkManager.getValidBookmarks();
+
+        for (Bookmark bookmark : bookmarkList) {
+            int lineNum = bookmark.getLine();
+
+            if (isDemarked(lineNum)) {
+                TextRange textRange = DocumentUtil.getLineTextRange(document, lineNum);
+                String lineBody = document.getText(textRange);
+
+                demarks.put(lineNum, lineBody);
+            }
+
+        }
+        return demarks;
     }
 
     /**
@@ -131,33 +185,4 @@ public class DemarkUtil {
         return vf.getName();
     }
 
-    /**
-     * Display the name of the current file, as well as the lines within that file that
-     * is marked with a DeMark bookmark
-     */
-    public void displayDemarkedLines() {
-        JFrame frame = new JFrame("Display");
-        JTextArea area = new JTextArea();
-        area.setEditable(false);
-
-        List<Bookmark> bookmarkList = bookmarkManager.getValidBookmarks();
-
-        area.append("File name: " + this.getDocumentName() + "\n");
-
-        for (Bookmark bookmark : bookmarkList) {
-            int lineNum = bookmark.getLine();
-
-            if (isDemarked(lineNum)) {
-                TextRange textRange = DocumentUtil.getLineTextRange(document, lineNum);
-                String lineBody = document.getText(textRange);
-                area.append("    line " + (lineNum + 1) + ": " + lineBody + "\n");
-            }
-        }
-
-        frame.add(area);
-        frame.setSize(500,500);
-        area.setBounds(500,500, 500,500);
-        frame.pack();
-        frame.setVisible(true);
-    }
 }
