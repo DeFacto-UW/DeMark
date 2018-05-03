@@ -10,6 +10,7 @@ import com.intellij.testFramework.fixtures.LightCodeInsightFixtureTestCase;
 import com.intellij.ui.Gray;
 import com.intellij.ui.JBColor;
 import com.intellij.util.DocumentUtil;
+import main.java.utils.DemarkUtil;
 import org.junit.Before;
 import actions.MarkAction;
 
@@ -44,7 +45,7 @@ public class MarkActionSimpleTests extends LightCodeInsightFixtureTestCase {
         // assuming there is only one bookmark
         Bookmark bookmark = validBookmarks.get(0);
 
-        assertTrue("Bookmark does not have \"DeMark\" as part of the description.", bookmark.getDescription().contains("DeMark"));
+        assertTrue("Bookmark does not have \"DeMark\" as part of the description.", bookmark.getDescription().contains(DemarkUtil.DEMARK_INDICATOR));
     }
 
     public void testMarkCorrectLine() {
