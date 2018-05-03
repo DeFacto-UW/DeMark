@@ -1,5 +1,9 @@
 package tests.java;
 
+import com.intellij.openapi.editor.markup.RangeHighlighter;
+import com.intellij.openapi.editor.markup.TextAttributes;
+import com.intellij.ui.Gray;
+import com.intellij.ui.JBColor;
 import com.intellij.util.DocumentUtil;
 import main.java.utils.DemarkUtil;
 import main.java.utils.SelectionUtil;
@@ -65,15 +69,14 @@ public class TestingUtility {
      * Gets the list of bookmarks specifically tied to DeMark that are currently available in the fixture
      *
      * @param fixture
-     * @return a list of available DeMark bookmarks
+     * @return a list of available DeMark bookmarks, can be empty
      */
     public static List<Bookmark> getDeMarkBookmarks(@Nonnull JavaCodeInsightTestFixture fixture) {
         BookmarkManager bookmarkManager = BookmarkManager.getInstance(fixture.getProject());
         List<Bookmark> validBookmarks = bookmarkManager.getValidBookmarks();
 
         List<Bookmark> result = new ArrayList<Bookmark>();
-        for (int i = 0; i < validBookmarks.size(); i++) {
-            Bookmark currBookmark = validBookmarks.get(i);
+        for (Bookmark currBookmark : validBookmarks) {
             if (DemarkUtil.DEMARK_INDICATOR.equals(currBookmark.getDescription())) {
                 result.add(currBookmark);
             }
@@ -82,6 +85,31 @@ public class TestingUtility {
     }
 
     /**
+     * Gets the list of highlighters specifically tied to DeMark that are currently in the fixture
      *
+     * @param fixture
+     * @return a list of available DeMark highlighters, can be empty.
      */
+    public static List<RangeHighlighter> getDeMarkHighlighters(@Nonnull JavaCodeInsightTestFixture fixture) {
+        List<RangeHighlighter> result = new ArrayList<RangeHighlighter>();
+        RangeHighlighter[] highlighters = fixture.getEditor().getMarkupModel().getAllHighlighters();
+
+        int caretLine = getCurrentCaretLine(fixture);
+        int offset = getLineOffset(fixture, caretLine);
+
+        for (RangeHighlighter highlighter : highlighters) {
+            TextAttributes highlightAtt = highlighter.getTextAttributes();
+
+            if (highlightAtt != null) {
+                boolean sameLine = highlighter.getStartOffset() == offset && highlighter.getEndOffset() == offset;
+                boolean sameTextAtt = highlightAtt.getBackgroundColor().equals(new JBColor(Gray._222, Gray._220));
+
+                if (sameLine && sameTextAtt) {
+                    result.add(highlighter);
+                }
+            }
+        }
+
+        return result;
+    }
 }
