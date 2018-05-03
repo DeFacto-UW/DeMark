@@ -15,16 +15,16 @@ public class DemarkUtil {
     private Project project;                    // The currently opened project
     private Document document;                  // The current file
     private BookmarkManager bookmarkManager;
-    private HighlightUtil highlighterUtil;
-    private SelectionUtil selectionUtil;
+    private main.java.utils.HighlightUtil highlighterUtil;
+    private main.java.utils.SelectionUtil selectionUtil;
 
     public DemarkUtil(Editor editor, Project project, Document document) {
         this.editor = editor;
         this.document = document;
         this.project = project;
         this.bookmarkManager = BookmarkManager.getInstance(project);
-        this.highlighterUtil = new HighlightUtil(this.editor, this.project, this.document);
-        this.selectionUtil = new SelectionUtil(editor, project, document);
+        this.highlighterUtil = new main.java.utils.HighlightUtil(this.editor, this.project, this.document);
+        this.selectionUtil = new main.java.utils.SelectionUtil(editor, project, document);
     }
 
     /**
