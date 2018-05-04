@@ -3,11 +3,11 @@
 # DeMark
 
 ### Team DeFacto-UW:  
-- Andrew Tran           
-- Tony Vo 
-- Tuan Ma
-- Jeff Xu
-- Lemei Zhang
+- [Andrew Tran](https://www.linkedin.com/in/atranatuw/)
+- [Tony Vo](https://www.linkedin.com/in/ttonyvo/)
+- [Tuan Ma](https://www.linkedin.com/in/tuananhma/)
+- [Jeff Xu](https://www.facebook.com/ranhao.xu.7/)
+- [Lemei Zhang](https://www.linkedin.com/in/lemei-zhang-22470515a/)
 
 #### Quick Links: 
 [1 - Introduction](#1-introduction) |
@@ -237,6 +237,6 @@ If you find any bugs in our plugin, please submit an issue to our GitHub page:ht
 
 ## References
 
-[1]Installing, updating and uninstalling repository plugins. Available athttps://www.jetbrains.com/help/idea/installing-updating-and-uninstalling-repository-plugins.html.
+[1] Installing, updating and uninstalling repository plugins. Available at https://www.jetbrains.com/help/idea/installing-updating-and-uninstalling-repository-plugins.html.
 
 <sup>[back to top](#demark)</sup>
