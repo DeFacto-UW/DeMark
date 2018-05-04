@@ -2,3 +2,5 @@ language: generic
 sudo: enabled
 
 script: cd DeMark/ && gradle build
+
+after_success: cd DeMark/ && ./gradlew jacocoTestReport coveralls
