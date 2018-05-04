@@ -2,13 +2,20 @@
 
 # DeMark
 
-### Team DeFacto-UW:
-- Andrew Tran 
+### Team DeFacto-UW:  
+- Andrew Tran           
 - Tony Vo 
 - Tuan Ma
 - Jeff Xu
 - Lemei Zhang
 
+#### Quick Links: 
+[1 - Introduction](#1-introduction) |
+[2 - Build Instructions](#2-build-instructions) |
+[3 - Installation](#3-installation) |
+[4 - Using DeMark](#4-using-demark) |
+[5 - Specific Behaviors](#5-specific-behaviors-of-functionality) |
+[6 - Reporting Bugs](#6-reporting-bugs)
 ## 1 Introduction
 
 One common way for a developers to debug through their code is by adding temporary, non-production
