@@ -4,12 +4,19 @@ import com.intellij.ide.bookmarks.Bookmark;
 import com.intellij.ide.bookmarks.BookmarkManager;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.util.TextRange;
+import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.util.DocumentUtil;
 import main.java.utils.SelectionUtil;
 import main.java.utils.DemarkUtil;
 import main.java.utils.HighlightUtil;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.List;
+import java.util.TreeMap;
 
 public class DemarkUtil {
     public static String DEMARK_INDICATOR = "DeMark";
@@ -90,6 +97,7 @@ public class DemarkUtil {
         }
     }
 
+
     public void toggleDemarkComment() {
         List<Bookmark> bookmarkList = bookmarkManager.getValidBookmarks();
 
@@ -106,6 +114,58 @@ public class DemarkUtil {
     }
 
     /**
+     * Display the name of the current file, as well as the lines within that file that
+     * is marked with a DeMark bookmark
+     *
+     */
+    public void displayDemarkedLines() {
+        // TODO: Make this prettier
+        JFrame frame = new JFrame("Display");
+        JTextArea area = new JTextArea();
+        area.setEditable(false);
+
+        area.append("File name: " + this.getDocumentName() + "\n");
+
+        TreeMap<Integer, String> demarks = getDemarks();
+
+        for (Integer lineNum : demarks.keySet()) {
+            String lineBody = demarks.get(lineNum);
+
+            area.append("    line " + (lineNum + 1) + ": " + lineBody + "\n");
+        }
+
+        frame.add(area);
+        frame.setSize(500,500);
+        area.setBounds(500,500, 500,500);
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+    /**
+     * Get all Demark bookmarks
+     *
+     * @return, a sorted map from line numbers to their corresponding line body
+     */
+    private TreeMap<Integer, String> getDemarks() {
+        TreeMap<Integer, String> demarks = new TreeMap<>();
+
+        List<Bookmark> bookmarkList = bookmarkManager.getValidBookmarks();
+
+        for (Bookmark bookmark : bookmarkList) {
+            int lineNum = bookmark.getLine();
+
+            if (isDemarked(lineNum)) {
+                TextRange textRange = DocumentUtil.getLineTextRange(document, lineNum);
+                String lineBody = document.getText(textRange);
+
+                demarks.put(lineNum, lineBody);
+            }
+
+        }
+        return demarks;
+    }
+
+    /**
      * Determine if the a line is already marked by Demark plugin
      *
      * @param lineNum, the line to cross check
@@ -115,4 +175,14 @@ public class DemarkUtil {
         Bookmark bookmark = bookmarkManager.findEditorBookmark(document, lineNum);
         return bookmark != null && bookmark.getDescription().equals(DEMARK_INDICATOR);
     }
+
+    /**
+     * Get the name of the current file
+     * @return the name of the current file
+     */
+    private String getDocumentName() {
+        VirtualFile vf = FileDocumentManager.getInstance().getFile(this.document);
+        return vf.getName();
+    }
+
 }
