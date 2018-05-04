@@ -2,22 +2,34 @@
 
 # DeMark
 
-### Team DeFacto-UW:
-- Andrew Tran 
+### Team DeFacto-UW:  
+- Andrew Tran           
 - Tony Vo 
 - Tuan Ma
 - Jeff Xu
 - Lemei Zhang
 
+#### Quick Links: 
+[1 - Introduction](#1-introduction) |
+[2 - Build Instructions](#2-build-instructions) |
+[3 - Installation](#3-installation) |
+[4 - Using DeMark](#4-using-demark) |
+[5 - Specific Behaviors](#5-specific-behaviors-of-functionality) |
+[6 - Reporting Bugs](#6-reporting-bugs)
 ## 1 Introduction
 
 One common way for a developers to debug through their code is by adding temporary, non-production
 lines of code, such as print statements, to understand the program’s state, but it can be a tedious
 task to manage them manually.
 
-DeMark is a plugin for the IntelliJ IDEA that is used to keep track of temporary debug code.
+DeMark is a plugin for the IntelliJ IDEA that is used to keep track of temporary debug code. It allows 
+this by letting the user putting a special bookmark on lines of code and highligting them, essentially 
+"marking" them as debug code. 
+
 It aims to increase software developers’ programming productivity by facilitating the management
 of temporary code.
+
+<sup>[back to top](#demark)</sup>
 
 ## 2 Build Instructions
 
@@ -37,6 +49,8 @@ To build DeMark, make sure all the prerequisites are installed. Afterwards, run 
  gradle build
 ```
 
+<sup>[back to top](#demark)</sup>
+
 ## 3 Installation
 
 This section provides the instruction for installing DeMark. It is a modified version of the official IntelliJ help documentation on the JetBrains website[1]:
@@ -53,6 +67,7 @@ This section provides the instruction for installing DeMark. It is a modified ve
 DeMark will appear as a drop down menu on the top tool bar. There will also be a toggle button
 next to the quick tools area.
 
+<sup>[back to top](#demark)</sup>
 
 ## 4 Using DeMark
 
@@ -77,6 +92,8 @@ There are two ways to unmark a line:
     
 For specific behaviors of marking and unmarking, please refer to section 5.1 on page 3.
 
+<sup>[back to top](#demark)</sup>
+
 ### 4.2 Clear, Clear All and Unclear
 
 Clear will remove the line the cursor is at from the current file if it is currently marked. There are two ways to clear a
@@ -99,6 +116,8 @@ cleared lines:
 
 For specific behaviors of clear and unclear, please refer to section 5.2 on page 3.
 
+<sup>[back to top](#demark)</sup>
+
 ### 4.3 Toggle
 
 The Toggle feature allows the user to comment/uncomment all the marked lines at a time.
@@ -108,6 +127,7 @@ The Toggle feature allows the user to comment/uncomment all the marked lines at 
     
 For specific behaviors of toggle, please refer to section 5.3 on page 4.
 
+<sup>[back to top](#demark)</sup>
 
 ### 4.4 Display
 
@@ -117,6 +137,8 @@ displaying the marked lines along with a range of lines above and below to provi
 - Choose **DeMark|Display** in the toolbar.
     
 For specific behaviors of display, please refer to section 5.4 on page 4.
+
+<sup>[back to top](#demark)</sup>
 
 ## 5 Specific Behaviors of Functionality
 
@@ -133,6 +155,8 @@ For specific behaviors of display, please refer to section 5.4 on page 4.
     but the line will still be there.
 - Lines deleted in other IDEs or text editor will have the correct behavior as deleted in IntelliJ
     as well. This will also remove the mark for said line.
+
+<sup>[back to top](#demark)</sup>
 
 ### 5.2 Clearing and unclearing:
 
@@ -154,6 +178,7 @@ For specific behaviors of display, please refer to section 5.4 on page 4.
 - Lines that are added and marked after clear will not be removed by unclear. This allows for
     the following pattern of use and any similar: “mark-clear-mark-unclear.”
 
+<sup>[back to top](#demark)</sup>
 
 ### 5.3 Toggle
 
@@ -166,6 +191,8 @@ behaviors with some overlapping features.
 - Lines would still be able to be manually deleted.
 - Lines deleted in other text editors or IDEs will still be represented correctly as deleted.
 
+<sup>[back to top](#demark)</sup>
+
 #### 5.3.2 “Off ” state:
 
 - Marked lines that were already commented will gain an extra level of comment. This is similar
@@ -175,6 +202,8 @@ behaviors with some overlapping features.
 - Marking and unmarking in this state is permitted, the lines with their marking changed will
     retain their current levels of comment.
 
+<sup>[back to top](#demark)</sup>
+
 #### 5.3.3 “On” state:
 
 - Marked lines having more than one level of comment will lose one level.
@@ -183,6 +212,8 @@ behaviors with some overlapping features.
 - Marking and unmarking in this state is permitted, the lines with their marking changed will
     retain their current levels of comment.
 
+<sup>[back to top](#demark)</sup>
+
 ### 5.4 Display:
 
 - Only marked lines for the current file will be displayed.
@@ -190,6 +221,8 @@ behaviors with some overlapping features.
     purposes.
 - Displayed lines will be read-only. This includes the inability to mark, unmark, insert, or
     delete.
+
+<sup>[back to top](#demark)</sup>
 
 ## 6 Reporting Bugs
 
@@ -200,9 +233,10 @@ If you find any bugs in our plugin, please submit an issue to our GitHub page:ht
 - Specific steps to recreate the bug.
 - (Optional) A screen shot of the bug.
 
+<sup>[back to top](#demark)</sup>
 
 ## References
 
 [1]Installing, updating and uninstalling repository plugins. Available athttps://www.jetbrains.com/help/idea/installing-updating-and-uninstalling-repository-plugins.html.
 
-
+<sup>[back to top](#demark)</sup>
