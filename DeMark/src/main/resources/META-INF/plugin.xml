@@ -18,6 +18,10 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
+        <applicationService
+                serviceInterface="components.PersistentHighlightsRepository"
+                serviceImplementation="components.PersistentHighlightsRepository" />
+
     </extensions>
 
     <actions>
