@@ -3,10 +3,16 @@ package main.java.utils;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.markup.*;
+import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.openapi.components.ServiceManager;
 import com.intellij.ui.Gray;
 import com.intellij.ui.JBColor;
 import com.intellij.util.DocumentUtil;
+import components.PersistentHighlightsRepository;
+
+import javax.annotation.Nonnull;
 
 public class HighlightUtil {
     private Editor editor;
@@ -15,6 +21,9 @@ public class HighlightUtil {
     private JBColor color;
     private TextAttributes textAttributes;
 
+    private VirtualFile file;
+    private PersistentHighlightsRepository projectHighlights;
+
     public HighlightUtil(Editor editor, Project project, Document document) {
         this.editor = editor;
         this.project = project;
@@ -22,6 +31,9 @@ public class HighlightUtil {
         this.color = new JBColor(Gray._222, Gray._220);
         this.textAttributes = new TextAttributes();
         this.textAttributes.setBackgroundColor(this.color);
+
+        file = FileDocumentManager.getInstance().getFile(editor.getDocument());
+        projectHighlights = PersistentHighlightsRepository.getInstance(project);
     }
 
     // NOTES ON HIGHLIGHTING:
@@ -46,9 +58,11 @@ public class HighlightUtil {
         int offset = DocumentUtil.getFirstNonSpaceCharOffset(editor.getMarkupModel().getDocument(), lineNum);
 
         // Remove the highlight that matches the given line
-        for (RangeHighlighter highlight : rangeHighlighters) {
-            if (highlight.getStartOffset() == offset && highlight.getEndOffset() == offset) {
-                editor.getMarkupModel().removeHighlighter(highlight);
+        for (RangeHighlighter highlighter : rangeHighlighters) {
+            if (highlighter.getStartOffset() == offset && highlighter.getEndOffset() == offset) {
+                editor.getMarkupModel().removeHighlighter(highlighter);
+                projectHighlights.removeDeMarkHighlightFromStorage(file.getPath(), highlighter);
+
                 return;
             }
         }
@@ -61,7 +75,10 @@ public class HighlightUtil {
      * @param lineNum, the line to add a highlight to
      */
     public void addHighlight(int lineNum) {
-        editor.getMarkupModel().addLineHighlighter(lineNum, HighlighterLayer.LAST - 1, this.textAttributes);
+        RangeHighlighter highlighter = editor.getMarkupModel().addLineHighlighter(lineNum, HighlighterLayer.LAST - 1, this.textAttributes);
+        projectHighlights.addDeMarkHighlightToStorage(file.getPath(), highlighter);
+
+        System.out.println(projectHighlights.getFileHighlighters(file.getPath()).size());
     }
 
 }
