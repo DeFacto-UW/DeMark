@@ -2,6 +2,7 @@ package tests.java;
 
 import com.intellij.openapi.editor.markup.RangeHighlighter;
 import com.intellij.openapi.editor.markup.TextAttributes;
+import com.intellij.openapi.util.TextRange;
 import com.intellij.ui.Gray;
 import com.intellij.ui.JBColor;
 import com.intellij.util.DocumentUtil;
@@ -85,6 +86,24 @@ public class TestingUtility {
     }
 
     /**
+     * Gets the string that is on the current bookmarked line
+     * @param fixture
+     * @param bookmark
+     * @return string that is on the currently bookmarked line, can be empty
+     */
+    public static String getTextAtBookmark(@Nonnull JavaCodeInsightTestFixture fixture, Bookmark bookmark) {
+
+        int line = bookmark.getLine();
+
+        int startOffset = fixture.getEditor().getDocument().getLineStartOffset(line);
+        int endOffset = fixture.getEditor().getDocument().getLineEndOffset(line);
+
+        TextRange range = new TextRange(startOffset, endOffset);
+
+        return fixture.getEditor().getDocument().getText(range).trim();
+    }
+
+    /**
      * Gets the list of highlighters specifically tied to DeMark that are currently in the fixture
      *
      * @param fixture
@@ -121,8 +140,8 @@ public class TestingUtility {
      * @param withSelection
      * @param scrollToCaret
      */
-    public static void moveCaretLine(@Nonnull JavaCodeInsightTestFixture fixture,
-                                     int lineShift, boolean withSelection, boolean scrollToCaret) {
+    public static void shiftCaretLine(@Nonnull JavaCodeInsightTestFixture fixture,
+                                      int lineShift, boolean withSelection, boolean scrollToCaret) {
         fixture.getEditor().getCaretModel().getCurrentCaret().moveCaretRelatively(0, lineShift, withSelection, scrollToCaret);
     }
 
@@ -135,8 +154,8 @@ public class TestingUtility {
      * @param withSelection
      * @param scrollToCaret
      */
-    public static void moveCaretColumn(@Nonnull JavaCodeInsightTestFixture fixture,
-                                       int columnShift, boolean withSelection, boolean scrollToCaret) {
+    public static void shiftCaretColumn(@Nonnull JavaCodeInsightTestFixture fixture,
+                                        int columnShift, boolean withSelection, boolean scrollToCaret) {
         fixture.getEditor().getCaretModel().getCurrentCaret().moveCaretRelatively(columnShift, 0, withSelection, scrollToCaret);
     }
 
@@ -148,6 +167,18 @@ public class TestingUtility {
      */
     public static void moveCaretToOffset(@Nonnull JavaCodeInsightTestFixture fixture, int offset) {
         fixture.getEditor().getCaretModel().getCurrentCaret().moveToOffset(offset);
+    }
+
+    public static void moveCaretToLineStart(@Nonnull JavaCodeInsightTestFixture fixture, int line) {
+        int startOffSet = fixture.getEditor().getDocument().getLineStartOffset(line);
+
+        moveCaretToOffset(fixture, startOffSet);
+    }
+
+    public static void moveCaretToLineEnd(@Nonnull JavaCodeInsightTestFixture fixture, int line) {
+        int endOffSet = fixture.getEditor().getDocument().getLineEndOffset(line);
+
+        moveCaretToOffset(fixture, endOffSet);
     }
 
     /**
