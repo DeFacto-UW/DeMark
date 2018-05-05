@@ -3,4 +3,4 @@ sudo: enabled
 
 script: cd DeMark/ && gradle build
 
-after_success: gradlew check jacocoTestReport coveralls
+after_success: gradle check jacocoTestReport coveralls
