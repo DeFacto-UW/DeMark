@@ -28,6 +28,7 @@ public class MarkAction extends AnAction {
         project = anActionEvent.getProject();
         document = anActionEvent.getData(LangDataKeys.EDITOR).getDocument();
         editor = anActionEvent.getData(LangDataKeys.EDITOR);
+
         demarkUtil = new DemarkUtil(editor, project, document);
         selectionUtil = new SelectionUtil(editor, project, document);
     }
