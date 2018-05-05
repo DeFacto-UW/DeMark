@@ -8,11 +8,14 @@ jacocoTestReport {
     reports {
         xml.enabled = true
         html.enabled = true
+        html.destination file("${buildDir}/jacocoHtml")
     }
 
     test {
         jacoco {
+            append = false
             destinationFile = file("$buildDir/jacoco/test.exec")
+            classDumpDir = file("$buildDir/jacoco/classpathdumps")
         }
     }
 
@@ -20,7 +23,8 @@ jacocoTestReport {
         classDirectories = files(classDirectories.files.collect {
             fileTree(dir: it,
                     exclude: [
-                            '**/testData'
+                            '**/testData',
+                            '**/actions'
                     ])
         })
     }
