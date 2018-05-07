@@ -1,0 +1,34 @@
+Tony Vo
+tonyvo
+CSE 403 Software Engineering
+Team DeFacto
+
+Last weeks goals:
+    Code code code
+        - Meet up with other developers and flush out the details and have sort of a hackathon
+    Help team find a clear motivation to our project and use cases
+    Try implementing persistent state in our project.
+        - Use components and lifecycle methods
+
+Progress:
+	Accomplished:
+        - Made utility classes
+        - Basic implementation of display
+        - Revise the motivation for proposal
+
+	Learned
+        - Persistent storage is hard
+        - Intellij has very few examples of persistent state
+
+	Challenges:
+        - Lots of coding
+        - Read documentation that has no examples
+        - Use code that only has the source code as documentation
+
+Personal Plans:
+    - Finish coding by Wednesday morning
+    - Revise proposal
+    - Start using plugin myself
+    - launch
+
+
