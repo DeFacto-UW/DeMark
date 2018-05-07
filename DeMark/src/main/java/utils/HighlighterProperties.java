@@ -2,6 +2,8 @@ package main.java.utils;
 
 import org.jetbrains.annotations.NotNull;
 
+// Need to have a @Deprecated default constructor
+// Maybe need to implement PersistentStateComponent
 public class HighlighterProperties implements Comparable<HighlighterProperties> {
     private int lineOffset;
     private int highlightLayer;
