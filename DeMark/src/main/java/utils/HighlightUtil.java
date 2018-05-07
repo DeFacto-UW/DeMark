@@ -6,13 +6,10 @@ import com.intellij.openapi.editor.markup.*;
 import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.openapi.components.ServiceManager;
 import com.intellij.ui.Gray;
 import com.intellij.ui.JBColor;
 import com.intellij.util.DocumentUtil;
 import components.PersistentHighlightsRepository;
-
-import javax.annotation.Nonnull;
 
 public class HighlightUtil {
     private Editor editor;
@@ -61,12 +58,11 @@ public class HighlightUtil {
         for (RangeHighlighter highlighter : rangeHighlighters) {
             if (highlighter.getStartOffset() == offset && highlighter.getEndOffset() == offset) {
                 editor.getMarkupModel().removeHighlighter(highlighter);
-                projectHighlights.removeDeMarkHighlightFromStorage(file.getPath(), highlighter);
 
+                projectHighlights.removeDeMarkHighlightFromStorage(file.getPath(), offset, highlighter.getLayer(), Gray._222.getRGB(), Gray._220.getRGB());
                 return;
             }
         }
-
     }
 
     /**
@@ -76,9 +72,9 @@ public class HighlightUtil {
      */
     public void addHighlight(int lineNum) {
         RangeHighlighter highlighter = editor.getMarkupModel().addLineHighlighter(lineNum, HighlighterLayer.LAST - 1, this.textAttributes);
-        projectHighlights.addDeMarkHighlightToStorage(file.getPath(), highlighter);
+        int offset = DocumentUtil.getFirstNonSpaceCharOffset(editor.getMarkupModel().getDocument(), lineNum);
+        projectHighlights.addDeMarkHighlightToStorage(file.getPath(), offset, highlighter.getLayer(), Gray._222.getRGB(), Gray._220.getRGB());
 
         System.out.println(projectHighlights.getFileHighlighters(file.getPath()).size());
     }
-
 }
