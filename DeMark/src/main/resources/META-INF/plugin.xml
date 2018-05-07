@@ -18,8 +18,20 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
+        <postStartupActivity implementation="main.java.components.DemarkStartupActivity"/>
     </extensions>
-
+    <application-components>
+        <!-- Add your application components here -->
+        <component>
+            <implementation-class>components.DemarkApplicationComponent</implementation-class>
+        </component>
+    </application-components>
+    <project-components>
+        <component>
+            <!--&lt;!&ndash; Interface and implementation classes are the same &ndash;&gt;-->
+            <implementation-class>components.DemarkProjectComponent</implementation-class>
+        </component>
+    </project-components>
     <actions>
         <!-- Add your actions here -->
         <group id="DeMark.MainMenu" text="DeMark" description="DeMark Menu">
