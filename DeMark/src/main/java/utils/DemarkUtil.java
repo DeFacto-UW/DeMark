@@ -15,8 +15,8 @@ import main.java.utils.HighlightUtil;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.*;
 import java.util.List;
-import java.util.TreeMap;
 
 public class DemarkUtil {
     public static String DEMARK_INDICATOR = "DeMark";
@@ -27,6 +27,7 @@ public class DemarkUtil {
     private BookmarkManager bookmarkManager;
     private HighlightUtil highlighterUtil;
     private SelectionUtil selectionUtil;
+    private Stack<Map<String, Integer>> clearedHistory;
 
     public DemarkUtil(Editor editor, Project project, Document document) {
         this.editor = editor;
@@ -35,6 +36,7 @@ public class DemarkUtil {
         this.bookmarkManager = BookmarkManager.getInstance(project);
         this.highlighterUtil = new HighlightUtil(this.editor, this.project, this.document);
         this.selectionUtil = new SelectionUtil(editor, project, document);
+        this.clearedHistory = new Stack<>();
     }
 
     /**
@@ -84,17 +86,22 @@ public class DemarkUtil {
      */
     public void clearAllDemarkBookmarks() {
         List<Bookmark> bookmarkList = bookmarkManager.getValidBookmarks();
+        Map<String, Integer> clearedLines = new HashMap<>();
 
         for (Bookmark bookmark : bookmarkList) {
             int lineNum = bookmark.getLine();
 
             // Remove all bookmarks with Demark in this file
             if (isDemarked(lineNum)) {
-                bookmarkManager.removeBookmark(bookmark);
+                //bookmarkManager.removeBookmark(bookmark);
                 highlighterUtil.removeHighlight(lineNum);
-                selectionUtil.removeLine(lineNum);
+                String deletedLine = selectionUtil.removeLine(lineNum);
+
+                clearedLines.put(deletedLine, lineNum);
             }
         }
+
+        this.clearedHistory.push(clearedLines);
     }
 
 
@@ -162,6 +169,9 @@ public class DemarkUtil {
             }
 
         }
+
+        JTabbedPane tabs = new JTabbedPane();
+
         return demarks;
     }
 
