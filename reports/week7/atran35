@@ -1,0 +1,30 @@
+Anh (Andrew) Tran
+atran35
+CSE 403
+Team DeFacto
+
+Last week's goals:
+    * Add more tests for implementation. 
+    * Help team work on persistent state implementation. 
+    * Implement other functions of plugin. 
+
+Progress made:
+    Accomplished:
+        * Added framework for persistent state.
+        * Added more to testting framework. 
+        * Added more testing for the plugin. 
+        * Added some code coverage support for the build. 
+    Learned:
+        * How to implement code coverage plugins for gradle. 
+        * Some parts of how to write a persistent state component for the platform. 
+        * More components of the IntelliJ platform SDK. 
+    Challenges:
+        * Persistent state component is surprisingly difficult to implement. 
+        * Lots of tests to write for the plugin. 
+        * Some components of the SDK is harder to use than others. 
+        * Integrating Coveralls with Travis CI. 
+Personal plans:
+    * Get Coveralls to integrate with Travis CI properly. 
+    * Finish implementing persistent state. 
+    * Upload the plugin and use it. 
+    * Get friends to use the plugin. 
