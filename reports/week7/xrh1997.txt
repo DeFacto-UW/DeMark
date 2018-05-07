@@ -1,0 +1,28 @@
+Ranhao Xu
+xrh1997
+CSE403 week7 individual status report
+5/7/2018
+
+Last week's goals:
+ • Solve the icon not displaying issue
+ • Finish implementing unclear, display, toggle features
+ • Create a controller class
+ • Clean up code
+
+Progress made:
+ • Accomplished:
+   • Solved icon display issue
+   • Started persistent state implementation
+   • Finished Util class
+   • Deleted HelloAction class
+ • Learned:
+   • PersistentState implementation
+   • Coordinate Util class with actual action classes
+ • Challenges:
+   • Learning PersistentState and its implementation
+   • Serilization and Deserilization
+
+Plans:
+ • Solve deserilization issue
+ • Make highlight persistent
+ • Finish PersistentState implementation
