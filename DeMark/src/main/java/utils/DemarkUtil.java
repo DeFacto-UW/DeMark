@@ -87,37 +87,11 @@ public class DemarkUtil {
         if (res != null && res.getDescription().equals(DEMARK_INDICATOR)) {
             bookmarkManager.removeBookmark(res);
             HighlightUtil.removeHighlight(editor, lineNum);
-//            selectionUtil.removeLine(lineNum);
+            SelectionUtil.removeLine(editor, lineNum);
         }
     }
 
 
-    /**
-     *  Remove all marked lines including line body from a given editor
-     *
-     * @param editor, the editor that contains the marked lines
-     */
-    public static void clearAllDemarkBookmarks(@Nonnull Editor editor) {
-        Project project = editor.getProject();
-
-        if (project == null) {
-            return;
-        }
-
-        BookmarkManager bookmarkManager = BookmarkManager.getInstance(project);
-        List<Bookmark> bookmarkList = bookmarkManager.getValidBookmarks();
-
-        for (Bookmark bookmark : bookmarkList) {
-            int lineNum = bookmark.getLine();
-
-            // Remove all bookmarks with Demark in this file
-            if (isDemarked(editor, lineNum)) {
-                bookmarkManager.removeBookmark(bookmark);
-                HighlightUtil.removeHighlight(editor, lineNum);
-//                selectionUtil.removeLine(lineNum);
-            }
-        }
-    }
 
 
     /**
@@ -177,21 +151,32 @@ public class DemarkUtil {
         frame.setVisible(true);
     }
 
+
     /**
      * Removes all Demark bookmarks and deletes the corresponding lines with it from the current file
+     *
+     * @param editor, the editor that contains the marked lines
+     *
+     * @return Hashmap of all cleared marked lines. Line number -> line body
      */
-    public HashMap<Integer, String> clearAllDemarkBookmarks() {
-        List<Bookmark> bookmarkList = bookmarkManager.getValidBookmarks();
+    public static HashMap<Integer, String> clearAllDemarkBookmarks(@Nonnull Editor editor) {
+        Project project = editor.getProject();
         HashMap<Integer, String> history = new HashMap<>();
+        if (project == null) {
+            return history;
+        }
+
+        BookmarkManager bookmarkManager = BookmarkManager.getInstance(project);
+        List<Bookmark> bookmarkList = bookmarkManager.getValidBookmarks();
 
         for (Bookmark bookmark : bookmarkList) {
             int lineNum = bookmark.getLine();
 
             // Remove all bookmarks with Demark in this file
-            if (isDemarked(lineNum)) {
+            if (isDemarked(editor, lineNum)) {
                 bookmarkManager.removeBookmark(bookmark);
-                highlighterUtil.removeHighlight(lineNum);
-                history.put(lineNum, selectionUtil.removeLine(lineNum));
+                HighlightUtil.removeHighlight(editor, lineNum);
+                history.put(lineNum, SelectionUtil.removeLine(editor, lineNum));
             }
         }
         return history;
@@ -199,12 +184,13 @@ public class DemarkUtil {
 
     /**
      * Add all lines from last clear
+     *
+     * @param editor, the editor the unclear from
      * @param last, a HashMap that stores last clearAll action, and map line numbers to text
      */
-    public void unclearLastClearAll(HashMap<Integer, String> last) {
+    public static void unclearLastClearAll(@Nonnull Editor editor, HashMap<Integer, String> last) {
         for (HashMap.Entry<Integer, String> entry : last.entrySet()) {
-            System.out.println(entry.getKey() + ", " + entry.getValue());
-            selectionUtil.addLine(entry.getKey(), entry.getValue());
+            SelectionUtil.addLine(editor, entry.getKey(), entry.getValue());
         }
     }
 
@@ -269,7 +255,6 @@ public class DemarkUtil {
      */
     public static String getDocumentName(@Nonnull Document document) {
         VirtualFile vf = FileDocumentManager.getInstance().getFile(document);
-
         return vf == null ? "" : vf.getName();
     }
 }

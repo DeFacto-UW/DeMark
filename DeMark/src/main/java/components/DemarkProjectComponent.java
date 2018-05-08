@@ -33,8 +33,7 @@ public class DemarkProjectComponent implements ProjectComponent {
      * After project as been opend
      */
     public void projectOpened() {
-        Runnable addHighlights = () -> HighlightUtil.addHighlights(project);
-
+        Runnable addHighlights = () -> HighlightUtil.addHighlightsOnStart(project);
         StartupManager.getInstance(project).registerPostStartupActivity(addHighlights);
     }
 

@@ -6,6 +6,7 @@ import com.intellij.openapi.actionSystem.LangDataKeys;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
+import main.java.utils.DemarkUtil;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
@@ -25,16 +26,15 @@ public abstract class DeMarkAction extends AnAction {
         project = anActionEvent.getProject();
         document = anActionEvent.getData(LangDataKeys.EDITOR).getDocument();
         editor = anActionEvent.getData(LangDataKeys.EDITOR);
-        demarkUtil = new main.java.utils.DemarkUtil(editor, project, document);
     }
 
-    public void clearALl(AnActionEvent anActionEvent){
+    public void clearAll(AnActionEvent anActionEvent){
         init(anActionEvent);
-        unclearHistory.push(demarkUtil.clearAllDemarkBookmarks());
+        unclearHistory.push(demarkUtil.clearAllDemarkBookmarks(editor));
     }
 
     public void unclear(AnActionEvent anActionEvent){
         init(anActionEvent);
-        demarkUtil.unclearLastClearAll(unclearHistory.pop());
+        DemarkUtil.unclearLastClearAll(editor, unclearHistory.pop());
     }
 }

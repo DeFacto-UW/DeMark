@@ -3,7 +3,7 @@ package actions;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 
-public class UnclearAction extends DeMarkAction {
+public class UnclearAction extends actions.DeMarkAction {
 
     public void update(AnActionEvent e) {
         //perform action if and only if EDITOR != null
