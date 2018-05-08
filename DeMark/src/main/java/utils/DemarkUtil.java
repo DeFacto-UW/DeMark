@@ -10,6 +10,10 @@ import com.intellij.openapi.util.TextRange;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.util.DocumentUtil;
 
+import main.java.utils.HighlightUtil;
+import main.java.utils.SelectionUtil;
+
+
 import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.util.HashMap;
