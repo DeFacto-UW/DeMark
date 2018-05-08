@@ -18,12 +18,6 @@ public class ClearAllAction extends DeMarkAction {
         e.getPresentation().setEnabled(enabled);
     }
 
-    public void update(AnActionEvent e) {
-        //perform action if and only if EDITOR != null
-        boolean enabled = e.getData(CommonDataKeys.EDITOR) != null;
-        e.getPresentation().setEnabled(enabled);
-    }
-
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         this.clearALl(anActionEvent);
