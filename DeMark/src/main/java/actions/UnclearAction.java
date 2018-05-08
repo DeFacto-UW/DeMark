@@ -10,7 +10,6 @@ public class UnclearAction extends DeMarkAction {
         boolean enabled = e.getData(CommonDataKeys.EDITOR) != null;
         e.getPresentation().setEnabled(enabled);
     }
-
     @Override
     public void actionPerformed(AnActionEvent e) {
         this.unclear(e);
