@@ -9,7 +9,11 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.ui.Gray;
 import com.intellij.ui.JBColor;
 import com.intellij.util.DocumentUtil;
+import components.facades.HighlighterProperties;
 import components.PersistentHighlightsRepository;
+
+import java.util.List;
+import java.util.Set;
 
 public class HighlightUtil {
     private Editor editor;
@@ -59,7 +63,10 @@ public class HighlightUtil {
             if (highlighter.getStartOffset() == offset && highlighter.getEndOffset() == offset) {
                 editor.getMarkupModel().removeHighlighter(highlighter);
 
-                projectHighlights.removeDeMarkHighlightFromStorage(file.getPath(), offset, highlighter.getLayer(), Gray._222.getRGB(), Gray._220.getRGB());
+                projectHighlights.removeDeMarkHighlightFromStorage(file.getPath(), offset, highlighter.getLayer(), Gray._222.getRed(), Gray._220.getRed());
+
+                List<HighlighterProperties> fileHighlighters = projectHighlights.getFileHighlighters(file.getPath());
+                System.out.println(fileHighlighters);
                 return;
             }
         }
@@ -73,8 +80,10 @@ public class HighlightUtil {
     public void addHighlight(int lineNum) {
         RangeHighlighter highlighter = editor.getMarkupModel().addLineHighlighter(lineNum, HighlighterLayer.LAST - 1, this.textAttributes);
         int offset = DocumentUtil.getFirstNonSpaceCharOffset(editor.getMarkupModel().getDocument(), lineNum);
-        projectHighlights.addDeMarkHighlightToStorage(file.getPath(), offset, highlighter.getLayer(), Gray._222.getRGB(), Gray._220.getRGB());
+        projectHighlights.addDeMarkHighlightToStorage(file.getPath(), offset, highlighter.getLayer(), Gray._222.getRed(), Gray._220.getRed());
 
-        System.out.println(projectHighlights.getFileHighlighters(file.getPath()).size());
+        List<HighlighterProperties> fileHighlighters = projectHighlights.getFileHighlighters(file.getPath());
+        System.out.println(fileHighlighters.size());
+        System.out.println(fileHighlighters);
     }
 }

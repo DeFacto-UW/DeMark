@@ -3,15 +3,13 @@ package components;
 import com.intellij.openapi.components.*;
 import com.intellij.openapi.project.Project;
 import com.intellij.util.xmlb.XmlSerializerUtil;
-import main.java.utils.HighlighterProperties;
+import components.facades.HighlighterProperties;
+import components.facades.HighlighterPropertiesSet;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.beans.Transient;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @State(
         name = "DeMarkLineHighlights",
@@ -35,7 +33,7 @@ public class PersistentHighlightsRepository implements PersistentStateComponent<
     }
 
     /*-------Class begins------*/
-    public Map<String, Set<HighlighterProperties>> deMarkHighlighters = new HashMap<>();
+    private Map<String, HighlighterPropertiesSet> deMarkHighlighters = new HashMap<>();
 
     public static PersistentHighlightsRepository getInstance(Project project) {
         return ServiceManager.getService(project, PersistentHighlightsRepository.class);
@@ -43,28 +41,28 @@ public class PersistentHighlightsRepository implements PersistentStateComponent<
 
     @Transient
     public void addDeMarkHighlightToStorage(String filePath, int lineOffset, int layer, int colorOne, int colorTwo) {
-        deMarkHighlighters.computeIfAbsent(filePath, k -> new HashSet<HighlighterProperties>());
-
+        deMarkHighlighters.computeIfAbsent(filePath, k -> new HighlighterPropertiesSet());
 
         HighlighterProperties highlighterProperties = new HighlighterProperties(lineOffset, layer, colorOne, colorTwo);
-        deMarkHighlighters.get(filePath).add(highlighterProperties);
+
+        final HighlighterPropertiesSet highlighterPropertiesSet = deMarkHighlighters.get(filePath);
+        highlighterPropertiesSet.add(highlighterProperties);
     }
 
     @Transient
     public void removeDeMarkHighlightFromStorage(String filePath, int lineOffset, int layer, int colorOne, int colorTwo) {
-        //<editor-fold desc="DeMark_Fold">
-        Set<HighlighterProperties> highlighters = deMarkHighlighters.get(filePath);
+        HighlighterPropertiesSet highlighters = deMarkHighlighters.get(filePath);
         HighlighterProperties highlighterProperties = new HighlighterProperties(lineOffset, layer, colorOne, colorTwo);
-        //</editor-fold>
+
         if (highlighters != null && highlighters.contains(highlighterProperties)) {
             deMarkHighlighters.get(filePath).remove(highlighterProperties);
         }
     }
 
     @Transient
-    public Set<HighlighterProperties> getFileHighlighters(String path) {
-        Set<HighlighterProperties> highlighters = deMarkHighlighters.get(path);
+    public List<HighlighterProperties> getFileHighlighters(String path) {
+        HighlighterPropertiesSet highlighters = deMarkHighlighters.get(path);
 
-        return highlighters != null ? highlighters : new HashSet<>();
+        return highlighters != null ? highlighters : new ArrayList<>();
     }
 }
