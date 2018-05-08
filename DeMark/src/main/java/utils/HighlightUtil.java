@@ -6,31 +6,15 @@ import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.EditorFactory;
 import com.intellij.openapi.editor.markup.*;
-import com.intellij.openapi.fileEditor.FileEditor;
-import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.ui.Gray;
 import com.intellij.ui.JBColor;
 import com.intellij.util.DocumentUtil;
 
+import javax.annotation.Nonnull;
 import java.util.List;
-import java.util.TreeSet;
 
 public class HighlightUtil {
-    private Editor editor;
-    private Project project;
-    private Document document;
-    private JBColor color;
-    private TextAttributes textAttributes;
-
-    public HighlightUtil(Editor editor, Project project, Document document) {
-        this.editor = editor;
-        this.project = project;
-        this.document = document;
-        this.color = new JBColor(Gray._222, Gray._220);
-        this.textAttributes = new TextAttributes();
-        this.textAttributes.setBackgroundColor(this.color);
-    }
 
     // NOTES ON HIGHLIGHTING:
     // There are multiple highlighting layers. This can be found in HighlighterLayer.java in the SDK.
@@ -38,16 +22,14 @@ public class HighlightUtil {
     // We don't want to remove the implicit highlighters cause that might break things.
     // We don't need to use highlight manager to do things, just straight up use the editor markup model
     // Currently we are only using the line numbers and the list of highlighters that we added to determine
-    // TODO: figure out a good way to distinguish our Highlighter from other people's (including implicit ones)
-    // TODO: Fix highlighting to persist through multiple actions to be able to remove
-
 
     /**
-     * Remove a highlight from a given line
+     * Remove a highlight from a line
      *
-     * @param lineNum, the line to remove the highlight from
+     * @param editor, the editor to remove the highlight from
+     * @param lineNum, the line number to remove the highlight from
      */
-    public void removeHighlight(int lineNum) {
+    public static void removeHighlight(@Nonnull Editor editor, int lineNum) {
 
         // Find all the highlights
         RangeHighlighter[] rangeHighlighters = editor.getMarkupModel().getAllHighlighters();
@@ -60,15 +42,16 @@ public class HighlightUtil {
                 return;
             }
         }
-
     }
 
+
     /**
-     * Add a highlight to a given line
+     * Add a highlight to a line
      *
-     * @param lineNum, the line to add a highlight to
+     * @param editor, the editor to add the highlight to
+     * @param lineNum, the line number to add the highlight to
      */
-    public static void addHighlight(Editor editor, int lineNum) {
+    public static void addHighlight(@Nonnull Editor editor, int lineNum) {
         JBColor color = new JBColor(Gray._222, Gray._220);
         TextAttributes textAttributes = new TextAttributes();
         textAttributes.setBackgroundColor(color);
@@ -76,8 +59,9 @@ public class HighlightUtil {
         editor.getMarkupModel().addLineHighlighter(lineNum, HighlighterLayer.LAST - 1, textAttributes);
     }
 
-    public static void addHighlights(Project project) {
 
+
+    public static void addHighlights(Project project) {
         List<Bookmark> bookmarkList = BookmarkManager.getInstance(project).getValidBookmarks();
         System.out.println(bookmarkList.size());
 

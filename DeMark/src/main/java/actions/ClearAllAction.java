@@ -21,15 +21,14 @@ public class ClearAllAction extends AnAction {
     // TODO: Check the ones that may be null
     // Initializes all fields
     private void init(@NotNull AnActionEvent anActionEvent) {
-        project = anActionEvent.getProject();
-        document = anActionEvent.getData(LangDataKeys.EDITOR).getDocument();
         editor = anActionEvent.getData(LangDataKeys.EDITOR);
-        demarkUtil = new DemarkUtil(editor, project, document);
+        project = editor.getProject();
+        document = editor.getDocument();
     }
 
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         init(anActionEvent);
-        demarkUtil.clearAllDemarkBookmarks();
+        DemarkUtil.clearAllDemarkBookmarks(editor);
     }
 }
