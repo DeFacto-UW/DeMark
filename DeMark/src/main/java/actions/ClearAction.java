@@ -17,17 +17,13 @@ public class ClearAction extends AnAction {
     private Editor editor;
     private Project project;
     private Document document;
-    private DemarkUtil demarkUtil;
-    private SelectionUtil selectionUtil;
 
     // TODO: Check the ones that may be null
     // Initializes all fields
     private void init(@NotNull AnActionEvent anActionEvent) {
-        project = anActionEvent.getProject();
-        document = anActionEvent.getData(LangDataKeys.EDITOR).getDocument();
         editor = anActionEvent.getData(LangDataKeys.EDITOR);
-        demarkUtil = new DemarkUtil(editor, project, document);
-        selectionUtil = new SelectionUtil(editor, project, document);
+        project = editor.getProject();
+        document = editor.getDocument();
     }
 
     public void update(AnActionEvent e) {
@@ -44,8 +40,8 @@ public class ClearAction extends AnAction {
         int currLine = document.getLineNumber(editor.getSelectionModel().getSelectionStart());
 
         // If it is a Demark line, remove it
-        if (demarkUtil.isDemarked(currLine)) {
-            demarkUtil.clearDemarkBookmark(currLine);
+        if (DemarkUtil.isDemarked(editor, currLine)) {
+            DemarkUtil.clearDemarkBookmark(editor, currLine);
         }
     }
 }
