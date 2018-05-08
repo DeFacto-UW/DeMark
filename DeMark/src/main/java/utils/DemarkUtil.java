@@ -257,7 +257,7 @@ public class DemarkUtil {
      * @param document, the document to get the name of
      * @return the document's file name, empty string if cannot get name
      */
-    public static String getDocumentName(@Nonnull Document document) {
+    private static String getDocumentName(@Nonnull Document document) {
         VirtualFile vf = FileDocumentManager.getInstance().getFile(document);
         return vf == null ? "" : vf.getName();
     }
