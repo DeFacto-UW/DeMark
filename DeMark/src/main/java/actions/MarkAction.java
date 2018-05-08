@@ -18,7 +18,6 @@ public class MarkAction extends AnAction {
 
     private Document document;
     private Editor editor;
-    private SelectionUtil selectionUtil;
     private Project project;
 
 
@@ -28,7 +27,6 @@ public class MarkAction extends AnAction {
         editor = anActionEvent.getData(LangDataKeys.EDITOR);
         project = editor.getProject();
         document = editor.getDocument();
-        selectionUtil = new SelectionUtil(editor, project, document);
     }
 
     public void update(AnActionEvent e) {
@@ -42,7 +40,7 @@ public class MarkAction extends AnAction {
         init(anActionEvent);
         
         // Find the line start positions of selected text
-        ArrayList<Integer> lineStarts = selectionUtil.getSelectionStarts();
+        ArrayList<Integer> lineStarts = SelectionUtil.getSelectionStarts(editor, document);
         int countMarked = 0;
 
         // Count the number of lines marked

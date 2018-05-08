@@ -1,11 +1,10 @@
 package components;
-import com.intellij.ide.bookmarks.Bookmark;
-import com.intellij.ide.bookmarks.BookmarkManager;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.components.ProjectComponent;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.startup.StartupManager;
+import main.java.utils.HighlightUtil;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 
 /**
@@ -30,31 +29,33 @@ public class DemarkProjectComponent implements ProjectComponent {
         System.out.println("Initializing project");
     }
 
+    /**
+     * After project as been opend
+     */
     public void projectOpened() {
-        System.out.println(String.format("Project '%s' has been opened, base dir '%s'", project.getName(), project.getBaseDir().getCanonicalPath()));
-        List<Bookmark> bookmarkList = BookmarkManager.getInstance(this.project).getValidBookmarks();
-        System.out.println(bookmarkList);
+        Runnable addHighlights = () -> HighlightUtil.addHighlights(project);
+
+        StartupManager.getInstance(project).registerPostStartupActivity(addHighlights);
     }
 
+    /**
+     * On project close
+     */
     public void projectClosed() {
-        List<Bookmark> bookmarkList = BookmarkManager.getInstance(this.project).getValidBookmarks();
-//        System.out.println(bookmarkList);
-        for (Bookmark bookmark : bookmarkList) {
-//            System.out.println("demark bookmark at line: " + bookmark.getLine());
-        }
     }
 
 
+    /**
+     * After project close, clean up
+     */
     public void disposeComponent() {
-        //called after projectClosed()
     }
 
     @NotNull
+    /**
+     * Get the current Components name
+     */
     public String getComponentName() {
         return "DemarkProjectComponent";
-    }
-
-    public void setMessage(String message) {
-       this.message = message;
     }
 }

@@ -137,11 +137,11 @@ public class DemarkUtil {
         for (Bookmark bookmark : bookmarkList) {
             int lineNum = bookmark.getLine();
             if (isDemarked(editor, lineNum)) {
-//               if (selectionUtil.isCommented(lineNum)) {
-//                   selectionUtil.removeComment(lineNum);
-//               } else {
-//                   selectionUtil.addComment(lineNum);
-//               }
+               if (SelectionUtil.isCommented(editor, lineNum)) {
+                   SelectionUtil.removeComment(editor, lineNum);
+               } else {
+                   SelectionUtil.addComment(editor, lineNum);
+               }
             }
         }
     }

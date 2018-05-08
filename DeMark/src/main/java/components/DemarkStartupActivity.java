@@ -21,8 +21,5 @@ public class DemarkStartupActivity implements StartupActivity {
     @Override
     public void runActivity(@NotNull Project project) {
 
-        Runnable addHighlights = () -> HighlightUtil.addHighlights(project);
-
-        StartupManager.getInstance(project).registerPostStartupActivity(addHighlights);
     }
 }
