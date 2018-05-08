@@ -1,6 +1,5 @@
 package main.java.utils;
 
-import com.intellij.ide.highlighter.HighlighterFactory;
 import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
@@ -8,33 +7,29 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.TextRange;
 import com.intellij.util.DocumentUtil;
 
+import javax.annotation.Nonnegative;
+import javax.annotation.Nonnull;
 import java.util.ArrayList;
 
 public class SelectionUtil {
 
-    private final String COMMENT_MARKER = "//";
-
-    private Editor editor;
-    private Document document;
-    private Project project;
-    public SelectionUtil(Editor editor, Project project, Document document) {
-       this.editor = editor;
-       this.project = project;
-       this.document = document;
-    }
+    private static final String COMMENT_MARKER = "//";
 
     /**
-     * Find the start positions of each line of the editors currently selected text
+     * Given a range of selected text, returns the line start positions of each line in the range as a list of integers.
      *
-     * @return ArrayList of line start positions
+     * @param editor The nonnull editor in which the text lives.
+     *
+     * @return An ArrayList of integers, where each integer represents the start positions of every line in the range.
      */
-    public ArrayList<Integer> getSelectionStarts() {
+    public static ArrayList<Integer> getSelectionStarts(@Nonnull Editor editor) {
+        Document document = editor.getDocument();
+        ArrayList<Integer> lineStarts = new ArrayList<>();
+
         // Character position of selected model
         int selectPosStart = editor.getSelectionModel().getSelectionStart();
         int selectPosEnd = editor.getSelectionModel().getSelectionEnd();
-
-
-        ArrayList<Integer> lineStarts = new ArrayList<>();
+        int currPos = selectPosStart;
 
         // User didn't select anything and is in cursor mode
         if (selectPosStart == selectPosEnd) {
@@ -42,7 +37,6 @@ public class SelectionUtil {
             return lineStarts;
         }
 
-        int currPos = selectPosStart;
 
         // Add all line starts positions to the array
         while (currPos < selectPosEnd) {
@@ -55,23 +49,38 @@ public class SelectionUtil {
     }
 
     /**
-     *  Determine if a line is already commented
-     * @param lineNum, d
-     * @return
+     * Checks if the line at a line number is commented.
+     * @param lineNum The line number of the line.
+     *
+     * @return True if the line is commented, false otherwise.
      */
-    public boolean isCommented(int lineNum) {
-        TextRange textRange = DocumentUtil.getLineTextRange(document, lineNum);
-        String lineBody = document.getText(textRange);
+    public static boolean isCommented(@Nonnull Editor editor, @Nonnegative int lineNum) {
+        Document document = editor.getDocument();
 
+        // Gets the line range from a document using the line number.
+        TextRange textRange = DocumentUtil.getLineTextRange(document, lineNum);
+
+        // Gets the string using the text range and then check if the line starts a comment.
+        String lineBody = document.getText(textRange);
         return lineBody.startsWith(COMMENT_MARKER);
     }
 
     /**
-     *  Comment out a Demark line
-     * @param lineNum, the line number to comment out
+     * Adds a comment to the line at a passed line number.
+     *
+     * @param editor , The editor to add the comment to.
+     * @param lineNum The line number to add a comment to.
      */
-    public void addComment(int lineNum) {
-        if (!isCommented(lineNum)) {
+    public static void addComment(@Nonnull Editor editor, @Nonnegative int lineNum) {
+        Project project = editor.getProject();
+        Document document = editor.getDocument();
+
+        if (project == null) {
+            return;
+        }
+
+        // If the line is not commented already, add a comment to the line at the start position of the line.
+        if (!isCommented(editor, lineNum)) {
             int startPos = document.getLineStartOffset(lineNum);
             Runnable addComment = () -> document.insertString(startPos, COMMENT_MARKER);
             WriteCommandAction.runWriteCommandAction(project, addComment);
@@ -79,41 +88,73 @@ public class SelectionUtil {
     }
 
     /**
-     *  Remove Comment from a Demark line
-     * @param lineNum, the line number to remove the comment from
+     * Remove a comment from a line given a line number.
+     *
+     * @param editor, the editor to remove the comment from.
+     * @param lineNum The line number to remove the comment marker from.
      */
-    public void removeComment(int lineNum) {
-        if (isCommented(lineNum)) {
+    public static void removeComment(@Nonnull Editor editor, @Nonnegative int lineNum) {
+        Project project = editor.getProject();
+        Document document = editor.getDocument();
+
+        if (project == null) {
+            return;
+        }
+
+        // Only remove if the line is commented.
+        if (isCommented(editor, lineNum)) {
+            // Get the start of the line and then add the length of a comment marker.
             int startPos = document.getLineStartOffset(lineNum);
             int endPos = startPos + COMMENT_MARKER.length();
+
+            // Delete the string given the range.
             Runnable removeComment = () -> document.deleteString(startPos, endPos);
             WriteCommandAction.runWriteCommandAction(project, removeComment);
         }
     }
 
     /**
-     * Add a line to a document
+     * Adds a line of text at a line number.
      *
-     * @param lineNum, the line number to add to the document
-     * @param text, the text to add to the document
+     * @param editor, the editor to add the line to.
+     * @param lineNum The line number to add the text at.
+     * @param text The nonnull line of text to add to the document.
      */
-    public void addLine(int lineNum, String text) {
+    public static void addLine(@Nonnull Editor editor, @Nonnegative int lineNum, @Nonnull String text) {
+        Project project = editor.getProject();
+        Document document = editor.getDocument();
+
+        if (project == null) {
+            return;
+        }
+
+        // Get the start position using the line number and add the line of text.
         int startPos = document.getLineStartOffset(lineNum);
         Runnable addLine = () -> document.insertString(startPos, text + "\n");
         WriteCommandAction.runWriteCommandAction(project, addLine);
     }
 
     /**
-     * Remove a line from a document
+     * Removes a line of text from a document using the line number.
      *
-     * @param lineNum, the line number to remove from the document
+     * @param editor, the editor to remove the line from.
+     * @param lineNum The line number to delete.
+     *
+     * @return the String that is deleted from the document, empty string if line could not be removed.
      */
-    public String removeLine(int lineNum) {
+    public static String removeLine(@Nonnull Editor editor, @Nonnegative int lineNum) {
+        Project project = editor.getProject();
+        Document document = editor.getDocument();
+
+        if (project == null) {
+            return "";
+        }
+
         // Convert lines to character positions
         TextRange textRange = DocumentUtil.getLineTextRange(document, lineNum);
         String text = document.getText(textRange);
 
-        // Remove the line content
+        // Remove the line content, make sure to check whether the offset will return over the length of the document.
         if (textRange.getEndOffset() == document.getTextLength()) {
             Runnable removeText = () -> document.deleteString(textRange.getStartOffset(), textRange.getEndOffset());
             WriteCommandAction.runWriteCommandAction(project, removeText);

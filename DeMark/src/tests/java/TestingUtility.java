@@ -60,10 +60,7 @@ public class TestingUtility {
      * @return List that is the start positions of each line currently selected
      */
     public static List<Integer> getSelectionStarts(@Nonnull JavaCodeInsightTestFixture fixture) {
-        SelectionUtil selectionUtil =
-                new SelectionUtil(fixture.getEditor(), fixture.getProject(), fixture.getEditor().getDocument());
-
-        return selectionUtil.getSelectionStarts();
+        return SelectionUtil.getSelectionStarts(fixture.getEditor());
     }
 
     /**

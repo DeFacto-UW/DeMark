@@ -7,6 +7,7 @@ import com.intellij.openapi.actionSystem.LangDataKeys;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.project.ProjectManager;
 import main.java.utils.DemarkUtil;
 import main.java.utils.SelectionUtil;
 import org.jetbrains.annotations.NotNull;
@@ -17,20 +18,15 @@ public class MarkAction extends AnAction {
 
     private Document document;
     private Editor editor;
-    private DemarkUtil demarkUtil;
-    private SelectionUtil selectionUtil;
     private Project project;
 
 
     // TODO: Check the ones that may be null
     // Initializes all fields
     private void init(@NotNull AnActionEvent anActionEvent) {
-        project = anActionEvent.getProject();
-        document = anActionEvent.getData(LangDataKeys.EDITOR).getDocument();
         editor = anActionEvent.getData(LangDataKeys.EDITOR);
-
-        demarkUtil = new DemarkUtil(editor, project, document);
-        selectionUtil = new SelectionUtil(editor, project, document);
+        project = editor.getProject();
+        document = editor.getDocument();
     }
 
     public void update(AnActionEvent e) {
@@ -44,13 +40,13 @@ public class MarkAction extends AnAction {
         init(anActionEvent);
         
         // Find the line start positions of selected text
-        ArrayList<Integer> lineStarts = selectionUtil.getSelectionStarts();
+        ArrayList<Integer> lineStarts = SelectionUtil.getSelectionStarts(editor);
         int countMarked = 0;
 
         // Count the number of lines marked
         for (int i = 0; i < lineStarts.size(); i++) {
             int lineNum = document.getLineNumber(lineStarts.get(i));
-           if (demarkUtil.isDemarked(lineNum)) {
+           if (DemarkUtil.isDemarked(editor, lineNum)) {
               countMarked++;
            }
         }
@@ -63,13 +59,15 @@ public class MarkAction extends AnAction {
 
             int lineNum = document.getLineNumber(lineStarts.get(i));
             if (countMarked != lineStarts.size()) {
-                if (!demarkUtil.isDemarked(lineNum)) {
-                    demarkUtil.addDemarkBookmark(lineNum);
+                if (!DemarkUtil.isDemarked(editor, lineNum)) {
+                    DemarkUtil.addDemarkBookmark(editor, lineNum);
                 }
 
             } else {
-                demarkUtil.removeDemarkBookmark(lineNum);
+                DemarkUtil.removeDemarkBookmark(editor, lineNum);
             }
         }
+
+
     }
 }
