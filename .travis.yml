@@ -5,5 +5,8 @@ script: cd DeMark/ && gradle build
 
 after_success:
 - gradle check jacocoTestReport
-- gradle check jacocoTestReport coveralls
+- gradlew check jacocoTestReport coveralls
 - ls build/jacocoHtml
+
+after_failure:
+- gradle clean check --debug
