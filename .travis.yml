@@ -1,12 +1,10 @@
 language: generic
 sudo: enabled
 
-script: cd DeMark/ && gradle build
+script: cd DeMark/ && gradle build --info
 
 after_success:
-- gradle check jacocoTestReport
-- gradlew check jacocoTestReport coveralls
-- ls build/jacocoHtml
+- gradle check jacocoTestReport coveralls --info
 
 after_failure:
 - gradle clean check --debug
