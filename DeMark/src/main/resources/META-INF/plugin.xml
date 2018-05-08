@@ -44,7 +44,7 @@
             <action id="clear all" class="actions.ClearAllAction" text="Clear All Marked Lines" description="Clear all marked lines">
                 <keyboard-shortcut keymap="$default" first-keystroke="alt N"/>
             </action>
-            <action id="unclear" class="actions.ToggleAction" text="Unclear Marked Lines" description="Undo the last clear">
+            <action id="unclear" class="actions.UnclearAction" text="Unclear Marked Lines" description="Undo the last clear">
                 <keyboard-shortcut keymap="$default" first-keystroke="alt shift D"/>
             </action>
             <action id="mark" class="actions.MarkAction" text="Mark" description="Mark the current line">

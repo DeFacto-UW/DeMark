@@ -8,6 +8,9 @@ import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
 import main.java.utils.DemarkUtil;
 import org.jetbrains.annotations.NotNull;
+import components.DemarkProjectComponent;
+
+import java.util.HashMap;
 
 
 public class ClearAllAction extends AnAction {
@@ -16,7 +19,6 @@ public class ClearAllAction extends AnAction {
     private Editor editor;
     private Project project;
     private Document document;
-    private DemarkUtil demarkUtil;
 
     // TODO: Check the ones that may be null
     // Initializes all fields
@@ -29,6 +31,10 @@ public class ClearAllAction extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         init(anActionEvent);
-        DemarkUtil.clearAllDemarkBookmarks(editor);
+        DemarkProjectComponent demarkProjectComponent = project.getComponent(DemarkProjectComponent.class
+        );
+
+        HashMap<Integer, String> clearedLines = DemarkUtil.clearAllDemarkBookmarks(editor);
+        demarkProjectComponent.pushHistory(clearedLines);
     }
 }

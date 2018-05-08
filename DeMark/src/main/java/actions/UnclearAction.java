@@ -1,17 +1,36 @@
 package actions;
 
+import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.CommonDataKeys;
+import com.intellij.openapi.actionSystem.LangDataKeys;
+import com.intellij.openapi.editor.Document;
+import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.project.Project;
+import main.java.utils.DemarkUtil;
+import org.jetbrains.annotations.NotNull;
+import components.DemarkProjectComponent;
+import java.util.HashMap;
 
-public class UnclearAction extends actions.DeMarkAction {
+public class UnclearAction extends AnAction {
 
-    public void update(AnActionEvent e) {
-        //perform action if and only if EDITOR != null
-        boolean enabled = e.getData(CommonDataKeys.EDITOR) != null;
-        e.getPresentation().setEnabled(enabled);
+    private Editor editor;
+    private Project project;
+    private Document document;
+
+    // TODO: Check the ones that may be null
+    // Initializes all fields
+    private void init(@NotNull AnActionEvent anActionEvent) {
+        editor = anActionEvent.getData(LangDataKeys.EDITOR);
+        project = editor.getProject();
+        document = editor.getDocument();
     }
     @Override
     public void actionPerformed(AnActionEvent e) {
-        this.unclear(e);
+        init(e);
+        DemarkProjectComponent demarkProjectComponent = project.getComponent(DemarkProjectComponent.class
+        );
+
+        HashMap<Integer, String> prevClearedLines = demarkProjectComponent.popHistory();
+        DemarkUtil.unclearLastClearAll(editor, prevClearedLines);
     }
 }
