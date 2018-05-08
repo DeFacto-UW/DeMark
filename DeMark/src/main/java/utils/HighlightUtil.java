@@ -11,6 +11,8 @@ import com.intellij.ui.Gray;
 import com.intellij.ui.JBColor;
 import com.intellij.util.DocumentUtil;
 
+import main.java.utils.DemarkUtil;
+
 import javax.annotation.Nonnull;
 import java.util.List;
 
