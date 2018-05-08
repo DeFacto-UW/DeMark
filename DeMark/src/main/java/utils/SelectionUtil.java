@@ -12,23 +12,14 @@ import java.util.ArrayList;
 
 public class SelectionUtil {
 
-    private final String COMMENT_MARKER = "//";
-
-    private Editor editor;
-    private Document document;
-    private Project project;
-    public SelectionUtil(Editor editor, Project project, Document document) {
-       this.editor = editor;
-       this.project = project;
-       this.document = document;
-    }
+    private static final String COMMENT_MARKER = "//";
 
     /**
      * Find the start positions of each line of the editors currently selected text
      *
      * @return ArrayList of line start positions
      */
-    public ArrayList<Integer> getSelectionStarts() {
+    public static ArrayList<Integer> getSelectionStarts(Editor editor, Document document) {
         // Character position of selected model
         int selectPosStart = editor.getSelectionModel().getSelectionStart();
         int selectPosEnd = editor.getSelectionModel().getSelectionEnd();
@@ -59,7 +50,7 @@ public class SelectionUtil {
      * @param lineNum, d
      * @return
      */
-    public boolean isCommented(int lineNum) {
+    public static boolean isCommented(int lineNum, Document document) {
         TextRange textRange = DocumentUtil.getLineTextRange(document, lineNum);
         String lineBody = document.getText(textRange);
 
@@ -70,8 +61,8 @@ public class SelectionUtil {
      *  Comment out a Demark line
      * @param lineNum, the line number to comment out
      */
-    public void addComment(int lineNum) {
-        if (!isCommented(lineNum)) {
+    public static void addComment(int lineNum, Document document, Project project) {
+        if (!isCommented(lineNum, document)) {
             int startPos = document.getLineStartOffset(lineNum);
             Runnable addComment = () -> document.insertString(startPos, COMMENT_MARKER);
             WriteCommandAction.runWriteCommandAction(project, addComment);
@@ -82,8 +73,8 @@ public class SelectionUtil {
      *  Remove Comment from a Demark line
      * @param lineNum, the line number to remove the comment from
      */
-    public void removeComment(int lineNum) {
-        if (isCommented(lineNum)) {
+    public static void removeComment(int lineNum, Document document, Project project) {
+        if (isCommented(lineNum, document)) {
             int startPos = document.getLineStartOffset(lineNum);
             int endPos = startPos + COMMENT_MARKER.length();
             Runnable removeComment = () -> document.deleteString(startPos, endPos);
@@ -97,7 +88,7 @@ public class SelectionUtil {
      * @param lineNum, the line number to add to the document
      * @param text, the text to add to the document
      */
-    public void addLine(int lineNum, String text) {
+    public static void addLine(int lineNum, String text, Document document, Project project) {
         int startPos = document.getLineStartOffset(lineNum);
         Runnable addLine = () -> document.insertString(startPos, text + "\n");
         WriteCommandAction.runWriteCommandAction(project, addLine);
@@ -108,7 +99,7 @@ public class SelectionUtil {
      *
      * @param lineNum, the line number to remove from the document
      */
-    public String removeLine(int lineNum) {
+    public static String removeLine(int lineNum, Document document, Project project) {
         // Convert lines to character positions
         TextRange textRange = DocumentUtil.getLineTextRange(document, lineNum);
         String text = document.getText(textRange);
