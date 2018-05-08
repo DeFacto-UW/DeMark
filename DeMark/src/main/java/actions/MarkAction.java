@@ -40,7 +40,7 @@ public class MarkAction extends AnAction {
         init(anActionEvent);
         
         // Find the line start positions of selected text
-        ArrayList<Integer> lineStarts = SelectionUtil.getSelectionStarts(editor, document);
+        ArrayList<Integer> lineStarts = SelectionUtil.getSelectionStarts(editor);
         int countMarked = 0;
 
         // Count the number of lines marked
