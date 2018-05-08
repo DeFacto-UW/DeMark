@@ -1,9 +1,7 @@
 package actions;
 
-import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
-import exceptions.NotYetImplementedException;
 
 public class UnclearAction extends DeMarkAction {
 
@@ -13,10 +11,6 @@ public class UnclearAction extends DeMarkAction {
         e.getPresentation().setEnabled(enabled);
     }
 
-    /**
-     * Not yet implemented.
-     * @param e
-     */
     @Override
     public void actionPerformed(AnActionEvent e) {
         this.unclear(e);

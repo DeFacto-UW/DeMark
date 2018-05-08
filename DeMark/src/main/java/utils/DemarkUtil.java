@@ -15,6 +15,7 @@ import main.java.utils.HighlightUtil;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashMap;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -82,8 +83,9 @@ public class DemarkUtil {
     /**
      * Removes all Demark bookmarks and deletes the corresponding lines with it from the current file
      */
-    public void clearAllDemarkBookmarks() {
+    public HashMap<Integer, String> clearAllDemarkBookmarks() {
         List<Bookmark> bookmarkList = bookmarkManager.getValidBookmarks();
+        HashMap<Integer, String> history = new HashMap<>();
 
         for (Bookmark bookmark : bookmarkList) {
             int lineNum = bookmark.getLine();
@@ -92,11 +94,22 @@ public class DemarkUtil {
             if (isDemarked(lineNum)) {
                 bookmarkManager.removeBookmark(bookmark);
                 highlighterUtil.removeHighlight(lineNum);
-                selectionUtil.removeLine(lineNum);
+                history.put(lineNum, selectionUtil.removeLine(lineNum));
             }
         }
+        return history;
     }
 
+    /**
+     * Add all lines from last clear
+     * @param last, a HashMap that stores last clearAll action, and map line numbers to text
+     */
+    public void unclearLastClearAll(HashMap<Integer, String> last) {
+        for (HashMap.Entry<Integer, String> entry : last.entrySet()) {
+            System.out.println(entry.getKey() + ", " + entry.getValue());
+            selectionUtil.addLine(entry.getKey(), entry.getValue());
+        }
+    }
 
     public void toggleDemarkComment() {
         List<Bookmark> bookmarkList = bookmarkManager.getValidBookmarks();

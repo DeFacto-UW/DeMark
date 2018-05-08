@@ -86,9 +86,21 @@ public class SelectionUtil {
         if (isCommented(lineNum)) {
             int startPos = document.getLineStartOffset(lineNum);
             int endPos = startPos + COMMENT_MARKER.length();
-            Runnable addComment = () -> document.deleteString(startPos, endPos);
-            WriteCommandAction.runWriteCommandAction(project, addComment);
+            Runnable removeComment = () -> document.deleteString(startPos, endPos);
+            WriteCommandAction.runWriteCommandAction(project, removeComment);
         }
+    }
+
+    /**
+     * Add a line to a document
+     *
+     * @param lineNum, the line number to add to the document
+     * @param text, the text to add to the document
+     */
+    public void addLine(int lineNum, String text) {
+        int startPos = document.getLineStartOffset(lineNum);
+        Runnable addLine = () -> document.insertString(startPos, text + "\n");
+        WriteCommandAction.runWriteCommandAction(project, addLine);
     }
 
     /**
@@ -96,9 +108,10 @@ public class SelectionUtil {
      *
      * @param lineNum, the line number to remove from the document
      */
-    public void removeLine(int lineNum) {
+    public String removeLine(int lineNum) {
         // Convert lines to character positions
         TextRange textRange = DocumentUtil.getLineTextRange(document, lineNum);
+        String text = document.getText(textRange);
 
         // Remove the line content
         if (textRange.getEndOffset() == document.getTextLength()) {
@@ -107,7 +120,7 @@ public class SelectionUtil {
         } else {
             Runnable removeText = () -> document.deleteString(textRange.getStartOffset(), textRange.getEndOffset() + 1);
             WriteCommandAction.runWriteCommandAction(project, removeText);
-
         }
+        return text;
     }
 }
