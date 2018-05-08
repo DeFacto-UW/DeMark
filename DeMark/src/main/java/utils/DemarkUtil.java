@@ -12,6 +12,7 @@ import com.intellij.util.DocumentUtil;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
+import java.util.HashMap;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -137,11 +138,11 @@ public class DemarkUtil {
         for (Bookmark bookmark : bookmarkList) {
             int lineNum = bookmark.getLine();
             if (isDemarked(editor, lineNum)) {
-               if (SelectionUtil.isCommented(editor, lineNum)) {
-                   SelectionUtil.removeComment(editor, lineNum);
-               } else {
-                   SelectionUtil.addComment(editor, lineNum);
-               }
+                if (SelectionUtil.isCommented(editor, lineNum)) {
+                    SelectionUtil.removeComment(editor, lineNum);
+                } else {
+                    SelectionUtil.addComment(editor, lineNum);
+                }
             }
         }
     }
@@ -176,6 +177,36 @@ public class DemarkUtil {
         frame.setVisible(true);
     }
 
+    /**
+     * Removes all Demark bookmarks and deletes the corresponding lines with it from the current file
+     */
+    public HashMap<Integer, String> clearAllDemarkBookmarks() {
+        List<Bookmark> bookmarkList = bookmarkManager.getValidBookmarks();
+        HashMap<Integer, String> history = new HashMap<>();
+
+        for (Bookmark bookmark : bookmarkList) {
+            int lineNum = bookmark.getLine();
+
+            // Remove all bookmarks with Demark in this file
+            if (isDemarked(lineNum)) {
+                bookmarkManager.removeBookmark(bookmark);
+                highlighterUtil.removeHighlight(lineNum);
+                history.put(lineNum, selectionUtil.removeLine(lineNum));
+            }
+        }
+        return history;
+    }
+
+    /**
+     * Add all lines from last clear
+     * @param last, a HashMap that stores last clearAll action, and map line numbers to text
+     */
+    public void unclearLastClearAll(HashMap<Integer, String> last) {
+        for (HashMap.Entry<Integer, String> entry : last.entrySet()) {
+            System.out.println(entry.getKey() + ", " + entry.getValue());
+            selectionUtil.addLine(entry.getKey(), entry.getValue());
+        }
+    }
 
     /**
      * Get all Demark Bookmarks
