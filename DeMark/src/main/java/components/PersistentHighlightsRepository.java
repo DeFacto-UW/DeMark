@@ -53,7 +53,7 @@ public class PersistentHighlightsRepository implements PersistentStateComponent<
     public void removeDeMarkHighlightFromStorage(String filePath, int lineOffset, int layer, int colorOne, int colorTwo) {
         HighlighterPropertiesSet highlighters = deMarkHighlighters.get(filePath);
         HighlighterProperties highlighterProperties = new HighlighterProperties(lineOffset, layer, colorOne, colorTwo);
-
+      
         if (highlighters != null && highlighters.contains(highlighterProperties)) {
             deMarkHighlighters.get(filePath).remove(highlighterProperties);
         }

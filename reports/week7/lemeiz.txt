@@ -1,0 +1,28 @@
+Name: Lemei Zhang
+CSE netID: lemeiz
+CSE 403 Software Engineering
+Week 7 individual report
+
+Goals from last week:
+  - Finish implementing the rest of the core functionalities (Unclear, Display,
+    and Toggle)
+  - Add more simple test cases, and add complex test cases if there are time
+  - Further revise the user manual and project propoal if needed
+
+Progress of this week:
+  - Accomplished:
+    - Display function implemented
+    - Persistent state and Unclear function in progress
+    - Revised the user manual and project proposal based on feedback
+  - Learned:
+    - How to implement a simple GUI
+    - Understand how to make a clear architecture diagram
+  - Challenges:
+    - Using APIs that has very little documentation, especially when there
+      are no examples provided
+
+Goals and plans for next week:
+  - Strive to finish implementing persistent state and unclear function within 
+    two days
+  - Start using the tool ourselves as well as distribute it to others to gather
+    gather initial results

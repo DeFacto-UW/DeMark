@@ -1,5 +1,6 @@
 package main.java.utils;
 
+import com.intellij.ide.bookmarks.Bookmark;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.markup.*;
@@ -35,6 +36,13 @@ public class HighlightUtil {
 
         file = FileDocumentManager.getInstance().getFile(editor.getDocument());
         projectHighlights = PersistentHighlightsRepository.getInstance(project);
+    }
+
+    public void highlightAllBookmarkedLines(List<Bookmark> bookmarks) {
+        for (Bookmark bookmark : bookmarks) {
+            int lineNum = bookmark.getLine();
+            editor.getMarkupModel().addLineHighlighter(lineNum, HighlighterLayer.LAST - 1, textAttributes);
+        }
     }
 
     // NOTES ON HIGHLIGHTING:
