@@ -24,13 +24,12 @@ public class SelectionUtil {
      */
     public static ArrayList<Integer> getSelectionStarts(@Nonnull Editor editor) {
         Document document = editor.getDocument();
+        ArrayList<Integer> lineStarts = new ArrayList<>();
 
         // Character position of selected model
         int selectPosStart = editor.getSelectionModel().getSelectionStart();
         int selectPosEnd = editor.getSelectionModel().getSelectionEnd();
-
-
-        ArrayList<Integer> lineStarts = new ArrayList<>();
+        int currPos = selectPosStart;
 
         // User didn't select anything and is in cursor mode
         if (selectPosStart == selectPosEnd) {
@@ -38,7 +37,6 @@ public class SelectionUtil {
             return lineStarts;
         }
 
-        int currPos = selectPosStart;
 
         // Add all line starts positions to the array
         while (currPos < selectPosEnd) {
@@ -80,9 +78,8 @@ public class SelectionUtil {
         if (project == null) {
             return;
         }
-        /*
-         If the line is not commented already, go ahead and add a comment to the line at the start position of the line.
-         */
+
+        // If the line is not commented already, add a comment to the line at the start position of the line.
         if (!isCommented(editor, lineNum)) {
             int startPos = document.getLineStartOffset(lineNum);
             Runnable addComment = () -> document.insertString(startPos, COMMENT_MARKER);
@@ -109,6 +106,7 @@ public class SelectionUtil {
             // Get the start of the line and then add the length of a comment marker.
             int startPos = document.getLineStartOffset(lineNum);
             int endPos = startPos + COMMENT_MARKER.length();
+
             // Delete the string given the range.
             Runnable removeComment = () -> document.deleteString(startPos, endPos);
             WriteCommandAction.runWriteCommandAction(project, removeComment);
@@ -164,7 +162,6 @@ public class SelectionUtil {
             Runnable removeText = () -> document.deleteString(textRange.getStartOffset(), textRange.getEndOffset() + 1);
             WriteCommandAction.runWriteCommandAction(project, removeText);
         }
-
         return text;
     }
 }
