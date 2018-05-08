@@ -91,7 +91,7 @@ public class SelectionUtil {
      * @param document The nonnull document in which the line lives.
      * @param project The nonnull project in which the line lives.
      */
-    public static void removeComment(int lineNum, Document document, Project project) {
+    public static void removeComment(@Nonnegative int lineNum, @Nonnull Document document, @Nonnull Project project) {
         // Only remove if the line is commented.
         if (isCommented(lineNum, document)) {
             // Get the start of the line and then add the length of a comment marker.
