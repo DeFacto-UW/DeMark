@@ -19,7 +19,6 @@ public class SelectionUtil {
      * Given a range of selected text, returns the line start positions of each line in the range as a list of integers.
      *
      * @param editor The nonnull editor in which the text lives.
-     *
      * @return An ArrayList of integers, where each integer represents the start positions of every line in the range.
      */
     public static ArrayList<Integer> getSelectionStarts(@Nonnull Editor editor) {
@@ -50,8 +49,8 @@ public class SelectionUtil {
 
     /**
      * Checks if the line at a line number is commented.
-     * @param lineNum The line number of the line.
      *
+     * @param lineNum The line number of the line.
      * @return True if the line is commented, false otherwise.
      */
     public static boolean isCommented(@Nonnull Editor editor, @Nonnegative int lineNum) {
@@ -68,7 +67,7 @@ public class SelectionUtil {
     /**
      * Adds a comment to the line at a passed line number.
      *
-     * @param editor , The editor to add the comment to.
+     * @param editor  , The editor to add the comment to.
      * @param lineNum The line number to add a comment to.
      */
     public static void addComment(@Nonnull Editor editor, @Nonnegative int lineNum) {
@@ -118,7 +117,7 @@ public class SelectionUtil {
      *
      * @param editor, the editor to add the line to.
      * @param lineNum The line number to add the text at.
-     * @param text The nonnull line of text to add to the document.
+     * @param text    The nonnull line of text to add to the document.
      */
     public static void addLine(@Nonnull Editor editor, @Nonnegative int lineNum, @Nonnull String text) {
         Project project = editor.getProject();
@@ -139,7 +138,6 @@ public class SelectionUtil {
      *
      * @param editor, the editor to remove the line from.
      * @param lineNum The line number to delete.
-     *
      * @return the String that is deleted from the document, empty string if line could not be removed.
      */
     public static String removeLine(@Nonnull Editor editor, @Nonnegative int lineNum) {

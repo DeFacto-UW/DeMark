@@ -38,7 +38,7 @@ public class MarkAction extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         init(anActionEvent);
-        
+
         // Find the line start positions of selected text
         ArrayList<Integer> lineStarts = SelectionUtil.getSelectionStarts(editor);
         int countMarked = 0;
@@ -46,9 +46,9 @@ public class MarkAction extends AnAction {
         // Count the number of lines marked
         for (int i = 0; i < lineStarts.size(); i++) {
             int lineNum = document.getLineNumber(lineStarts.get(i));
-           if (DemarkUtil.isDemarked(editor, lineNum)) {
-              countMarked++;
-           }
+            if (DemarkUtil.isDemarked(editor, lineNum)) {
+                countMarked++;
+            }
         }
 
         // Toggle on and off bookmarks

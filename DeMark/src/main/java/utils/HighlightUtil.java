@@ -19,7 +19,7 @@ import java.util.List;
 public class HighlightUtil {
 
 
-    public static JBColor highlightColor = new JBColor(Gray._222, Gray._220);
+    private static JBColor highlightColor = new JBColor(Gray._222, Gray._220);
     // NOTES ON HIGHLIGHTING:
     // There are multiple highlighting layers. This can be found in HighlighterLayer.java in the SDK.
     // We are using the layer directly below the selection layer, which is SELECTION - 1 or LAST - 1
@@ -30,7 +30,7 @@ public class HighlightUtil {
     /**
      * Remove a highlight from a line
      *
-     * @param editor, the editor to remove the highlight from
+     * @param editor,  the editor to remove the highlight from
      * @param lineNum, the line number to remove the highlight from
      */
     public static void removeHighlight(@Nonnull Editor editor, int lineNum) {
@@ -52,7 +52,7 @@ public class HighlightUtil {
     /**
      * Add a highlight to a line
      *
-     * @param editor, the editor to add the highlight to
+     * @param editor,  the editor to add the highlight to
      * @param lineNum, the line number to add the highlight to
      */
     public static void addHighlight(@Nonnull Editor editor, int lineNum) {
@@ -64,8 +64,7 @@ public class HighlightUtil {
 
 
     /**
-     *
-      * @param project The project to add the highlights to
+     * @param project The project to add the highlights to
      */
     public static void addHighlightsOnStart(Project project) {
         List<Bookmark> bookmarkList = BookmarkManager.getInstance(project).getValidBookmarks();

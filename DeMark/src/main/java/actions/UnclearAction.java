@@ -27,8 +27,7 @@ public class UnclearAction extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent e) {
         init(e);
-        DemarkProjectComponent demarkProjectComponent = project.getComponent(DemarkProjectComponent.class
-        );
+        DemarkProjectComponent demarkProjectComponent = project.getComponent(DemarkProjectComponent.class);
 
         HashMap<Integer, String> prevClearedLines = demarkProjectComponent.popHistory();
         DemarkUtil.unclearLastClearAll(editor, prevClearedLines);
