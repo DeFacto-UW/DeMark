@@ -1,12 +1,20 @@
 package main.java.utils;
 
+import com.intellij.ide.bookmarks.Bookmark;
+import com.intellij.ide.bookmarks.BookmarkManager;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.editor.EditorFactory;
 import com.intellij.openapi.editor.markup.*;
+import com.intellij.openapi.fileEditor.FileEditor;
+import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.ui.Gray;
 import com.intellij.ui.JBColor;
 import com.intellij.util.DocumentUtil;
+
+import java.util.List;
+import java.util.TreeSet;
 
 public class HighlightUtil {
     private Editor editor;
@@ -60,8 +68,33 @@ public class HighlightUtil {
      *
      * @param lineNum, the line to add a highlight to
      */
-    public void addHighlight(int lineNum) {
-        editor.getMarkupModel().addLineHighlighter(lineNum, HighlighterLayer.LAST - 1, this.textAttributes);
+    public static void addHighlight(Editor editor, int lineNum) {
+        JBColor color = new JBColor(Gray._222, Gray._220);
+        TextAttributes textAttributes = new TextAttributes();
+        textAttributes.setBackgroundColor(color);
+
+        editor.getMarkupModel().addLineHighlighter(lineNum, HighlighterLayer.LAST - 1, textAttributes);
     }
 
+    public static void addHighlights(Project project) {
+
+        List<Bookmark> bookmarkList = BookmarkManager.getInstance(project).getValidBookmarks();
+        System.out.println(bookmarkList.size());
+
+        Editor[] editorArray = EditorFactory.getInstance().getAllEditors();
+        for (Editor singleEditor : editorArray) {
+            Document document = singleEditor.getDocument();
+            for (Bookmark bookmark : bookmarkList) {
+                Document bookmarkDoc = bookmark.getDocument();
+
+                if (document.equals(bookmarkDoc) && bookmark.getDescription().equals(DemarkUtil.DEMARK_INDICATOR)) {
+
+                    JBColor color = new JBColor(Gray._222, Gray._220);
+                    TextAttributes textAttributes = new TextAttributes();
+                    textAttributes.setBackgroundColor(color);
+                    singleEditor.getMarkupModel().addLineHighlighter(bookmark.getLine(), HighlighterLayer.LAST - 1, textAttributes);
+                }
+            }
+        }
+    }
 }

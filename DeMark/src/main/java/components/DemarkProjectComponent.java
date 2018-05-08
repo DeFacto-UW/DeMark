@@ -15,6 +15,7 @@ public class DemarkProjectComponent implements ProjectComponent {
     private final Project project;
     @NotNull
     private final ApplicationComponent applicationComponent;
+    private String message;
 
     /**
      * @param project The current project, i.e. the project which was just opened.
@@ -22,6 +23,7 @@ public class DemarkProjectComponent implements ProjectComponent {
     public DemarkProjectComponent(Project project, @NotNull components.DemarkApplicationComponent applicationComponent) {
         this.project = project;
         this.applicationComponent = applicationComponent;
+        this.message = "Hello there";
     }
 
     public void initComponent() {
@@ -30,25 +32,18 @@ public class DemarkProjectComponent implements ProjectComponent {
 
     public void projectOpened() {
         System.out.println(String.format("Project '%s' has been opened, base dir '%s'", project.getName(), project.getBaseDir().getCanonicalPath()));
-
-//        List<Bookmark> bookmarkList = BookmarkManager.getInstance(this.project).getValidBookmarks();
-//        System.out.println(bookmarkList);
-//        for (Bookmark bookmark : bookmarkList) {
-////            if (bookmark.getDescription().equals(DemarkUtil.DEMARK_INDICATOR)) {
-//                System.out.println("demark bookmark at line: " + bookmark.getLine());
-////            }
-//        }
-
+        List<Bookmark> bookmarkList = BookmarkManager.getInstance(this.project).getValidBookmarks();
+        System.out.println(bookmarkList);
     }
 
     public void projectClosed() {
         List<Bookmark> bookmarkList = BookmarkManager.getInstance(this.project).getValidBookmarks();
-        System.out.println(bookmarkList);
+//        System.out.println(bookmarkList);
         for (Bookmark bookmark : bookmarkList) {
-            System.out.println("demark bookmark at line: " + bookmark.getLine());
+//            System.out.println("demark bookmark at line: " + bookmark.getLine());
         }
-
     }
+
 
     public void disposeComponent() {
         //called after projectClosed()
@@ -57,5 +52,9 @@ public class DemarkProjectComponent implements ProjectComponent {
     @NotNull
     public String getComponentName() {
         return "DemarkProjectComponent";
+    }
+
+    public void setMessage(String message) {
+       this.message = message;
     }
 }

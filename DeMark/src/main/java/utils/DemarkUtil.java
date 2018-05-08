@@ -41,12 +41,16 @@ public class DemarkUtil {
      * Add a Demark bookmark to the current file at a specified line
      * @param lineNum, the line number to mark
      */
-    public void addDemarkBookmark(int lineNum) {
+    public static void addDemarkBookmark(Editor editor, int lineNum) {
+        Project project = editor.getProject();
+        Document document = editor.getDocument();
+        BookmarkManager bookmarkManager = BookmarkManager.getInstance(project);
+
         bookmarkManager.addEditorBookmark(editor, lineNum);
         Bookmark added = bookmarkManager.findEditorBookmark(document, lineNum);
         if (added != null) {
             bookmarkManager.setDescription(added, DEMARK_INDICATOR);
-            highlighterUtil.addHighlight(lineNum);
+            HighlightUtil.addHighlight(editor, lineNum);
         }
     }
 

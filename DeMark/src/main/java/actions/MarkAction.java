@@ -7,6 +7,7 @@ import com.intellij.openapi.actionSystem.LangDataKeys;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.project.ProjectManager;
 import main.java.utils.DemarkUtil;
 import main.java.utils.SelectionUtil;
 import org.jetbrains.annotations.NotNull;
@@ -63,12 +64,14 @@ public class MarkAction extends AnAction {
             int lineNum = document.getLineNumber(lineStarts.get(i));
             if (countMarked != lineStarts.size()) {
                 if (!demarkUtil.isDemarked(lineNum)) {
-                    demarkUtil.addDemarkBookmark(lineNum);
+                    DemarkUtil.addDemarkBookmark(editor, lineNum);
                 }
 
             } else {
                 demarkUtil.removeDemarkBookmark(lineNum);
             }
         }
+
+
     }
 }
