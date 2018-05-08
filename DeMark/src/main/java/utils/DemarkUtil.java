@@ -137,7 +137,7 @@ public class DemarkUtil {
         JTextArea area = new JTextArea();
         area.setEditable(false);
 
-        area.append("File name: " + this.getDocumentName() + "\n");
+        area.append("File name: " + this.getDocumentName(document) + "\n");
 
         TreeMap<Integer, String> demarks = getDemarks();
 
@@ -193,8 +193,8 @@ public class DemarkUtil {
      * Get the name of the current file
      * @return the name of the current file
      */
-    private String getDocumentName() {
-        VirtualFile vf = FileDocumentManager.getInstance().getFile(this.document);
+    public String getDocumentName(Document document) {
+        VirtualFile vf = FileDocumentManager.getInstance().getFile(document);
         return vf.getName();
     }
 

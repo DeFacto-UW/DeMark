@@ -9,7 +9,6 @@ import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
-import java.util.Stack;
 
 public abstract class DeMarkAction extends AnAction {
     private Editor editor;
@@ -17,7 +16,7 @@ public abstract class DeMarkAction extends AnAction {
     private Document document;
     private main.java.utils.DemarkUtil demarkUtil;
 
-    private static Stack<HashMap<Integer, String>> unclearHistory = new Stack<>();
+    private static HashMap<String, HashMap<Integer, String>> unclearHistory = new HashMap<>();
 
     // TODO: Check the ones that may be null
     // Initializes all fields
@@ -30,11 +29,13 @@ public abstract class DeMarkAction extends AnAction {
 
     public void clearALl(AnActionEvent anActionEvent){
         init(anActionEvent);
-        unclearHistory.push(demarkUtil.clearAllDemarkBookmarks());
+        unclearHistory.put(demarkUtil.getDocumentName(document), demarkUtil.clearAllDemarkBookmarks());
     }
 
     public void unclear(AnActionEvent anActionEvent){
         init(anActionEvent);
-        demarkUtil.unclearLastClearAll(unclearHistory.pop());
+        if (unclearHistory.size() != 0) {
+            demarkUtil.unclearLastClearAll(unclearHistory.get(demarkUtil.getDocumentName(document)));
+        }
     }
 }
