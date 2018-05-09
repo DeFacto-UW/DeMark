@@ -4,7 +4,7 @@
     <vendor email="atran35@uw.edu" url="http://github.com/DeFacto/DeMark">DeMark</vendor>
 
     <description><![CDATA[
-    Allows user to add and delete temp code
+    Allows user to mark and unmark lines in the editor and batch delete them for clean commits.
     ]]></description>
 
     <change-notes><![CDATA[
