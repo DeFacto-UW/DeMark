@@ -1,6 +1,8 @@
 package components.model;
 
 import java.util.HashMap;
+import components.model.ClearHistory;
+import components.model.ClearRecord;
 
 public class AllClearHistory extends HashMap<String, ClearHistory> {
     public AllClearHistory() {

@@ -19,7 +19,7 @@ import java.util.List;
 public class HighlightUtil {
 
 
-    private static JBColor highlightColor = new JBColor(Gray._222, Gray._220);
+    private static JBColor highlightColor = new JBColor(Gray._222, JBColor.white);
     // NOTES ON HIGHLIGHTING:
     // There are multiple highlighting layers. This can be found in HighlighterLayer.java in the SDK.
     // We are using the layer directly below the selection layer, which is SELECTION - 1 or LAST - 1

@@ -1,6 +1,7 @@
 package components.model;
 
 import java.util.Stack;
+import components.model.ClearRecord;
 
 public class ClearHistory extends Stack<ClearRecord> {
     public ClearHistory() {
