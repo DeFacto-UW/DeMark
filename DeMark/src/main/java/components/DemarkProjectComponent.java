@@ -1,7 +1,7 @@
 package components;
-import actions.model.AllClearHistory;
-import actions.model.ClearHistory;
-import actions.model.ClearRecord;
+import components.model.AllClearHistory;
+import components.model.ClearHistory;
+import components.model.ClearRecord;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.components.ProjectComponent;
 import com.intellij.openapi.project.Project;

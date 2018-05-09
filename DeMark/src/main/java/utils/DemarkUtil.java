@@ -1,6 +1,6 @@
 package main.java.utils;
 
-import actions.model.ClearRecord;
+import components.model.ClearRecord;
 import com.intellij.ide.bookmarks.Bookmark;
 import com.intellij.ide.bookmarks.BookmarkManager;
 import com.intellij.openapi.editor.Document;
@@ -11,8 +11,6 @@ import com.intellij.openapi.util.TextRange;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.util.DocumentUtil;
 
-import main.java.utils.HighlightUtil;
-import main.java.utils.SelectionUtil;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;

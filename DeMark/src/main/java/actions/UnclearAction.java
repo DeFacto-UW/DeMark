@@ -1,6 +1,6 @@
 package actions;
 
-import actions.model.ClearRecord;
+import components.model.ClearRecord;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.LangDataKeys;

@@ -1,4 +1,4 @@
-package actions.model;
+package components.model;
 
 import java.util.TreeMap;
 
