@@ -1,5 +1,7 @@
 package main.java.utils;
 
+import actions.model.ClearHistory;
+import actions.model.ClearRecord;
 import com.intellij.ide.bookmarks.Bookmark;
 import com.intellij.ide.bookmarks.BookmarkManager;
 import com.intellij.openapi.editor.Document;
@@ -163,11 +165,11 @@ public class DemarkUtil {
      *
      * @return Hashmap of all cleared marked lines. Line number -> line body
      */
-    public static HashMap<Integer, String> clearAllDemarkBookmarks(@Nonnull Editor editor) {
+    public static ClearRecord clearAllDemarkBookmarks(@Nonnull Editor editor) {
         Project project = editor.getProject();
-        HashMap<Integer, String> history = new HashMap<>();
+        ClearRecord cr = new ClearRecord();
         if (project == null) {
-            return history;
+            return cr;
         }
 
         BookmarkManager bookmarkManager = BookmarkManager.getInstance(project);
@@ -180,19 +182,19 @@ public class DemarkUtil {
             if (isDemarked(editor, lineNum)) {
                 bookmarkManager.removeBookmark(bookmark);
                 HighlightUtil.removeHighlight(editor, lineNum);
-                history.put(lineNum, SelectionUtil.removeLine(editor, lineNum));
+                cr.addRecord(lineNum, SelectionUtil.removeLine(editor, lineNum));
             }
         }
-        return history;
+        return cr;
     }
 
     /**
      * Add all lines from last clear
      *
      * @param editor, the editor the unclear from
-     * @param last, a HashMap that stores last clearAll action, and map line numbers to text
+     * @param last, a collection that stores last clearAll action
      */
-    public static void unclearLastClearAll(@Nonnull Editor editor, HashMap<Integer, String> last) {
+    public static void unclearLastClearAll(@Nonnull Editor editor, ClearRecord last) {
         for (HashMap.Entry<Integer, String> entry : last.entrySet()) {
             SelectionUtil.addLine(editor, entry.getKey(), entry.getValue());
         }
@@ -257,7 +259,7 @@ public class DemarkUtil {
      * @param document, the document to get the name of
      * @return the document's file name, empty string if cannot get name
      */
-    private static String getDocumentName(@Nonnull Document document) {
+    public static String getDocumentName(@Nonnull Document document) {
         VirtualFile vf = FileDocumentManager.getInstance().getFile(document);
         return vf == null ? "" : vf.getName();
     }

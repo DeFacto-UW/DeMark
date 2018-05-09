@@ -1,5 +1,6 @@
 package actions;
 
+import actions.model.ClearRecord;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.LangDataKeys;
@@ -10,12 +11,7 @@ import main.java.utils.DemarkUtil;
 import org.jetbrains.annotations.NotNull;
 import components.DemarkProjectComponent;
 
-import java.util.HashMap;
-
-
 public class ClearAllAction extends AnAction {
-
-
     private Editor editor;
     private Project project;
     private Document document;
@@ -34,7 +30,7 @@ public class ClearAllAction extends AnAction {
         DemarkProjectComponent demarkProjectComponent = project.getComponent(DemarkProjectComponent.class
         );
 
-        HashMap<Integer, String> clearedLines = DemarkUtil.clearAllDemarkBookmarks(editor);
-        demarkProjectComponent.pushHistory(clearedLines);
+        ClearRecord clearedLines = DemarkUtil.clearAllDemarkBookmarks(editor);
+        demarkProjectComponent.pushHistory(DemarkUtil.getDocumentName(document), clearedLines);
     }
 }

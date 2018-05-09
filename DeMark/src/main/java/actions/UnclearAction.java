@@ -1,5 +1,6 @@
 package actions;
 
+import actions.model.ClearRecord;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.LangDataKeys;
@@ -9,7 +10,6 @@ import com.intellij.openapi.project.Project;
 import main.java.utils.DemarkUtil;
 import org.jetbrains.annotations.NotNull;
 import components.DemarkProjectComponent;
-import java.util.HashMap;
 
 public class UnclearAction extends AnAction {
 
@@ -29,7 +29,9 @@ public class UnclearAction extends AnAction {
         init(e);
         DemarkProjectComponent demarkProjectComponent = project.getComponent(DemarkProjectComponent.class);
 
-        HashMap<Integer, String> prevClearedLines = demarkProjectComponent.popHistory();
-        DemarkUtil.unclearLastClearAll(editor, prevClearedLines);
+        ClearRecord prevClearedLines = demarkProjectComponent.popHistory(DemarkUtil.getDocumentName(document));
+        if (prevClearedLines != null) {
+            DemarkUtil.unclearLastClearAll(editor, prevClearedLines);
+        }
     }
 }

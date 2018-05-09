@@ -14,7 +14,6 @@ public class ToggleAction extends AnAction {
     private Editor editor;
     private Project project;
     private Document document;
-    private DemarkUtil demarkUtil;
 
     // TODO: Check the ones that may be null
     // Initializes all fields

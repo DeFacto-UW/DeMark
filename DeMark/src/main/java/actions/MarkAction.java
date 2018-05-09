@@ -7,7 +7,6 @@ import com.intellij.openapi.actionSystem.LangDataKeys;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.project.ProjectManager;
 import main.java.utils.DemarkUtil;
 import main.java.utils.SelectionUtil;
 import org.jetbrains.annotations.NotNull;
