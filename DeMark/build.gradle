@@ -34,8 +34,8 @@ repositories {
 }
 
 
-group 'DeFacto'
-version 'Alpha-0.1'
+group 'DeFacto-UW'
+version 'Alpha-0.2'
 
 apply plugin: 'java'
 apply plugin: 'idea'

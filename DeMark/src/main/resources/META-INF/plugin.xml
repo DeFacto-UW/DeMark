@@ -1,14 +1,14 @@
 <idea-plugin>
-    <id>DeFacto-UW.DeMark</id>
+    <id>DeFacto.DeMark</id>
     <name>DeMark</name>
-    <vendor email="atran35@uw.edu" url="http://github.com/DeFacto/DeMark">DeMark</vendor>
+    <vendor email="atran35@uw.edu" url="http://github.com/DeFacto-UW/DeMark">DeMark</vendor>
 
     <description><![CDATA[
     Allows user to mark and unmark lines in the editor and batch delete them for clean commits.
     ]]></description>
 
     <change-notes><![CDATA[
-      Release 0.1: Initial release.<br>
+      Release 0.2: Now compatible with IC-2017.3 and up.<br>
     ]]>
     </change-notes>
 
