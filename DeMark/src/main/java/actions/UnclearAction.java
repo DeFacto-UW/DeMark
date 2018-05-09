@@ -11,6 +11,8 @@ import main.java.utils.DemarkUtil;
 import org.jetbrains.annotations.NotNull;
 import components.DemarkProjectComponent;
 
+import java.util.Set;
+
 public class UnclearAction extends AnAction {
 
     private Editor editor;
@@ -32,6 +34,11 @@ public class UnclearAction extends AnAction {
         ClearRecord prevClearedLines = demarkProjectComponent.popHistory(DemarkUtil.getDocumentName(document));
         if (prevClearedLines != null) {
             DemarkUtil.unclearLastClearAll(editor, prevClearedLines);
+
+            Set<Integer> prevClearedLineNums = prevClearedLines.keySet();
+            for(Integer lineNum : prevClearedLineNums) {
+                DemarkUtil.addDemarkBookmark(editor, lineNum);
+            }
         }
     }
 }

@@ -1,8 +1,8 @@
 package actions.model;
 
-import java.util.HashMap;
+import java.util.TreeMap;
 
-public class ClearRecord extends HashMap<Integer, String> {
+public class ClearRecord extends TreeMap<Integer, String> {
     public ClearRecord() {
     }
 
