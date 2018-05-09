@@ -30,6 +30,10 @@ jacocoTestReport {
     }
 }
 
+coveralls {
+    jacocoReportPath = "$buildDir/jacoco/test.exec"
+}
+
 repositories {
     mavenCentral()
 }
