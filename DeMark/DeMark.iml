@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module relativePaths="true" type="JAVA_MODULE" version="4">
+<module relativePaths="true" type="PLUGIN_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output/>
     <orderEntry type="inheritedJdk"/>
@@ -12,7 +12,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build"/>
     </content>
     <orderEntry type="sourceFolder" forTests="false"/>
-    <orderEntry type="module-library" scope="PROVIDED">
+    <orderEntry type="module-library" scope="PROVIDED">m
       <library>
         <CLASSES>
           <root url="jar://C:/Users/Dahlia 2.0/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/2017.3.4/9f9a05f798720d7da2e3b3af8983552a840ed5d4/ideaIC-2017.3.4/lib/aether-1.1.0-all.jar!/"/>

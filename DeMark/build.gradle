@@ -52,12 +52,10 @@ intellij {
     version 'IC-2018.1.2'
     plugins 'coverage'
     pluginName 'DeMark'
-}
 
-patchPluginXml {
-    changeNotes """
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>"""
+    publish {
+        apply from: "gradle.properties"
+    }
 }
 
 sourceSets {
@@ -73,6 +71,11 @@ sourceSets {
             exclude "**/testData"
         }
     }
+}
+
+patchPluginXml {
+    changeNotes """
+      DeMark is  tool that lets you mark and unmark lines in your editor for batch deletion"""
 }
 
 // Example task
