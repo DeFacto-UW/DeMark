@@ -14,7 +14,6 @@ jacocoTestReport {
     test {
         jacoco {
             append = false
-            destinationFile = file("$buildDir/jacoco/test.exec")
             classDumpDir = file("$buildDir/jacoco/classpathdumps")
         }
     }
@@ -28,10 +27,6 @@ jacocoTestReport {
                     ])
         })
     }
-}
-
-coveralls {
-    jacocoReportPath = "$buildDir/jacoco/test.exec"
 }
 
 repositories {
