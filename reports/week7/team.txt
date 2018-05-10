@@ -1,0 +1,32 @@
+Status Report: Week 7
+
+Last week's goal:
+    - Strive to finish implementation by Sunday.
+    - Push plugin to intelliJ.
+    - Use plugin ourselves.
+        - Get friends to use and fill out survey.
+
+Progress Made:
+    Accomplished:
+        - Completed implementation.
+        - Plugin pushed to IntelliJ repository.
+        - Made survey for plugin usage.
+        - Sent out email to willing participants in survey with a distribution of plugin.
+
+    Learned:
+        - How the plugin community is being managed.
+        - How to use components to perform actions on the IDEA startup.
+        - Working with version compability.
+        - Working with Travis and Coveralls.
+
+    Challenges:
+        - Unclear was much harder than we thought.
+        - Highlighting has some few edge case issues that are difficult to resolve.
+        - Not a lot of people we know on campus uses IntelliJ so first data set will be small.
+        - Compability issues with older versions of IntelliJ.
+
+Plans:
+    - Fix up report's wording and architecture diagram.
+    - Update user manual on GitHub to correctly reflect the changes made.
+    - Synthesize preliminary data for initial results.
+    - Fix bugs and add tests.
