@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/DeFacto-UW/DeMark.svg?branch=master)](https://travis-ci.org/DeFacto-UW/DeMark)
+[![Coverage Status](https://coveralls.io/repos/github/DeFacto-UW/DeMark/badge.svg?branch=master)](https://coveralls.io/github/DeFacto-UW/DeMark?branch=master)
 
 # DeMark
 
