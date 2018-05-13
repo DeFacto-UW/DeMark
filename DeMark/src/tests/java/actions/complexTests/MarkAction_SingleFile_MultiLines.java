@@ -63,7 +63,7 @@ public class MarkAction_SingleFile_MultiLines extends LightCodeInsightFixtureTes
         TestingUtility.shiftCaretLine(myFixture, 3, false, true);
         myFixture.testAction(new MarkAction());
 
-        TestingUtility.moveCaretToLineEnd(myFixture, 5);
+        TestingUtility.moveCaretToLineEnd(myFixture, caretLine);
         myFixture.testAction(new MarkAction());
 
         List<Bookmark> deMarkBookmarks = TestingUtility.getDeMarkBookmarks(myFixture);

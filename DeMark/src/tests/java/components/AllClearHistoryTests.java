@@ -44,7 +44,9 @@ public class AllClearHistoryTests {
 
         ClearHistory singleHistory = history.getSingleHistory(file);
         assertNotNull("Single history is null", singleHistory);
-        assertNotNull("Single record is null", singleHistory.getHistory());
-        assertEquals("Records do not match", clearRecord, singleHistory.getHistory());
+
+        ClearRecord imAnIdiot = singleHistory.getHistory();     // it's a stack
+        assertNotNull("Single record is null", imAnIdiot);
+        assertEquals("Records do not match", clearRecord, imAnIdiot);
     }
 }
