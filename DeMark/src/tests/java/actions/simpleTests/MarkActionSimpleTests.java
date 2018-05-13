@@ -1,4 +1,4 @@
-package simpleTests;
+package actions.simpleTests;
 
 import com.intellij.ide.bookmarks.Bookmark;
 import com.intellij.openapi.editor.markup.RangeHighlighter;
@@ -26,7 +26,7 @@ public class MarkActionSimpleTests extends LightCodeInsightFixtureTestCase {
 
     @Override
     public String getTestDataPath() {
-        return "src/tests/java/testData";
+        return "src/tests/java/__testData__";
     }
 
 

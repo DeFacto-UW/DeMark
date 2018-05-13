@@ -15,7 +15,7 @@ cache:
     - $HOME/.gradle/wrapper/
 
 after_success:
-- gradle check jacocoTestReport coveralls --info
+- gradle check jacocoTestReport coveralls --debug
 
 after_failure:
 - gradle clean check --debug

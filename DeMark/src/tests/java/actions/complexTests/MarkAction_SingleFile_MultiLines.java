@@ -1,4 +1,4 @@
-package complexTests;
+package actions.complexTests;
 
 import actions.MarkAction;
 import com.intellij.ide.bookmarks.Bookmark;
@@ -19,7 +19,7 @@ public class MarkAction_SingleFile_MultiLines extends LightCodeInsightFixtureTes
 
     @Override
     public String getTestDataPath() {
-        return "src/tests/java/testData";
+        return "src/tests/java/__testData__";
     }
 
 
@@ -63,7 +63,7 @@ public class MarkAction_SingleFile_MultiLines extends LightCodeInsightFixtureTes
         TestingUtility.shiftCaretLine(myFixture, 3, false, true);
         myFixture.testAction(new MarkAction());
 
-        TestingUtility.moveCaretToLineEnd(myFixture, 5);
+        TestingUtility.moveCaretToLineEnd(myFixture, caretLine);
         myFixture.testAction(new MarkAction());
 
         List<Bookmark> deMarkBookmarks = TestingUtility.getDeMarkBookmarks(myFixture);
@@ -77,10 +77,10 @@ public class MarkAction_SingleFile_MultiLines extends LightCodeInsightFixtureTes
         int expectedCaretLine;
         switch (fileName) {
             case "MultipleLines.java":
-                expectedCaretLine = 5;
+                expectedCaretLine = 3;
                 break;
             case "MultiPrintln.java":
-                expectedCaretLine = 4;
+                expectedCaretLine = 2;
                 break;
             default:
                 expectedCaretLine = 0;
