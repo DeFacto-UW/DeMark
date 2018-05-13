@@ -27,13 +27,26 @@ public class AllClearHistoryTests {
     }
 
     @Test
-    public void testAddSingleHistory() {
+    public void testAddNewSingleHistory() {
         String file = "src/file/thisFile.file";
 
         history.addSingleHistory(file, clearRecord);
 
         assertNotNull("Add was unsuccessful", history.getSingleHistory(file));
         assertEquals("Added wrong kind of object or object was changed during add", clearHistory, history.getSingleHistory(file));
+    }
+
+    @Test
+    public void testAddToHistory() {
+        String file = "src/file/thisFile.file";
+        history.addSingleHistory(file, clearRecord);
+
+        ClearRecord record = new ClearRecord();
+        record.addRecord(3, "Test Line of Existence");
+
+        history.addSingleHistory(file, record);
+        assertNotNull("Add was unsuccessful", history.getSingleHistory(file));
+        assertEquals("Record was not added properly", 2, history.getSingleHistory(file).size());
     }
 
     @Test
