@@ -1,5 +1,6 @@
 package main.java.utils;
 
+import com.intellij.ui.components.JBScrollPane;
 import components.model.ClearRecord;
 import com.intellij.ide.bookmarks.Bookmark;
 import com.intellij.ide.bookmarks.BookmarkManager;
@@ -103,7 +104,6 @@ public class DemarkUtil {
      * @param editor, the current editor that contains all the bookmarks
      */
     public static void displayDemarkedLines(@Nonnull Editor editor) {
-
         // TODO: Make this prettier
         JFrame frame = new JFrame("Display");
         JTextArea area = new JTextArea();
@@ -116,11 +116,12 @@ public class DemarkUtil {
 
         for (Integer lineNum : demarks.keySet()) {
             String lineBody = demarks.get(lineNum);
-
             area.append("    line " + (lineNum + 1) + ": " + lineBody + "\n");
         }
 
-        frame.add(area);
+        JBScrollPane scrollPane = new JBScrollPane(area);
+
+        frame.add(scrollPane);
         frame.setSize(500,500);
         frame.pack();
         frame.setLocationRelativeTo(null);
