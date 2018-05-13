@@ -122,8 +122,8 @@ public class DemarkUtil {
 
         frame.add(area);
         frame.setSize(500,500);
-        area.setBounds(500,500, 500,500);
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
