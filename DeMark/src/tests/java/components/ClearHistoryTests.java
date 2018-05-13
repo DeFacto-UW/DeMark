@@ -24,11 +24,35 @@ public class ClearHistoryTests {
     }
 
     @Test
-    public void testAddHistory() {
+    public void testAddHistoryNotNull() {
         clearHistory.addHistory(clearRecord);
 
         ClearRecord record = clearHistory.getHistory();
         assertNotNull("Record is null", record);
+    }
+
+    @Test
+    public void testAddHistoryCorrect() {
+        clearHistory.addHistory(clearRecord);
+
+        ClearRecord record = clearHistory.getHistory();
         assertEquals("Record returned was different", clearRecord, record);
+
+    }
+
+    @Test
+    public void testGetHistoryNotNull() {
+        clearHistory.addHistory(clearRecord);
+
+        ClearRecord record = clearHistory.getHistory();
+        assertNotNull("Record is null", record);
+    }
+
+    @Test
+    public void testGetHistoryCorrect() {
+        clearHistory.addHistory(clearRecord);
+
+        ClearRecord record = clearHistory.getHistory();
+        assertEquals("Records are not the same", clearRecord, record);
     }
 }

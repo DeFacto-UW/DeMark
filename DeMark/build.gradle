@@ -23,7 +23,8 @@ jacocoTestReport {
             fileTree(dir: it,
                     exclude: [
                             '**/__testData__',
-                            '**/actions'
+                            '**/actions',
+                            '**/exceptions'
                     ])
         })
     }
