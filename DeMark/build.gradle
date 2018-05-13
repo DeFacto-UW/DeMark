@@ -8,13 +8,12 @@ jacocoTestReport {
     reports {
         xml.enabled = true
         html.enabled = true
-        html.destination file("${buildDir}/jacocoHtml")
     }
 
     test {
         jacoco {
             append = false
-            classDumpDir = file("$buildDir/jacoco/classpathdumps")
+            classDumpDir = file("$buildDir/reports/jacoco/classpathdumps")
         }
     }
 
