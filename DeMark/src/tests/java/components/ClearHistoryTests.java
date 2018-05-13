@@ -55,4 +55,12 @@ public class ClearHistoryTests {
         ClearRecord record = clearHistory.getHistory();
         assertEquals("Records are not the same", clearRecord, record);
     }
+
+    @Test
+    public void testGetHistoryNull() {
+        clearHistory.addHistory(clearRecord);
+
+        assertNotNull(clearHistory.getHistory());
+        assertNull(clearHistory.getHistory());
+    }
 }
