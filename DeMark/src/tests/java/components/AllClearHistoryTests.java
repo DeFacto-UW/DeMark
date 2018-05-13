@@ -5,7 +5,10 @@ import components.model.ClearHistory;
 import components.model.ClearRecord;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.Assert;
+
+import java.util.HashMap;
+
+import static org.junit.Assert.*;
 
 public class AllClearHistoryTests {
     AllClearHistory history;
@@ -15,16 +18,33 @@ public class AllClearHistoryTests {
     @Before
     public void init() {
         history = new AllClearHistory();
+
         clearHistory = new ClearHistory();
         clearRecord = new ClearRecord();
+
+        clearRecord.addRecord(1, "Test Line of Testyness");
+        clearHistory.addHistory(clearRecord);
     }
 
     @Test
     public void testAddSingleHistory() {
         String file = "src/file/thisFile.file";
-        clearRecord.addRecord(1, "This is a line");
 
-        history.computeIfAbsent(file, k -> new ClearHistory());
-        history.get(file).addHistory(clearRecord);
+        history.addSingleHistory(file, clearRecord);
+
+        assertNotNull("Add was unsuccessful", history.getSingleHistory(file));
+        assertEquals("Added wrong kind of object or object was changed during add", clearHistory, history.getSingleHistory(file));
+    }
+
+    @Test
+    public void testGetSingleHistory() {
+        String file = "src/file/thisFile.file";
+
+        history.put(file, clearHistory);
+
+        ClearHistory singleHistory = history.getSingleHistory(file);
+        assertNotNull("Single history is null", singleHistory);
+        assertNotNull("Single record is null", singleHistory.getHistory());
+        assertEquals("Records do not match", clearRecord, singleHistory.getHistory());
     }
 }
