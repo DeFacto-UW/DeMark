@@ -29,6 +29,10 @@ jacocoTestReport {
     }
 }
 
+coveralls {
+    sourceDirs = files(sourceSets.main.java.srcDirs).files.absolutePath
+}
+
 repositories {
     mavenCentral()
 }
