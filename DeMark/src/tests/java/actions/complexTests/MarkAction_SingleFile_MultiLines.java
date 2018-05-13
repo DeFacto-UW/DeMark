@@ -1,4 +1,4 @@
-package complexTests;
+package actions.complexTests;
 
 import actions.MarkAction;
 import com.intellij.ide.bookmarks.Bookmark;

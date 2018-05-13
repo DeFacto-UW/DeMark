@@ -1,4 +1,4 @@
-package simpleTests;
+package actions.simpleTests;
 
 import com.intellij.ide.bookmarks.Bookmark;
 import tests.java.TestingUtility;

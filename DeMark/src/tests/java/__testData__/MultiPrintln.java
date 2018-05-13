@@ -1,5 +1,3 @@
-package testData;
-
 public class MultiPrintln {
     public static int foo() {
         <caret>int x = 5;
