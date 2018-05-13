@@ -1,6 +1,9 @@
 package main.java.utils;
 
 import components.model.ClearRecord;
+import main.java.utils.SelectionUtil;
+import main.java.utils.HighlightUtil;
+
 import com.intellij.ide.bookmarks.Bookmark;
 import com.intellij.ide.bookmarks.BookmarkManager;
 import com.intellij.openapi.editor.Document;

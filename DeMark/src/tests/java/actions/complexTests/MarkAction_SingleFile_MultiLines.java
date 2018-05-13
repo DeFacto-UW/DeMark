@@ -19,7 +19,7 @@ public class MarkAction_SingleFile_MultiLines extends LightCodeInsightFixtureTes
 
     @Override
     public String getTestDataPath() {
-        return "src/tests/java/testData";
+        return "src/tests/java/__testData__";
     }
 
 
@@ -77,10 +77,10 @@ public class MarkAction_SingleFile_MultiLines extends LightCodeInsightFixtureTes
         int expectedCaretLine;
         switch (fileName) {
             case "MultipleLines.java":
-                expectedCaretLine = 5;
+                expectedCaretLine = 3;
                 break;
             case "MultiPrintln.java":
-                expectedCaretLine = 4;
+                expectedCaretLine = 2;
                 break;
             default:
                 expectedCaretLine = 0;

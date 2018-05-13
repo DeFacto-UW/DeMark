@@ -19,7 +19,7 @@ public class SelectionSimpleTests extends LightCodeInsightFixtureTestCase {
 
     @Override
     public String getTestDataPath() {
-        return "src/tests/java/testData";
+        return "src/tests/java/__testData__";
     }
 
     public void testSelectionMarksCorrectLine() {

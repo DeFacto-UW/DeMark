@@ -22,7 +22,7 @@ jacocoTestReport {
         classDirectories = files(classDirectories.files.collect {
             fileTree(dir: it,
                     exclude: [
-                            '**/testData',
+                            '**/__testData__',
                             '**/actions'
                     ])
         })
