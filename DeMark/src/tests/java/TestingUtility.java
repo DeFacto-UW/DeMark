@@ -89,11 +89,14 @@ public class TestingUtility {
      * @return string that is on the currently bookmarked line, can be empty
      */
     public static String getTextAtBookmark(@Nonnull JavaCodeInsightTestFixture fixture, Bookmark bookmark) {
-
         int line = bookmark.getLine();
 
-        int startOffset = fixture.getEditor().getDocument().getLineStartOffset(line);
-        int endOffset = fixture.getEditor().getDocument().getLineEndOffset(line);
+        return getTextOnLine(fixture, line);
+    }
+
+    public static String getTextOnLine(@Nonnull JavaCodeInsightTestFixture fixture, int lineNum) {
+        int startOffset = fixture.getEditor().getDocument().getLineStartOffset(lineNum);
+        int endOffset = fixture.getEditor().getDocument().getLineEndOffset(lineNum);
 
         TextRange range = new TextRange(startOffset, endOffset);
 

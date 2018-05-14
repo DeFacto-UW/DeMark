@@ -1,17 +1,16 @@
 package utils;
 
+import actions.MarkAction;
 import com.intellij.ide.bookmarks.Bookmark;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.testFramework.fixtures.LightCodeInsightFixtureTestCase;
 import org.junit.Before;
-import org.junit.Test;
 
 import tests.java.TestingUtility;
 import main.java.utils.DemarkUtil;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class DeMarkUtilTests extends LightCodeInsightFixtureTestCase {
@@ -36,6 +35,7 @@ public class DeMarkUtilTests extends LightCodeInsightFixtureTestCase {
         return "src/tests/java/__testData__";
     }
 
+    // ADD DEMARK BOOKMARK TESTS
     public void testAddDemarkBookmarkCorrectLine() {
         DemarkUtil.addDemarkBookmark(editor, lineNum);
 
@@ -79,5 +79,30 @@ public class DeMarkUtilTests extends LightCodeInsightFixtureTestCase {
             String description = demarkBookmarks.get(0).getDescription();
             assertEquals("One of the description is wrong", DemarkUtil.DEMARK_INDICATOR, description);
         }
+    }
+
+    // REMOVE DEMARK BOOKMARK
+    public void testRemoveDemarkBookmarkCorrectLine() {
+        myFixture.testAction(new MarkAction());
+
+        DemarkUtil.removeDemarkBookmark(editor, lineNum);
+
+        List<Bookmark> demarkBookmarks = TestingUtility.getDeMarkBookmarks(myFixture);
+        assertEquals("Bookmaark was not removed", 0, demarkBookmarks.size());
+    }
+
+    public void testRemoveDemarkBookmarkLineStays() {
+        myFixture.testAction(new MarkAction());
+
+        List<Bookmark> demarkBookmarks = TestingUtility.getDeMarkBookmarks(myFixture);
+        Bookmark bookmark = demarkBookmarks.get(0);
+        String ogText = TestingUtility.getTextAtBookmark(myFixture, bookmark);
+
+        DemarkUtil.removeDemarkBookmark(editor, lineNum);
+
+        String text = TestingUtility.getTextOnLine(myFixture, lineNum);
+        assertNotNull("Text was deleted", text);
+        assertFalse("Text was deleted", text.isEmpty());
+        assertEquals("Text was modified", ogText, text);
     }
 }
