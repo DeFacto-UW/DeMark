@@ -5,6 +5,7 @@ plugins {
 }
 
 jacocoTestReport {
+    additionalSourceDirs = files(sourceSets.main.java.srcDirs)
     reports {
         xml.enabled = true
         html.enabled = true
@@ -77,8 +78,8 @@ sourceSets {
 }
 
 patchPluginXml {
-    changeNotes """
-      DeMark is  tool that lets you mark and unmark lines in your editor for batch deletion"""
+    version = "Alpha-0.2"
+    sinceBuild = "173"
 }
 
 // Example task
