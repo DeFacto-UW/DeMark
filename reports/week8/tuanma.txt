@@ -1,0 +1,21 @@
+Tuan Ma
+tuanma
+CSE 403 Software Engineering
+Team Defacto
+
+Last Week Goals:
+    * Complete undo functions.
+    * Finish coding core features.
+    * Distribute completeted product to testers
+    * Recieve first round of feedback from testers
+
+Progress made:
+    Accomplished:
+    * Created a short version of diagram.
+    * Revised architecture diagram.
+    * Got 1 user to test our product.
+    Challenges:
+    * Getting users to install and get feedback
+Plans:
+    * Finalize documentation
+    * Create slides.
