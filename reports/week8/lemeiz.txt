@@ -1,0 +1,26 @@
+Name: Lemei Zhang
+CSE netID: lemeiz
+CSE 403 Software Engineering
+Week 8 individual report
+
+Goals from last week:
+  - Strive to finish implementing persistent state and unclear function within 
+    two days
+  - Start using the tool ourselves as well as distribute it to others to gather
+    gather initial results
+
+Progress of this week:
+  - Accomplished:
+    - Finished implementing core functionalities of the tool with teammates
+    - Gathered and analyzed initial results
+    - Further revise the proposal based on feedback as well as added a section to
+      address initial result
+  - Learned:
+    - The importance of user feedback for improving our tool
+  - Challenges:
+    - Finding people who are willing to test our tool
+
+Goals and plans for next week:
+  - Help preparing the slides for the presentation
+  - Improve the features of the tool based on user feedback
+  - Further revise the proposal and the user manual if needed
