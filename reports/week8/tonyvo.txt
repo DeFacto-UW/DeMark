@@ -1,0 +1,30 @@
+Tony Vo
+tonyvo
+CSE 403 Software Engineering
+Team DeFacto
+
+Last weeks goals:
+    - Finish coding by Wednesday morning
+    - Revise proposal
+    - Start using plugin myself
+    - launch
+
+Progress:
+	Accomplished:
+        Finished plugin development
+        Found more issues
+        Started using plugin for CSE452
+        Launched Plugin
+	Learned
+        How to launch a plugin in intellij
+
+	Challenges:
+        Compatability issues
+
+
+Personal Plans:
+    Try to write some tests to increase code coverage
+    Try to solve some bugs listed in issues.
+    Listen to user feedback
+
+
