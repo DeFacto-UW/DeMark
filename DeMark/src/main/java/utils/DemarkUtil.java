@@ -171,7 +171,13 @@ public class DemarkUtil {
      */
     public static void unclearLastClearAll(@Nonnull Editor editor, @NotNull ClearRecord last) {
         for (HashMap.Entry<Integer, String> entry : last.entrySet()) {
-            SelectionUtil.addLine(editor, entry.getKey(), entry.getValue());
+            Document document = editor.getDocument();
+            TextRange textRange = DocumentUtil.getLineTextRange(document, entry.getKey());
+            String lineBody = document.getText(textRange);
+
+            if (!lineBody.equals(entry.getValue())) {
+                SelectionUtil.addLine(editor, entry.getKey(), entry.getValue());
+            }
         }
     }
 
