@@ -1,0 +1,34 @@
+Anh (Andrew) Tran
+atran35
+CSE 403
+Team DeFacto
+
+Last week's goals:
+    * Get Coveralls to integrate with Travis CI properly. 
+    * Finish implementing persistent state. 
+    * Upload the plugin and use it. 
+    * Get friends to use the plugin. 
+
+Progress made:
+    Accomplished:
+        * Scrapped idea for persistent state. Implemented 
+        highlights differently. 
+        * Uploaded plugin successfully. 
+        * Got initial results for plugin. 
+        * Fixed compability issue. 
+    Learned:
+        * How JaCoCo kind of works. 
+        * How coveralls kind of works. 
+        * How plugin compatibility with older versions of IntelliJ work. 
+        * How to analyze data. 
+    Challenges:
+        * JaCoCo is not integrating well with IntelliJ SDK testing components. 
+        * Testing is hard because of lots of use cases.
+        * Several issues with highlighting. 
+        * Integrating Coveralls with Travis CI. 
+Personal plans:
+    * Try to get Coveralls and JaCoCo working properly. 
+    * Fix some issues for the plugin. 
+    * Write more tests for the plugin. 
+    * Prepare for second stage testing. 
+    * Prepare for presentation. 
