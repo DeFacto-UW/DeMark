@@ -1,0 +1,25 @@
+Ranhao Xu
+xrh1997
+CSE403 week7 individual status report
+5/14/2018
+
+Last week's goals:
+ • Solve deserilization issue
+ • Make highlight persistent
+ • Finish PersistentState implementation
+
+Progress made:
+ • Accomplished:
+   • Finished implementing util classes
+   • Solved deserilization issue by not using it
+   • Got plugin up and running in IntelliJ
+ • Learned:
+   • Using component in the implementation
+ • Challenges:
+   • Solve issues
+   • No APIs provided by IntelliJ for solving Ctrl + Z issue
+
+Plans:
+ • Continue giving out trails and get test results
+ • Solve some highlight persistence issues
+ • Prepare for presentation
