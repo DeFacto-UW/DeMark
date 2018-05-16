@@ -1,0 +1,31 @@
+Status Report: Week 8
+
+Last week's goal:
+    - Fix up report's wording and architecture diagram.
+    - Update user manual on GitHub to correctly reflect the changes made.
+    - Synthesize preliminary data for initial results.
+    - Fix bugs and add tests.
+
+Progress Made:
+    Accomplished:
+        - Changed report's wording and consistency with terms.
+        - Added some tests to increase code coverage
+        - Reworked Archiitecture diagram
+        - Finished initial results
+        - Launched to IntelliiJ Plugin Repository and attempted to fix compatability issues.
+
+    Learned:
+        - Presenting can be challenging and having a demo can take time if not executed well.
+        - Working together on slides is very useful to coming up with the outline of the presentation.
+        - Long proposal doesn't mean better. Need to have conciceness.
+
+    Challenges:
+        - Finding people to participate in our initial results phase.
+        - Uploading to Intellij repository and supported older versions of IntelliJ
+
+Plans:
+    - Continue to revise our proposal and making it more concise.
+        - Meet with Calvin to talk about maybe more specific parts that need to be strengthened.
+    - Continue to solve bugs in our plugin.
+    - Increase code coverage by at least 10%. (The more the better)
+    - Spread the word about our plugin on forums and begin stage 2 results soon.
