@@ -10,6 +10,12 @@ import main.java.utils.HighlightUtil;
 import org.jetbrains.annotations.NotNull;
 
 /**
+ * A component for the project specifically used to detect when the project is opened, allowing the plugin
+ * to perform certain actions during the IDE startup.
+ *
+ * Interacts with {@link actions.ClearAllAction} and {@link actions.UnclearAction} to handle cleared lines
+ *
+ * Uses: {@link HighlightUtil}, {@link AllClearHistory}, {@link ClearRecord}, {@link ClearRecord}
  */
 public class DemarkProjectComponent implements ProjectComponent {
 
@@ -32,7 +38,7 @@ public class DemarkProjectComponent implements ProjectComponent {
     }
 
     /**
-     * After project as been opend
+     * After project as been opened
      */
     public void projectOpened() {
         Runnable addHighlights = () -> HighlightUtil.addHighlightsOnStart(project);
@@ -63,6 +69,7 @@ public class DemarkProjectComponent implements ProjectComponent {
 
     /**
      * Push the history onto the stack
+     *
      * @param file, the name of the current file
      * @param cr, the collection of cleared lines
      */
@@ -71,9 +78,10 @@ public class DemarkProjectComponent implements ProjectComponent {
     }
 
     /**
-     * Undo the last history clear
+     * Gives the record of the most recently cleared lines
+     *
      * @param file, the name of the current file
-     * @return The last cleared lines
+     * @return {@link ClearRecord} containing most recently cleared lines
      */
     public ClearRecord popHistory(String file) {
         ClearHistory singleHistory = history.getSingleHistory(file);
