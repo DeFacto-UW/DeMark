@@ -11,15 +11,22 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
 
+/**
+ * Utility class that handles text and text selection within an editor.
+ *
+ * This includes writing to the editor, and reading information from the editor
+ */
 public class SelectionUtil {
 
     private static final String COMMENT_MARKER = "//";
 
     /**
-     * Given a range of selected text, returns the line start positions of each line in the range as a list of integers.
+     * Given a range of selected text, returns the line start positions of each line in the
+     * range as a list of integers.
      *
      * @param editor The nonnull editor in which the text lives.
-     * @return An ArrayList of integers, where each integer represents the start positions of every line in the range.
+     * @return {@link ArrayList} of integers, where each integer represents the start
+     * positions of every line in the range.
      */
     public static ArrayList<Integer> getSelectionStarts(@Nonnull Editor editor) {
         Document document = editor.getDocument();
@@ -51,7 +58,7 @@ public class SelectionUtil {
      * Checks if the line at a line number is commented.
      *
      * @param lineNum The line number of the line.
-     * @return True if the line is commented, false otherwise.
+     * @return True if the line is commented, False otherwise.
      */
     public static boolean isCommented(@Nonnull Editor editor, @Nonnegative int lineNum) {
         Document document = editor.getDocument();
@@ -81,6 +88,7 @@ public class SelectionUtil {
         // If the line is not commented already, add a comment to the line at the start position of the line.
         if (!isCommented(editor, lineNum)) {
             int startPos = document.getLineStartOffset(lineNum);
+
             Runnable addComment = () -> document.insertString(startPos, COMMENT_MARKER);
             WriteCommandAction.runWriteCommandAction(project, addComment);
         }
@@ -129,6 +137,7 @@ public class SelectionUtil {
 
         // Get the start position using the line number and add the line of text.
         int startPos = document.getLineStartOffset(lineNum);
+
         Runnable addLine = () -> document.insertString(startPos, text + "\n");
         WriteCommandAction.runWriteCommandAction(project, addLine);
     }

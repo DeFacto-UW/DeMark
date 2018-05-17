@@ -16,10 +16,15 @@ import main.java.utils.DemarkUtil;
 import javax.annotation.Nonnull;
 import java.util.List;
 
+/**
+ * Utility class that handles highlighting lines in the editor
+ *
+ * Works with {@link RangeHighlighter}
+ */
 public class HighlightUtil {
 
-
     private static JBColor highlightColor = new JBColor(Gray._222, JBColor.white);
+
     // NOTES ON HIGHLIGHTING:
     // There are multiple highlighting layers. This can be found in HighlighterLayer.java in the SDK.
     // We are using the layer directly below the selection layer, which is SELECTION - 1 or LAST - 1
@@ -64,6 +69,9 @@ public class HighlightUtil {
 
 
     /**
+     * Iterates through all the DeMark bookmarks of every file in the project
+     * and highlights the lines with the bookmarks.
+     *
      * @param project The project to add the highlights to
      */
     public static void addHighlightsOnStart(Project project) {
