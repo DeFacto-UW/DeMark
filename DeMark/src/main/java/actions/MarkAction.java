@@ -6,25 +6,27 @@ import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.actionSystem.LangDataKeys;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
-import com.intellij.openapi.project.Project;
 import main.java.utils.DemarkUtil;
 import main.java.utils.SelectionUtil;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
+/**
+ * AnAction class that represents the "Mark" function of the plugin
+ * The action is unavailable when no editors are opened.
+ *
+ * Uses: {@link SelectionUtil}, {@link DemarkUtil}
+ */
 public class MarkAction extends AnAction {
 
     private Document document;
     private Editor editor;
-    private Project project;
-
 
     // TODO: Check the ones that may be null
     // Initializes all fields
     private void init(@NotNull AnActionEvent anActionEvent) {
         editor = anActionEvent.getData(LangDataKeys.EDITOR);
-        project = editor.getProject();
         document = editor.getDocument();
     }
 
@@ -55,7 +57,6 @@ public class MarkAction extends AnAction {
         //                   Only add a single layer of bookmarks
         // All marked: Remove Demark bookmarks from all lines
         for (int i = 0; i < lineStarts.size(); i++) {
-
             int lineNum = document.getLineNumber(lineStarts.get(i));
             if (countMarked != lineStarts.size()) {
                 if (!DemarkUtil.isDemarked(editor, lineNum)) {
@@ -66,7 +67,5 @@ public class MarkAction extends AnAction {
                 DemarkUtil.removeDemarkBookmark(editor, lineNum);
             }
         }
-
-
     }
 }

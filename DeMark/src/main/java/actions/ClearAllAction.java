@@ -11,10 +11,16 @@ import main.java.utils.DemarkUtil;
 import org.jetbrains.annotations.NotNull;
 import components.DemarkProjectComponent;
 
+/**
+ * AnAction class that represents the "Clear" function in the plugin.
+ * The action is unavailable when no editors are opened.
+ *
+ * Uses: {@link DemarkUtil}, {@link DemarkProjectComponent}
+ */
 public class ClearAllAction extends AnAction {
-    private Editor editor;
-    private Project project;
-    private Document document;
+    private Editor editor;          // the IntelliJ editor
+    private Project project;        // the IntelliJ project
+    private Document document;      // the IntelliJ document
 
     // TODO: Check the ones that may be null
     // Initializes all fields
