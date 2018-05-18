@@ -1,0 +1,100 @@
+Name: Tony Vo
+Date: 2018/5/18 - 12:55pm
+Why:  Best Practice 
+
+Code: 
+    MainClient.java
+  		1. MainClient.java - Line range: 19
+  			Results: Consider a more descriptive comment.
+					  It seems like the two questionPages have a different format.
+					  What is the expected format for a question page and what does it represent?
+
+		2. MainClient.java - Line range: 24
+			Results: Consider using a global variable for the number of pages. 
+			  		  It can be confusing what the variable is and it's usecase in terms of the condition
+
+		3. MainClient.java - Line range: 38 && 57
+			Results: Was it intentional to not use camel case here?
+
+		4. MainClient.java - Line range: 95
+			Results: What does "4" represent in the for loop? Consider using a global variable to easily change later on if need be.
+
+		General Comments:
+		 	The comments provided help the reader understand the process of what is going on! Good job!
+		 	More of a stylistic thing, but was using 8 space tab intentional?
+
+			What exactly is the purpose of this MainClient.java?
+				- It seems like more of utils for scrapping a page since the the methods are static.
+					- Maybe make a util class for scrapping and then make another for actually using
+					  utils like in main. Use another class for entry into the program?
+				- Consider:
+					- Removing main and putting it into another class
+					- Renaming MainClient to ScappingUtil
+					This can help anybody looking at the page better understand the use case of the class
+					and make the code more modular. 
+
+			I like how the code uses print statements to allow the client understand what is going on.
+			Are print statements necessary here? Maybe consider using a logging library such as SLF4J
+			to better implement into your code?
+
+			Documentation
+				Javadoc Syntax
+					- The comments before the methods are very useful! Maybe a better way to document the code is
+					  to use javadoc annotations to be more clear.
+					  Helps enable invariants such as:
+					  	WebpageURL in the form of ""
+					  	WebpageURL cannot be null. ect.
+					  	@throws IOException e if ...
+					  	@returns -1 if ...
+				Class documentation at the beginning of the file can be useful
+					- Explain what the class is useful for
+					- What it provides
+					- What can it do
+					- ect.
+
+			Return on failure
+				- It seems like the code is returning a different negative integer for every different failure.
+				  Consider using an ENUM and returning those instead of the raw integer itself.
+				  This allows the reader to better understand what the error code is and what it represents.
+
+			Scraping webpages are confusing. Parsing webpages by html elements are even more confusing.
+				- Scraping webpages requires a lot of hardcoding to find specific elements and parsing strings.
+				- Webpages can change and code can be broken.
+					- If the webpage changes, what happens?
+						- No more support?
+						- Maybe documentation about the time period of which this scrapper was used.
+
+				- I think a better way to help the reader understand the code is to provide extra documentation.
+					Input: 
+						- What does a typical url look like?
+						- Does it work for all urls?
+						- What limitations to urls?
+					Scraping:
+						- What information is wanted?
+						- Where is the information? I.E. (What tag? What element? ect.)
+						- How is the information parsed expected to be outputted?
+							- Whenever string parsing, splits are extremely common and it can help the reader
+								if the reader understands the input so they can follow along with the parsing.
+
+ 	ScrapedPage.java
+		1. SrapedPage.java - Line range: 9
+			Results: What are commands and why are there only 5 of them?
+
+		2. ScrapedPage.java - Line range: 21 && 28
+			Results: What does 5 represent? Consider using a variable to be more descriptive
+
+		3. Scrapedpage.java - Line range: 42 - 48
+			Results: Consider using a for loop?
+			
+		General Comments:
+			Documentation:
+				What is a scraped page and what does it represent?
+				Consider Javadoc for every individual method for this class
+
+	ClientTest.java
+		1. ScrapedPage.java - Line range: 13 && 17
+			Results: Why are these assertions commented out?
+
+		General comments:
+			What exactly is this testing?
+			Why are there no assertions enabled?
