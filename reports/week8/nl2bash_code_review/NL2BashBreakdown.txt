@@ -15,14 +15,14 @@ The directories are listed as "- name/".
   If we only care about certain files in a directory, the it will be listed as "+ filename"
 
 List: 
-  - NL2BashWebScraper/
+  - NL2BashWebScraper/--------------------------------------------TONY
     - src/
       - main/java/client/             2 files
       - test/java/clienttests/        1 file
     + build.gradle
 
   - nl2bash_server/
-    - nl2bash_server/                 6 files
+    - nl2bash_server/                 6 files---------------------MEI
     - nl2bash_server_app/             7 files
       - migrations/                   4 files
       - static/                       1 file
