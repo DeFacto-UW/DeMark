@@ -1,0 +1,20 @@
+Name: Ranhao Xu
+Date: 2018/05/18 - 10:32
+Why:  Best practice
+
+Code:
+  1. nl2bash_server/nl2bash_server_app/views.py - Line range: [11]
+  2. nl2bash_server/nl2bash_server_app/views.py - Line range: [27 - 28]
+  3. nl2bash_server/nl2bash_server_app/tests.py
+  4. nl2bash_server/nl2bash_server_app/urls.py
+
+Result:
+  1. It is better to keep the string style consistent. It uses request.session["seen"] with double quotes on line 11,
+     but later it uses request.session['current_eng_text'] and request.session['current_bash_list'] with single quotes
+     on line 54 - line 55.
+     I don't know if you did that purpose, but I think there is no difference for representing strings with double or
+     single quotes in python.
+  2. There are several print statement through out the class. If it is part of the UI, then it's fine. If it is for
+     debug purposes, then it's better to take them out of the repo.
+  3. It's relatively short and not much code to review.
+  4. Same as tests.py, not much code to review.
