@@ -1,0 +1,14 @@
+Name: Tuan Ma
+Date: 05/18/2018
+Why:  Best practice
+
+Code: 
+  1. models.py
+      * Style: Delete the commeneted out lines of code from 51-53. Not sure if the the commented 
+      code exists for a specific reason, but if not delete it.
+      * Otherwise the code looks pretty good to me. Not much to critique in this file, everything
+      was commented and it seemed decent.
+  2. apps.py
+      * Overall not much to evaluate, and what is there looks good.
+  3. admin.py
+      * Overall not much to evaluate, and what is there looks good.
