@@ -1,0 +1,28 @@
+This will be the template used for each member to submit their code_review.
+This will make it easier for us to synthesize our reviews. 
+
+Here are the points to be focused on for the review (from Wikipedia/Code Review): 
+  1. Best practice 
+  2. Error Detection. 
+  3. Vulnerability Exposure. 
+  4. Malware Discorvery. 
+
+File name: "FirstLast_review.txt"
+File content: 
+You are allowed to copy whatever content is below this line into your file
+---------------------------------------------------------------------------
+Name: First Last
+Date: YYYY/MM/DD - hh:mm
+Why:  [Your decision to do one or more of the reasons listed above] 
+
+Code: 
+  1. FileName#ClassName - Line range: [# - #] 
+  2. FileName#ClassName - Line range: [# - #]
+  3. ...
+
+Result: 
+  1. This file is wrong because abcd (can be multiple lines, just make sure
+     the item number is correct).
+  2. This file is wrong because cdef...
+  3. ...
+---------------------------------------------------------------------------

@@ -1,0 +1,30 @@
+nl2bash has 3 different projects going on at the same time. 
+  - NL2BashWebScraper: Gradle project (Java). 
+  - nl2bash_server: Pip project (Python).
+  - tellina (forked): Python project (Python).
+
+We probably only care about the first two which have the following 
+information that we care about...
+
+The directories are listed as "- name/". 
+  If a directory has a "# file(s)" on the same line, it means that 
+  we probably care about all of the files in the directory, and 
+  the "#" is the number of files in that directory. 
+  Only directories that we probably care about will be listed.
+  
+  If we only care about certain files in a directory, the it will be listed as "+ filename"
+
+List: 
+  - NL2BashWebScraper/
+    - src/
+      - main/java/client/             2 files
+      - test/java/clienttests/        1 file
+    + build.gradle
+
+  - nl2bash_server/
+    - nl2bash_server/                 6 files
+    - nl2bash_server_app/             7 files
+      - migrations/                   4 files
+      - static/                       1 file
+      - templates/                    1 file
+    + manage.py
