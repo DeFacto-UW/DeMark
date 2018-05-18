@@ -17,12 +17,9 @@ Why:  [Your decision to do one or more of the reasons listed above]
 
 Code: 
   1. FileName#ClassName - Line range: [# - #] 
+      Results: abcd
   2. FileName#ClassName - Line range: [# - #]
+      Results: cdef
   3. ...
-
-Result: 
-  1. This file is wrong because abcd (can be multiple lines, just make sure
-     the item number is correct).
-  2. This file is wrong because cdef...
-  3. ...
+      Results: ... 
 ---------------------------------------------------------------------------
