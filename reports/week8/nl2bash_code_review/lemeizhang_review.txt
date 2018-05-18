@@ -1,0 +1,34 @@
+Name: Lemei Zhang
+Date: 2018/05/18 - 1:30 pm
+Why: Best practice
+
+Code:
+  1. add_data_from_scraper.py - line range: 22
+       - Any reasons why only this comment is using triple quotation marks?
+
+  2. add_data_from_scraper.py - line range: 40
+       - The comment can be more descriptive here: what does it mean by
+         "operate" on the .verify files?
+
+  3. save_data.py - line range: 27 and 36
+       - What is the purpose of these two printlns? Are they just for debugging?
+
+  4. settings.py, urls.py, and wsgi.py
+       - Just settings and configuration files, not much to review on
+
+  General comments:
+    - The comments at the beginning of each file are really helpful in
+      providing a general understanding on what each of them is doing, so 
+      nice job!
+    - Consider breaking down the code for each file (espsecially 
+      add_data_from_scraper.py and save_data) into methods for code 
+      reusability?
+
+Commits:
+  General comments:
+    - Some commit messages can be more discriptive. For example, the commit with
+      the commit message "saving script" involves modifying several files, which
+      is confusing at first for trying to understand what those modifications are
+      doing. Based on my understanding of what those modifications rae doing, a
+      better commit message for this can be something like "wrote scripts for
+      saving test data from the web scrapper on disk"
