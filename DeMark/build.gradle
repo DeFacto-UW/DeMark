@@ -10,24 +10,6 @@ jacocoTestReport {
         xml.enabled = true
         html.enabled = true
     }
-
-    test {
-        jacoco {
-            append = false
-            classDumpDir = file("$buildDir/reports/jacoco/classpathdumps")
-        }
-    }
-
-    afterEvaluate {
-        classDirectories = files(classDirectories.files.collect {
-            fileTree(dir: it,
-                    exclude: [
-                            '**/__testData__',
-                            '**/actions',
-                            '**/exceptions'
-                    ])
-        })
-    }
 }
 
 coveralls {

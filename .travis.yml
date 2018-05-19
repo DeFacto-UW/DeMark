@@ -3,8 +3,7 @@ sudo: enabled
 
 script:
 - cd DeMark/
-- gradle clean
-- gradle build --info
+- gradle clean build --info
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
