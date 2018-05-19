@@ -200,4 +200,8 @@ public class TestingUtility {
     public static void selectLineAtCaret(@Nonnull JavaCodeInsightTestFixture fixture) {
         fixture.getEditor().getCaretModel().getCurrentCaret().selectLineAtCaret();
     }
+
+    public static int getFileNumberOfLines(@Nonnull JavaCodeInsightTestFixture fixture) {
+        return fixture.getEditor().getDocument().getLineCount();
+    }
 }
