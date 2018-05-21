@@ -17,21 +17,31 @@ import org.jetbrains.annotations.NotNull;
 public class ToggleAction extends AnAction {
     private Editor editor;
 
-    // TODO: Check the ones that may be null
-    // Initializes all fields
-    private void init(@NotNull AnActionEvent anActionEvent) {
+    /**
+     * Attempt to initialize all the fields needed for this action.
+     *
+     * @param anActionEvent. An action event to help initialize the editor
+     * @return True if fields initialized successfully, False otherwise.
+     */
+    private boolean init(@NotNull AnActionEvent anActionEvent) {
         editor = anActionEvent.getData(LangDataKeys.EDITOR);
+        return editor != null;
     }
 
     public void update(AnActionEvent e) {
         //perform action if and only if EDITOR != null
-        boolean enabled = e.getData(CommonDataKeys.EDITOR) != null;
-        e.getPresentation().setEnabled(enabled);
+        if (editor != null) {
+            boolean enabled = e.getData(CommonDataKeys.EDITOR) != null;
+            e.getPresentation().setEnabled(enabled);
+        }
     }
 
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
-        init(anActionEvent);
-        DemarkUtil.toggleDemarkComment(editor);
+        boolean initSuccess = init(anActionEvent);
+
+        if (initSuccess) {
+            DemarkUtil.toggleDemarkComment(editor);
+        }
     }
 }

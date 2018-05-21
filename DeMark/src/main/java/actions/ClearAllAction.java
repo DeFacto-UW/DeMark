@@ -22,21 +22,32 @@ public class ClearAllAction extends AnAction {
     private Project project;        // the IntelliJ project
     private Document document;      // the IntelliJ document
 
-    // TODO: Check the ones that may be null
-    // Initializes all fields
-    private void init(@NotNull AnActionEvent anActionEvent) {
+    /**
+     * Attempt to initialize all the fields needed for this action.
+     *
+     * @param anActionEvent. An action event to help initialize the editor, project and document
+     * @return True if fields initialized successfully, False otherwise.
+     */
+    private boolean init(@NotNull AnActionEvent anActionEvent) {
         editor = anActionEvent.getData(LangDataKeys.EDITOR);
+        if (editor == null) {
+            return false;
+        }
+
         project = editor.getProject();
         document = editor.getDocument();
+        return project != null && document != null;
     }
 
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
-        init(anActionEvent);
-        DemarkProjectComponent demarkProjectComponent = project.getComponent(DemarkProjectComponent.class
-        );
+        boolean initSuccess = init(anActionEvent);
 
-        ClearRecord clearedLines = DemarkUtil.clearAllDemarkBookmarks(editor);
-        demarkProjectComponent.pushHistory(DemarkUtil.getDocumentName(document), clearedLines);
+        if (initSuccess) {
+            DemarkProjectComponent demarkProjectComponent = project.getComponent(DemarkProjectComponent.class);
+
+            ClearRecord clearedLines = DemarkUtil.clearAllDemarkBookmarks(editor);
+            demarkProjectComponent.pushHistory(DemarkUtil.getDocumentName(document), clearedLines);
+        }
     }
 }
