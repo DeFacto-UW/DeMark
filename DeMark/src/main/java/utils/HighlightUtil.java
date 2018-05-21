@@ -98,7 +98,8 @@ public class HighlightUtil {
     /**
      * On file open, re-highlight all DeMark bookmarks.
      *
-     * @param file The file to add highlights to
+     * @param editor The editor to add highlights to
+     * @param file The virtual file to add highlights to
      */
     public static void addHighlightsOnFileOpen(@Nonnull Editor editor, @Nonnull VirtualFile file) {
         Project project = editor.getProject();
