@@ -1,0 +1,41 @@
+Tony Vo
+tonyvo
+CSE 403 Software Engineering
+Team DeFacto
+
+Last weeks goals:
+    Try to write some tests to increase code coverage
+    Try to solve some bugs listed in issues.
+    Listen to user feedback
+
+Progress:
+	Accomplished:
+        Fixed null pointer issues by adding checks in actions
+            - Editor is null if cursor is not in the editor itself.
+        Fixed non-highlighted text on file open and close
+            - Added file listener on project open to rehighlight the lines
+        Did a code review for NL2Bash's web scrapper
+
+	Learned
+        How listeners work in Intellij
+        Don't commit straight to master, create a pull request to be reviewed.
+
+	Challenges:
+        Finding issues with a plugin and a code base can be hard.
+            - Using print statements and asserts can be super helpful in debugging
+              to ensure everything is what you expect it to be.
+            - Static analysis can be useful. Walking through the code line by line can raise
+
+
+
+Personal Plans:
+    - Write more tests to increase code coverage
+    - Talk with team mates and see if any additional features want to be added.
+    - Continue using the plugin myself and if any bugs occur, post new issues.
+    - Discuss stage two testing.
+    - Help finalize proposal.
+
+
+
+
+
