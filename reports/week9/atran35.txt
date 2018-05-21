@@ -1,0 +1,37 @@
+Anh (Andrew) Tran
+atran35
+CSE 403
+Team DeFacto
+
+Last week's goals:
+    * Try to get Coveralls and JaCoCo working properly. 
+    * Fix some issues for the plugin. 
+    * Write more tests for the plugin. 
+    * Prepare for second stage testing. 
+    * Prepare for presentation. 
+
+Progress made:
+    Accomplished:
+      * Coveralls and JaCoCo now behaves. 
+      * A lot of plugin issues are now fixed. 
+      * Added a few tests for the plugin. 
+      * Presentation went well. 
+      * Refactored code base (renaming and adding documentation). 
+
+    Learned:
+      * JaCoCo works better with a simpler solution. 
+      * How to do presentations better. 
+      * Refreshed on knowledge of JavaDocs. 
+
+    Challenges:
+      * Writing tests is difficult for plugins because of multiple 
+      use cases. 
+      * Finding time to work on plugin while also doing other school 
+      work.
+      * Getting Gradle to work on personal computer. 
+
+Personal plans:
+    * Get next public survey up and running. 
+    * Get at least one more feature implemented before public distribution.
+    * Write more tests. 
+    * Test distribution to see if compability issues are fixed. 
