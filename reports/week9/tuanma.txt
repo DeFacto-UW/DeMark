@@ -1,0 +1,19 @@
+Tuan Ma
+tuanma
+CSE 403 Software Engineering
+Team Defacto
+
+Last Week Goals:
+    * Finalize documentation
+    * Create slides.
+
+Progress made:
+    Accomplished:
+    * Created presentation slides
+    * Meet up with teammate to practice and create slides
+    * Create demo code.
+    * Presented to the class
+    * Updated documentation
+Plans:
+    * Work on final report.
+    * Finalize any issues with DeMark.
