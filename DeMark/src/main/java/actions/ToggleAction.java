@@ -17,12 +17,15 @@ import org.jetbrains.annotations.NotNull;
 public class ToggleAction extends AnAction {
     private Editor editor;
 
-    // Initializes all fields
-    private void init(@NotNull AnActionEvent anActionEvent) {
+    /**
+     * Attempt to initialize all the fields needed for this action.
+     *
+     * @param anActionEvent. An action event to help initialize the editor
+     * @return True if fields initialized successfully, False otherwise.
+     */
+    private boolean init(@NotNull AnActionEvent anActionEvent) {
         editor = anActionEvent.getData(LangDataKeys.EDITOR);
-        if (editor == null) {
-            return;
-        }
+        return editor != null;
     }
 
     public void update(AnActionEvent e) {
@@ -35,8 +38,9 @@ public class ToggleAction extends AnAction {
 
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
-        init(anActionEvent);
-        if (editor != null) {
+        boolean initSuccess = init(anActionEvent);
+
+        if (initSuccess) {
             DemarkUtil.toggleDemarkComment(editor);
         }
     }
