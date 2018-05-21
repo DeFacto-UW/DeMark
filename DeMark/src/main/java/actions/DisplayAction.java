@@ -20,7 +20,7 @@ public class DisplayAction extends AnAction {
     /**
      * Attempt to initialize all the fields needed for this action.
      *
-     * @param anActionEvent. An action event to help initialize the editor.
+     * @param anActionEvent An action event to help initialize the editor.
      * @return True if fields initialized successfully, False otherwise.
      */
     private boolean init(@NotNull AnActionEvent anActionEvent) {

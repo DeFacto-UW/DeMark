@@ -26,7 +26,7 @@ public class MarkAction extends AnAction {
     /**
      * Attempt to initialize all the fields needed for this action.
      *
-     * @param anActionEvent. An action event to help initialize the editor and document
+     * @param anActionEvent An action event to help initialize the editor and document
      * @return True if fields initialized successfully, False otherwise.
      */
     private boolean init(@NotNull AnActionEvent anActionEvent) {

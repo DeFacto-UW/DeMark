@@ -7,6 +7,7 @@ import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.EditorFactory;
 import com.intellij.openapi.editor.markup.*;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.ui.Gray;
 import com.intellij.ui.JBColor;
 import com.intellij.util.DocumentUtil;
@@ -74,7 +75,7 @@ public class HighlightUtil {
      *
      * @param project The project to add the highlights to
      */
-    public static void addHighlightsOnStart(Project project) {
+    public static void addHighlightsOnProjectOpen(@Nonnull Project project) {
         List<Bookmark> bookmarkList = BookmarkManager.getInstance(project).getValidBookmarks();
         TextAttributes textAttributes = new TextAttributes();
         textAttributes.setBackgroundColor(highlightColor);
@@ -91,5 +92,27 @@ public class HighlightUtil {
                 }
             }
         }
+    }
+
+
+    /**
+     * On file open, re-highlight all DeMark bookmarks.
+     *
+     * @param file The file to add highlights to
+     */
+    public static void addHighlightsOnFileOpen(@Nonnull Editor editor, @Nonnull VirtualFile file) {
+        Project project = editor.getProject();
+       String fileName = file.getName();
+       List<Bookmark> bookmarkList = BookmarkManager.getInstance(project).getValidBookmarks();
+
+       TextAttributes textAttributes = new TextAttributes();
+       textAttributes.setBackgroundColor(highlightColor);
+
+       for (Bookmark bookmark : bookmarkList) {
+           String bookmarkFileName = bookmark.getFile().getName();
+           if (bookmarkFileName.equals(fileName) && bookmark.getDescription().equals(DemarkUtil.DEMARK_INDICATOR)) {
+               editor.getMarkupModel().addLineHighlighter(bookmark.getLine(), HighlighterLayer.LAST - 1, textAttributes);
+           }
+       }
     }
 }

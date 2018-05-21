@@ -1,4 +1,11 @@
 package components;
+import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.fileEditor.FileEditorManager;
+import com.intellij.openapi.fileEditor.FileEditorManagerAdapter;
+import com.intellij.openapi.fileEditor.FileEditorManagerEvent;
+import com.intellij.openapi.fileEditor.FileEditorManagerListener;
+import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.util.messages.MessageBus;
 import components.model.AllClearHistory;
 import components.model.ClearHistory;
 import components.model.ClearRecord;
@@ -41,8 +48,32 @@ public class DemarkProjectComponent implements ProjectComponent {
      * After project as been opened
      */
     public void projectOpened() {
-        Runnable addHighlights = () -> HighlightUtil.addHighlightsOnStart(project);
+        Runnable addHighlights = () -> HighlightUtil.addHighlightsOnProjectOpen(project);
         StartupManager.getInstance(project).registerPostStartupActivity(addHighlights);
+
+        // Add file listeners to ensure highlights are "persistent"
+        MessageBus messageBus = project.getMessageBus();
+        messageBus.connect().subscribe(FileEditorManagerListener.FILE_EDITOR_MANAGER, new FileEditorManagerAdapter() {
+            @Override
+            public void fileOpened(@NotNull FileEditorManager source, @NotNull VirtualFile file) {
+                super.fileOpened(source, file);
+
+                Editor editor = source.getSelectedTextEditor();
+                assert(editor != null);
+                HighlightUtil.addHighlightsOnFileOpen(editor, file);
+
+            }
+
+            @Override
+            public void fileClosed(@NotNull FileEditorManager source, @NotNull VirtualFile file) {
+                super.fileClosed(source, file);
+            }
+
+            @Override
+            public void selectionChanged(@NotNull FileEditorManagerEvent event) {
+                super.selectionChanged(event);
+            }
+        });
     }
 
     /**

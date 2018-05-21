@@ -27,7 +27,7 @@ public class UnclearAction extends AnAction {
     /**
      * Attempt to initialize all the fields needed for this action.
      *
-     * @param anActionEvent. An action event to help initialize the editor, project and document
+     * @param anActionEvent An action event to help initialize the editor, project and document
      * @return True if fields initialized successfully, False otherwise.
      */
     private boolean init(@NotNull AnActionEvent anActionEvent) {
