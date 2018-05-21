@@ -1,0 +1,29 @@
+Name: Lemei Zhang
+CSE netID: lemeiz
+CSE 403 Software Engineering
+Week 9 individual report
+
+Goals from last week:
+  - Help preparing the slides for the presentation
+  - Improve the features of the tool based on user feedback
+  - Further revise the proposal and the user manual if needed
+
+Progress of this week:
+  - Accomplished:
+    - Helped prepare the presentation slides
+    - Helped doing code review on the assigned group (reviewed 
+      nl2bash's code for the web server)
+    - Addressed some known issues about the tool
+  - Learned:
+    - Code reviews are important for improving the documentation
+      and style for code, as well as discovering flaws
+  - Challenges:
+    - Code reviews are nice, but it can be difficult if you are
+      doing it for the first time as you don't really know what
+      to look for, and whether your suggestions are good or not
+
+Goals and plans for next week:
+  - Write more tests (both simple and complex)
+  - Discuss with team members about the state 2 of user trial 
+    experimentation
+  - Work with team members to finalize the proposal
