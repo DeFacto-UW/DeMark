@@ -58,7 +58,7 @@ public class MarkAction extends AnAction {
             // Count the number of lines marked
             for (int i = 0; i < lineStarts.size(); i++) {
                 int lineNum = document.getLineNumber(lineStarts.get(i));
-                if (DemarkUtil.isDemarked(editor, lineNum)) {
+                if (DemarkUtil.isDemarkedLine(editor, lineNum)) {
                     countMarked++;
                 }
             }
@@ -72,7 +72,7 @@ public class MarkAction extends AnAction {
                 int lineNum = document.getLineNumber(lineStarts.get(i));
 
                 if (countMarked != lineStarts.size()) {
-                    if (!DemarkUtil.isDemarked(editor, lineNum)) {
+                    if (!DemarkUtil.isDemarkedLine(editor, lineNum)) {
                         DemarkUtil.addDemarkBookmark(editor, lineNum);
                     }
 
