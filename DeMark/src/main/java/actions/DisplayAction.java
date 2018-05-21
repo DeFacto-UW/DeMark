@@ -17,21 +17,23 @@ import org.jetbrains.annotations.NotNull;
 public class DisplayAction extends AnAction {
     private Editor editor;
 
-    // TODO: Check the ones that may be null
     // Initializes all fields
     private void init(@NotNull AnActionEvent anActionEvent) {
         editor = anActionEvent.getData(LangDataKeys.EDITOR);
     }
 
     public void update(AnActionEvent e) {
-        //perform action if and only if EDITOR != null
-        boolean enabled = e.getData(CommonDataKeys.EDITOR) != null;
-        e.getPresentation().setEnabled(enabled);
+        if (editor != null) {
+            boolean enabled = e.getData(CommonDataKeys.EDITOR) != null;
+            e.getPresentation().setEnabled(enabled);
+        }
     }
 
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         init(anActionEvent);
-        DemarkUtil.displayDemarkedLines(editor);
+        if (editor != null) {
+            DemarkUtil.displayDemarkedLines(editor);
+        }
     }
 }

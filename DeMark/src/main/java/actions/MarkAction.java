@@ -23,10 +23,12 @@ public class MarkAction extends AnAction {
     private Document document;
     private Editor editor;
 
-    // TODO: Check the ones that may be null
     // Initializes all fields
     private void init(@NotNull AnActionEvent anActionEvent) {
         editor = anActionEvent.getData(LangDataKeys.EDITOR);
+        if (editor == null) {
+            return;
+        }
         document = editor.getDocument();
     }
 
@@ -39,6 +41,9 @@ public class MarkAction extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         init(anActionEvent);
+        if (editor == null || document == null) {
+            return;
+        }
 
         // Find the line start positions of selected text
         ArrayList<Integer> lineStarts = SelectionUtil.getSelectionStarts(editor);

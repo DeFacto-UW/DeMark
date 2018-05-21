@@ -24,16 +24,21 @@ public class UnclearAction extends AnAction {
     private Project project;
     private Document document;
 
-    // TODO: Check the ones that may be null
     // Initializes all fields
     private void init(@NotNull AnActionEvent anActionEvent) {
         editor = anActionEvent.getData(LangDataKeys.EDITOR);
+        if (editor == null) {
+            return;
+        }
         project = editor.getProject();
         document = editor.getDocument();
     }
     @Override
     public void actionPerformed(AnActionEvent e) {
         init(e);
+        if (editor == null || project == null || document == null) {
+            return;
+        }
 
         // gets the DeMark component from the project and get's the clear history from it
         DemarkProjectComponent demarkProjectComponent = project.getComponent(DemarkProjectComponent.class);

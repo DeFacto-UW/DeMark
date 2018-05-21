@@ -22,10 +22,12 @@ public class ClearAllAction extends AnAction {
     private Project project;        // the IntelliJ project
     private Document document;      // the IntelliJ document
 
-    // TODO: Check the ones that may be null
     // Initializes all fields
     private void init(@NotNull AnActionEvent anActionEvent) {
         editor = anActionEvent.getData(LangDataKeys.EDITOR);
+        if (editor == null) {
+            return;
+        }
         project = editor.getProject();
         document = editor.getDocument();
     }
@@ -33,8 +35,11 @@ public class ClearAllAction extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         init(anActionEvent);
-        DemarkProjectComponent demarkProjectComponent = project.getComponent(DemarkProjectComponent.class
-        );
+
+        if (editor == null || project == null || document == null) {
+            return;
+        }
+        DemarkProjectComponent demarkProjectComponent = project.getComponent(DemarkProjectComponent.class);
 
         ClearRecord clearedLines = DemarkUtil.clearAllDemarkBookmarks(editor);
         demarkProjectComponent.pushHistory(DemarkUtil.getDocumentName(document), clearedLines);
