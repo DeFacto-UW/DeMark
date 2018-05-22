@@ -22,7 +22,7 @@ repositories {
 
 
 group 'DeFacto-UW'
-version 'Beta-0.1'
+version 'Beta-0.2'
 
 apply plugin: 'java'
 apply plugin: 'idea'
@@ -60,15 +60,13 @@ sourceSets {
 }
 
 patchPluginXml {
-    version = "Beta-0.1"
+    version = "Beta-0.2"
     sinceBuild = "173"
 
     changeNotes =
     """
-    Version Beta-0.1
-    - Now compatible with older versions of IntelliJ.
-    - Changed look of Toggle button. 
-    - Highlighting is less janky.  
+    Version Beta-0.2
+    - Fixed bug with clearing and unclearing lines not working properly. 
     """
 
     pluginDescription =
