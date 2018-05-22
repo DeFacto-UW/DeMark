@@ -24,14 +24,23 @@ import java.util.List;
  */
 public class HighlightUtil {
 
-    private static JBColor highlightColor = new JBColor(Gray._222, JBColor.white);
+    private static JBColor HL_COLOR = new JBColor(Gray._222, JBColor.white);
+    private static int HL_LAYER = HighlighterLayer.LAST - 1;
 
+    // TODO: Keep this?
     // NOTES ON HIGHLIGHTING:
-    // There are multiple highlighting layers. This can be found in HighlighterLayer.java in the SDK.
-    // We are using the layer directly below the selection layer, which is SELECTION - 1 or LAST - 1
-    // We don't want to remove the implicit highlighters cause that might break things.
-    // We don't need to use highlight manager to do things, just straight up use the editor markup model
-    // Currently we are only using the line numbers and the list of highlighters that we added to determine
+    // There are multiple highlighting layers.
+    // This can be found in HighlighterLayer.java in the SDK.
+    // We are using the layer directly below the selection layer,
+    // which is SELECTION - 1 or LAST - 1
+    //
+    // We don't want to remove the implicit highlighters cause that might
+    // break things.
+    // We don't need to use highlight manager to do things,
+    // just straight up use the editor markup model
+    //
+    // Currently we are only using the line numbers and
+    // the list of highlighters that we added to determine
 
     /**
      * Remove a highlight from a line
@@ -42,12 +51,18 @@ public class HighlightUtil {
     public static void removeHighlight(@Nonnull Editor editor, int lineNum) {
 
         // Find all the highlights
-        RangeHighlighter[] rangeHighlighters = editor.getMarkupModel().getAllHighlighters();
-        int offset = DocumentUtil.getFirstNonSpaceCharOffset(editor.getMarkupModel().getDocument(), lineNum);
+        MarkupModel markup = editor.getMarkupModel();
+        Document document = markup.getDocument();
+        RangeHighlighter[] rangeHighlighters = markup.getAllHighlighters();
+
+        // Convert line number to character offset in file
+        int offset = DocumentUtil.getFirstNonSpaceCharOffset(document, lineNum);
 
         // Remove the highlight that matches the given line
         for (RangeHighlighter highlight : rangeHighlighters) {
-            if (highlight.getStartOffset() == offset && highlight.getEndOffset() == offset) {
+            if (highlight.getStartOffset() == offset
+                    && highlight.getEndOffset() == offset) {
+
                 editor.getMarkupModel().removeHighlighter(highlight);
                 return;
             }
@@ -63,9 +78,12 @@ public class HighlightUtil {
      */
     public static void addHighlight(@Nonnull Editor editor, int lineNum) {
         TextAttributes textAttributes = new TextAttributes();
-        textAttributes.setBackgroundColor(highlightColor);
+        textAttributes.setBackgroundColor(HL_COLOR);
 
-        editor.getMarkupModel().addLineHighlighter(lineNum, HighlighterLayer.LAST - 1, textAttributes);
+        // Add a highlight at the line number
+        editor.getMarkupModel().addLineHighlighter(lineNum,
+                                                    HL_LAYER,
+                                                    textAttributes);
     }
 
 
@@ -76,19 +94,26 @@ public class HighlightUtil {
      * @param project The project to add the highlights to
      */
     public static void addHighlightsOnProjectOpen(@Nonnull Project project) {
-        List<Bookmark> bookmarkList = BookmarkManager.getInstance(project).getValidBookmarks();
-        TextAttributes textAttributes = new TextAttributes();
-        textAttributes.setBackgroundColor(highlightColor);
+        List<Bookmark> bookmarkList = BookmarkManager.getInstance(project)
+                                                     .getValidBookmarks();
 
+        TextAttributes textAttributes = new TextAttributes();
+        textAttributes.setBackgroundColor(HL_COLOR);
         Editor[] editorArray = EditorFactory.getInstance().getAllEditors();
+
+        // Go through all editors.
         for (Editor editor : editorArray) {
             Document document = editor.getDocument();
 
+            // Cross check if any of them have bookmarks in them
             for (Bookmark bookmark : bookmarkList) {
                 Document bookmarkDoc = bookmark.getDocument();
+                String description = bookmark.getDescription();
 
-                if (document.equals(bookmarkDoc) && bookmark.getDescription().equals(DemarkUtil.DEMARK_INDICATOR)) {
-                    editor.getMarkupModel().addLineHighlighter(bookmark.getLine(), HighlighterLayer.LAST - 1, textAttributes);
+                // Highlight the Demark bookmarks in the editor
+                if (document.equals(bookmarkDoc)
+                        && description.equals(DemarkUtil.DEMARK_INDICATOR)) {
+                    addHighlight(editor, bookmark.getLine());
                 }
             }
         }
@@ -101,18 +126,23 @@ public class HighlightUtil {
      * @param editor The editor to add highlights to
      * @param file The virtual file to add highlights to
      */
-    public static void addHighlightsOnFileOpen(@Nonnull Editor editor, @Nonnull VirtualFile file) {
+    public static void addHighlightsOnFileOpen(@Nonnull Editor editor,
+                                               @Nonnull VirtualFile file) {
         Project project = editor.getProject();
        String fileName = file.getName();
-       List<Bookmark> bookmarkList = BookmarkManager.getInstance(project).getValidBookmarks();
+       List<Bookmark> bookmarkList = BookmarkManager.getInstance(project)
+                                                    .getValidBookmarks();
 
-       TextAttributes textAttributes = new TextAttributes();
-       textAttributes.setBackgroundColor(highlightColor);
-
+       // Find all Demark bookmarks for the given file
        for (Bookmark bookmark : bookmarkList) {
            String bookmarkFileName = bookmark.getFile().getName();
-           if (bookmarkFileName.equals(fileName) && bookmark.getDescription().equals(DemarkUtil.DEMARK_INDICATOR)) {
-               editor.getMarkupModel().addLineHighlighter(bookmark.getLine(), HighlighterLayer.LAST - 1, textAttributes);
+           String bookmarkDescription = bookmark.getDescription();
+
+           // Re-add highlights to them
+           if (bookmarkFileName.equals(fileName)
+                   && bookmarkDescription.equals(DemarkUtil.DEMARK_INDICATOR)) {
+
+               addHighlight(editor, bookmark.getLine());
            }
        }
     }

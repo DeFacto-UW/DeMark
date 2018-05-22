@@ -18,14 +18,15 @@ import components.DemarkProjectComponent;
  * Uses: {@link DemarkUtil}, {@link DemarkProjectComponent}
  */
 public class ClearAllAction extends AnAction {
-    private Editor editor;          // the IntelliJ editor
-    private Project project;        // the IntelliJ project
-    private Document document;      // the IntelliJ document
+    private Editor editor;          // the current opened editor
+    private Project project;        // the current opened project
+    private Document document;      // the current opened document
 
     /**
      * Attempt to initialize all the fields needed for this action.
      *
-     * @param anActionEvent An action event to help initialize the editor, project and document
+     * @param anActionEvent An action event to help initialize the editor,
+     *                      project and document
      * @return True if fields initialized successfully, False otherwise.
      */
     private boolean init(@NotNull AnActionEvent anActionEvent) {
@@ -44,10 +45,11 @@ public class ClearAllAction extends AnAction {
         boolean initSuccess = init(anActionEvent);
 
         if (initSuccess) {
-            DemarkProjectComponent demarkProjectComponent = project.getComponent(DemarkProjectComponent.class);
-
+            DemarkProjectComponent projectComponent = DemarkUtil.getProjectComponent(project);
             ClearRecord clearedLines = DemarkUtil.clearAllDemarkBookmarks(editor);
-            demarkProjectComponent.pushHistory(DemarkUtil.getDocumentName(document), clearedLines);
+
+            String fileName = DemarkUtil.getDocumentName(document);
+            projectComponent.pushHistory(fileName, clearedLines);
         }
     }
 }

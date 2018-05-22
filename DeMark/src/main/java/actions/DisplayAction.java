@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
  * Uses: {@link DemarkUtil}
  */
 public class DisplayAction extends AnAction {
-    private Editor editor;
+    private Editor editor;      // The current opened editor
 
     /**
      * Attempt to initialize all the fields needed for this action.

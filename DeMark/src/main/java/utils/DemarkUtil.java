@@ -12,6 +12,7 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.TextRange;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.util.DocumentUtil;
+import components.DemarkProjectComponent;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -26,7 +27,8 @@ import java.util.TreeMap;
  *
  * Handles marking, unmarking, toggling, display, clear, and unclear
  *
- * A marked line will have a {@link Bookmark} and a {@link com.intellij.openapi.editor.markup.RangeHighlighter}
+ * A marked line will have a {@link Bookmark} and
+ * a {@link com.intellij.openapi.editor.markup.RangeHighlighter}
  * associated with it.
  *
  * Uses: {@link SelectionUtil}, {@link HighlightUtil}, {@link ClearRecord}
@@ -37,7 +39,8 @@ public class DemarkUtil {
 
 
     /**
-     * Creates a bookmark at the current line number and adds a highlight to the line.
+     * Creates a bookmark at the current line number and adds
+     * a highlight to the line.
      *
      * @param editor the editor to add the mark to
      * @param lineNum the line number to add the mark to
@@ -52,9 +55,9 @@ public class DemarkUtil {
 
         BookmarkManager bookmarkManager = BookmarkManager.getInstance(project);
         bookmarkManager.addEditorBookmark(editor, lineNum);
-
         Bookmark added = bookmarkManager.findEditorBookmark(document, lineNum);
-        // makes sure the bookmark was added successfully, then adds the description and highlight
+
+        // Add a bookmark by adding description and highlighting
         if (added != null) {
             bookmarkManager.setDescription(added, DEMARK_INDICATOR);
             HighlightUtil.addHighlight(editor, lineNum);
@@ -67,7 +70,8 @@ public class DemarkUtil {
      * @param editor, the editor to remove the mark from
      * @param lineNum, the line number to remove the mark from
      */
-    public static void removeDemarkBookmark(@Nonnull Editor editor, int lineNum) {
+    public static void removeDemarkBookmark(@Nonnull Editor editor,
+                                            int lineNum) {
         Project project = editor.getProject();
         Document document = editor.getDocument();
 
@@ -78,8 +82,8 @@ public class DemarkUtil {
         BookmarkManager bookmarkManager = BookmarkManager.getInstance(project);
         Bookmark result = bookmarkManager.findEditorBookmark(document, lineNum);
 
-        // checks if the bookmark in question is a DeMark bookmark by the description
-        if (result != null && result.getDescription().equals(DEMARK_INDICATOR)) {
+        // Check if the bookmark is a DeMark bookmark by checking description
+        if (result != null && isDemarkedLine(editor, result.getLine())) {
             bookmarkManager.removeBookmark(result);
             HighlightUtil.removeHighlight(editor, lineNum);
         }
@@ -92,7 +96,6 @@ public class DemarkUtil {
      */
     public static void toggleDemarkComment(@NotNull Editor editor) {
         Project project = editor.getProject();
-
         if (project == null) {
             return;
         }
@@ -100,6 +103,7 @@ public class DemarkUtil {
         BookmarkManager bookmarkManager = BookmarkManager.getInstance(project);
         List<Bookmark> bookmarkList = bookmarkManager.getValidBookmarks();
 
+        // Toggle all demark bookmarks
         for (Bookmark bookmark : bookmarkList) {
             int lineNum = bookmark.getLine();
             if (isDemarkedLine(editor, lineNum)) {
@@ -113,7 +117,8 @@ public class DemarkUtil {
     }
 
     /**
-     * Display the marked lines for the current file that is opened in a separate window by IntelliJ
+     * Display the marked lines for the current file that is opened
+     * in a separate window by IntelliJ
      *
      * @param editor, the current editor that contains all the bookmarks
      */
@@ -144,7 +149,8 @@ public class DemarkUtil {
 
 
     /**
-     * Removes all DeMark bookmarks and deletes the corresponding lines with it from the current file
+     * Removes all DeMark bookmarks and deletes the corresponding lines
+     * with it from the current file
      *
      * @param editor, the editor that contains the marked lines
      *
@@ -181,14 +187,18 @@ public class DemarkUtil {
      * @param editor, the editor the unclear from
      * @param last, a collection that stores last clearAll action
      */
-    public static void unclearLastClearAll(@Nonnull Editor editor, @NotNull ClearRecord last) {
+    public static void unclearLastClearAll(@Nonnull Editor editor,
+                                           @NotNull ClearRecord last) {
+
         // iterates through every entry in the ClearRecord
         // Each entry is a (Key, Value) pair with
         //      Key = line number
         //      Value = text at line number
         for (HashMap.Entry<Integer, String> entry : last.entrySet()) {
             Document document = editor.getDocument();
-            TextRange textRange = DocumentUtil.getLineTextRange(document, entry.getKey());
+            int line = entry.getKey();
+
+            TextRange textRange = DocumentUtil.getLineTextRange(document, line);
             String lineBody = document.getText(textRange);
 
             if (!lineBody.equals(entry.getValue())) {
@@ -201,13 +211,13 @@ public class DemarkUtil {
      * Get all DeMark Bookmarks
      *
      * @param editor, the current editor to get Demark bookmarks from
-     * @return All bookmarks labeled with the {@link #DEMARK_INDICATOR} in the form of a Treemap containing
-     * line numbers to their respective text body
+     * @return All bookmarks labeled with the {@link #DEMARK_INDICATOR} in
+     *          the form of a Treemap containing line numbers
+     *          to their respective text body
      */
     private static TreeMap<Integer, String> getDemarks(@Nonnull Editor editor) {
         Project project = editor.getProject();
         Document document = editor.getDocument();
-
         TreeMap<Integer, String> demarkBookmarks = new TreeMap<>();
 
         if (project == null) {
@@ -217,13 +227,15 @@ public class DemarkUtil {
         BookmarkManager bookmarkManager = BookmarkManager.getInstance(project);
         List<Bookmark> bookmarkList = bookmarkManager.getValidBookmarks();
 
+        // Find all Demark bookmarks
         for (Bookmark bookmark : bookmarkList) {
             int lineNum = bookmark.getLine();
 
             if (isDemarkedLine(editor, lineNum)) {
-                TextRange textRange = DocumentUtil.getLineTextRange(editor.getDocument(), lineNum);
+                // Map the lineNumber -> lineBody
+                TextRange textRange = DocumentUtil.getLineTextRange(document,
+                                                                    lineNum);
                 String lineBody = document.getText(textRange);
-
                 demarkBookmarks.put(lineNum, lineBody);
             }
 
@@ -232,11 +244,13 @@ public class DemarkUtil {
     }
 
     /**
-     * Determine if a line is marked or not by the Demark plugin using the description of the bookmakr
+     * Determine if a line is marked or not by the Demark plugin
+     * using the description of the bookmakr
      *
      * @param editor, the editor that contains the checked line
      * @param lineNum, the line num to check
-     * @return true if the bookmark on the line has description containing {@link #DEMARK_INDICATOR}
+     * @return true if the bookmark on the line has description
+     *         containing {@link #DEMARK_INDICATOR}
      */
     public static boolean isDemarkedLine(@Nonnull Editor editor, int lineNum) {
         Project project = editor.getProject();
@@ -247,8 +261,10 @@ public class DemarkUtil {
         }
 
         BookmarkManager bookmarkManager = BookmarkManager.getInstance(project);
-        Bookmark bookmark = bookmarkManager.findEditorBookmark(document, lineNum);
+        Bookmark bookmark = bookmarkManager.findEditorBookmark(document,
+                                                                lineNum);
 
+        // Check if the bookmark has the correct description
         return bookmark != null && bookmark.getDescription().equals(DEMARK_INDICATOR);
     }
 
@@ -265,9 +281,19 @@ public class DemarkUtil {
     }
 
     /*
-     * Adds all the bookmarks inside the bookmark list into a ClearRecord as the pair (Line number, Text)
+     * Adds all the bookmarks inside the bookmark list into
+     * a ClearRecord as the pair (Line number, Text)
      */
-    private static ClearRecord getClearRecord(@NotNull Editor editor, @NotNull List<Bookmark> bookmarkList) {
+
+    /**
+     * Construct a new clear record from a list of bookmarks.
+     *
+     * @param editor The editor to put the clear record in
+     * @param bookmarkList The bookmark list to add into the clear record
+     * @return A new Clear Record containing bookmarks (line number -> text)
+     */
+    private static ClearRecord getClearRecord(@NotNull Editor editor,
+                                              @NotNull List<Bookmark> bookmarkList) {
         Document document = editor.getDocument();
         ClearRecord cr = new ClearRecord();
 
@@ -275,9 +301,16 @@ public class DemarkUtil {
             int lineNum = bookmark.getLine();
 
             if (isDemarkedLine(editor, lineNum)) {
-                cr.addRecord(lineNum, document.getText(DocumentUtil.getLineTextRange(document, lineNum)));
+                TextRange tr = DocumentUtil.getLineTextRange(document, lineNum);
+                String textBody = document.getText(tr);
+
+                cr.addRecord(lineNum, textBody);
             }
         }
         return cr;
+    }
+
+    public static DemarkProjectComponent getProjectComponent(Project project) {
+        return project.getComponent(DemarkProjectComponent.class);
     }
 }

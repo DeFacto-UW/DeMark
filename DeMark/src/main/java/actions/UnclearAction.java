@@ -20,14 +20,15 @@ import java.util.Set;
  */
 public class UnclearAction extends AnAction {
 
-    private Editor editor;
-    private Project project;
-    private Document document;
+    private Editor editor;          // The current opened editor
+    private Project project;        // The current opened project
+    private Document document;      // The current opened document
 
     /**
      * Attempt to initialize all the fields needed for this action.
      *
-     * @param anActionEvent An action event to help initialize the editor, project and document
+     * @param anActionEvent An action event to help initialize the editor,
+     *                      project and document
      * @return True if fields initialized successfully, False otherwise.
      */
     private boolean init(@NotNull AnActionEvent anActionEvent) {
@@ -46,8 +47,9 @@ public class UnclearAction extends AnAction {
 
         if (initSuccess) {
             // Get the DeMark Component and clear global history
-            DemarkProjectComponent demarkProjectComponent = project.getComponent(DemarkProjectComponent.class);
-            ClearRecord prevClearedLines = demarkProjectComponent.popHistory(DemarkUtil.getDocumentName(document));
+            DemarkProjectComponent projectComponent = DemarkUtil.getProjectComponent(project);
+            String fileName = DemarkUtil.getDocumentName(document);
+            ClearRecord prevClearedLines = projectComponent.popHistory(fileName);
 
             // Restore all previously cleared lines and re-bookmark them
             if (prevClearedLines != null) {

@@ -15,14 +15,19 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.startup.StartupManager;
 import main.java.utils.HighlightUtil;
 import org.jetbrains.annotations.NotNull;
+import components.DemarkApplicationComponent;
 
 /**
- * A component for the project specifically used to detect when the project is opened, allowing the plugin
- * to perform certain actions during the IDE startup.
+ * A component for the project specifically used to detect when the project is
+ * opened, allowing the plugin to perform certain actions during IDE startup.
  *
- * Interacts with {@link actions.ClearAllAction} and {@link actions.UnclearAction} to handle cleared lines
+ * Interacts with {@link actions.ClearAllAction} and
+ * {@link actions.UnclearAction} to handle cleared lines
  *
- * Uses: {@link HighlightUtil}, {@link AllClearHistory}, {@link ClearRecord}, {@link ClearRecord}
+ * Uses: {@link HighlightUtil},
+ *       {@link AllClearHistory},
+ *       {@link ClearRecord},
+ *       {@link ClearRecord}
  */
 public class DemarkProjectComponent implements ProjectComponent {
 
@@ -32,11 +37,12 @@ public class DemarkProjectComponent implements ProjectComponent {
     private AllClearHistory history;
 
     /**
-     * @param project The current project, i.e. the project which was just opened.
+     * @param project The project which was just opened.
      */
-    public DemarkProjectComponent(Project project, @NotNull components.DemarkApplicationComponent applicationComponent) {
+    public DemarkProjectComponent(Project project,
+                                  @NotNull DemarkApplicationComponent appComponent) {
         this.project = project;
-        this.applicationComponent = applicationComponent;
+        this.applicationComponent = appComponent;
         this.history = new AllClearHistory();
     }
 
@@ -49,13 +55,17 @@ public class DemarkProjectComponent implements ProjectComponent {
      */
     public void projectOpened() {
         Runnable addHighlights = () -> HighlightUtil.addHighlightsOnProjectOpen(project);
-        StartupManager.getInstance(project).registerPostStartupActivity(addHighlights);
+
+        StartupManager.getInstance(project)
+                        .registerPostStartupActivity(addHighlights);
 
         // Add file listeners to ensure highlights are "persistent"
         MessageBus messageBus = project.getMessageBus();
-        messageBus.connect().subscribe(FileEditorManagerListener.FILE_EDITOR_MANAGER, new FileEditorManagerAdapter() {
+        messageBus.connect().subscribe(FileEditorManagerListener.FILE_EDITOR_MANAGER,
+                                        new FileEditorManagerAdapter() {
             @Override
-            public void fileOpened(@NotNull FileEditorManager source, @NotNull VirtualFile file) {
+            public void fileOpened(@NotNull FileEditorManager source,
+                                   @NotNull VirtualFile file) {
                 super.fileOpened(source, file);
 
                 Editor editor = source.getSelectedTextEditor();
@@ -65,7 +75,8 @@ public class DemarkProjectComponent implements ProjectComponent {
             }
 
             @Override
-            public void fileClosed(@NotNull FileEditorManager source, @NotNull VirtualFile file) {
+            public void fileClosed(@NotNull FileEditorManager source,
+                                   @NotNull VirtualFile file) {
                 super.fileClosed(source, file);
             }
 

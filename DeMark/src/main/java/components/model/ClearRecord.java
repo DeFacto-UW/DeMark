@@ -3,7 +3,8 @@ package components.model;
 import java.util.TreeMap;
 
 /**
- * Storage component that Maps logical line numbers in the editor to the text that is on that line.
+ * Storage component that Maps logical line numbers in the editor to
+ * the text that is on that line.
  */
 public class ClearRecord extends TreeMap<Integer, String> {
     public ClearRecord() {

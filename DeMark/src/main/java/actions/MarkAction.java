@@ -20,13 +20,14 @@ import java.util.*;
  */
 public class MarkAction extends AnAction {
 
-    private Document document;
-    private Editor editor;
+    private Document document;      // The current opened document
+    private Editor editor;          // The current opened editor
 
     /**
      * Attempt to initialize all the fields needed for this action.
      *
-     * @param anActionEvent An action event to help initialize the editor and document
+     * @param anActionEvent An action event to help initialize the
+     *                      editor and document
      * @return True if fields initialized successfully, False otherwise.
      */
     private boolean init(@NotNull AnActionEvent anActionEvent) {
@@ -52,7 +53,7 @@ public class MarkAction extends AnAction {
 
         if (initSuccess) {
             // Find the line start positions of selected text
-            ArrayList<Integer> lineStarts = SelectionUtil.getSelectionStarts(editor);
+            List<Integer> lineStarts = SelectionUtil.getSelectionStarts(editor);
             int countMarked = 0;
 
             // Count the number of lines marked

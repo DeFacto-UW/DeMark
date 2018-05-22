@@ -5,8 +5,8 @@ import components.model.ClearHistory;
 import components.model.ClearRecord;
 
 /**
- * Storage class for that Maps files to their clear history. Allows storing clear histories from separate files
- * in the same project.
+ * Storage class for that Maps files to their clear history.
+ * Allows storing clear histories from separate files in the same project.
  *
  * Uses: {@link ClearHistory} {@link ClearRecord}
  */
@@ -25,8 +25,8 @@ public class AllClearHistory extends HashMap<String, ClearHistory> {
     }
 
     /**
-     * Adds a {@link ClearRecord} to the history of a file, allows for multiple clears in a row followed by
-     * multiple unclears
+     * Adds a {@link ClearRecord} to the history of a file,
+     * allows for multiple clears in a row followed by multiple unclears
      *
      * @param file  the file to add the history to
      * @param cr    the most recent history to the file
