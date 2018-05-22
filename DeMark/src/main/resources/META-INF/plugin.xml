@@ -57,7 +57,7 @@
         <!-- Adding the toggle button -->
         <group id="Demark.NavigationToolBar" text="DeMark" description="DeMark Navigation Toolbar">
             <add-to-group group-id="NavBarToolBar" anchor="first"/>
-            <action id="toggle" class="actions.ToggleAction" text="Toggle" description="Toggle the debug code lines comment" icon="utils.DemarkIcons.TOGGLE"/>
+            <action id="toggle" class="actions.ToggleAction" text="Toggle" description="Toggle the debug code lines comment" icon="DemarkIcons.TOGGLE"/>
         </group>
     </actions>
 </idea-plugin>
