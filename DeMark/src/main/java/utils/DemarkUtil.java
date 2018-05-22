@@ -2,8 +2,6 @@ package main.java.utils;
 
 import com.intellij.ui.components.JBScrollPane;
 import components.model.ClearRecord;
-import main.java.utils.SelectionUtil;
-import main.java.utils.HighlightUtil;
 
 import com.intellij.ide.bookmarks.Bookmark;
 import com.intellij.ide.bookmarks.BookmarkManager;
@@ -104,7 +102,7 @@ public class DemarkUtil {
 
         for (Bookmark bookmark : bookmarkList) {
             int lineNum = bookmark.getLine();
-            if (isDemarked(editor, lineNum)) {
+            if (isDemarkedLine(editor, lineNum)) {
                 if (SelectionUtil.isCommented(editor, lineNum)) {
                     SelectionUtil.removeComment(editor, lineNum);
                 } else {
@@ -168,7 +166,7 @@ public class DemarkUtil {
             int lineNum = bookmark.getLine();
 
             // Remove all bookmarks with Demark in this file
-            if (isDemarked(editor, lineNum)) {
+            if (isDemarkedLine(editor, lineNum)) {
                 bookmarkManager.removeBookmark(bookmark);
                 HighlightUtil.removeHighlight(editor, lineNum);
                 SelectionUtil.removeLine(editor, lineNum);
@@ -222,7 +220,7 @@ public class DemarkUtil {
         for (Bookmark bookmark : bookmarkList) {
             int lineNum = bookmark.getLine();
 
-            if (isDemarked(editor, lineNum)) {
+            if (isDemarkedLine(editor, lineNum)) {
                 TextRange textRange = DocumentUtil.getLineTextRange(editor.getDocument(), lineNum);
                 String lineBody = document.getText(textRange);
 
@@ -240,7 +238,7 @@ public class DemarkUtil {
      * @param lineNum, the line num to check
      * @return true if the bookmark on the line has description containing {@link #DEMARK_INDICATOR}
      */
-    public static boolean isDemarked(@Nonnull Editor editor, int lineNum) {
+    public static boolean isDemarkedLine(@Nonnull Editor editor, int lineNum) {
         Project project = editor.getProject();
         Document document = editor.getDocument();
 
@@ -276,7 +274,7 @@ public class DemarkUtil {
         for(Bookmark bookmark : bookmarkList) {
             int lineNum = bookmark.getLine();
 
-            if (isDemarked(editor, lineNum)) {
+            if (isDemarkedLine(editor, lineNum)) {
                 cr.addRecord(lineNum, document.getText(DocumentUtil.getLineTextRange(document, lineNum)));
             }
         }
