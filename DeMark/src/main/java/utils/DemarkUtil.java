@@ -161,6 +161,8 @@ public class DemarkUtil {
      * @return {@link ClearRecord} of all cleared marked lines.
      */
     public static ClearRecord clearAllDemarkBookmarks(@Nonnull Editor editor) {
+        Document document = editor.getDocument();
+
         Project project = editor.getProject();
         ClearRecord record = new ClearRecord();
         if (project == null) {
@@ -170,13 +172,17 @@ public class DemarkUtil {
         BookmarkManager bookmarkManager = BookmarkManager.getInstance(project);
         List<Bookmark> bookmarkList = bookmarkManager.getValidBookmarks();
 
-        record = getClearRecord(editor, bookmarkList);
-
         for (Bookmark bookmark : bookmarkList) {
             int lineNum = bookmark.getLine();
 
             // Remove all bookmarks with Demark in this file
             if (isDemarkedLine(editor, lineNum)) {
+                // adds the lines to the record
+                TextRange tr = DocumentUtil.getLineTextRange(document, lineNum);
+                String textBody = document.getText(tr);
+
+                record.addRecord(lineNum, textBody);
+
                 bookmarkManager.removeBookmark(bookmark);
                 HighlightUtil.removeHighlight(editor, lineNum);
                 SelectionUtil.removeLine(editor, lineNum);
@@ -284,35 +290,6 @@ public class DemarkUtil {
         return vf == null ? "" : vf.getName();
     }
 
-    /*
-     * Adds all the bookmarks inside the bookmark list into
-     * a ClearRecord as the pair (Line number, Text)
-     */
-
-    /**
-     * Construct a new clear record from a list of bookmarks.
-     *
-     * @param editor The editor to put the clear record in
-     * @param bookmarkList The bookmark list to add into the clear record
-     * @return A new Clear Record containing bookmarks (line number -> text)
-     */
-    private static ClearRecord getClearRecord(@NotNull Editor editor,
-                                              @NotNull List<Bookmark> bookmarkList) {
-        Document document = editor.getDocument();
-        ClearRecord cr = new ClearRecord();
-
-        for(Bookmark bookmark : bookmarkList) {
-            int lineNum = bookmark.getLine();
-
-            if (isDemarkedLine(editor, lineNum)) {
-                TextRange tr = DocumentUtil.getLineTextRange(document, lineNum);
-                String textBody = document.getText(tr);
-
-                cr.addRecord(lineNum, textBody);
-            }
-        }
-        return cr;
-    }
 
     public static DemarkProjectComponent getProjectComponent(Project project) {
         return project.getComponent(DemarkProjectComponent.class);
