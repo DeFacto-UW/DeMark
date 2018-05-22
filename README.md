@@ -12,11 +12,11 @@
 
 #### Quick Links: 
 [1 - Introduction](#1-introduction) |
-[2 - Build Instructions](#2-build-instructions) |
-[3 - Installation](#3-installation) |
-[4 - Using DeMark](#4-using-demark) |
-[5 - Specific Behaviors](#5-specific-behaviors-of-functionality) |
-[6 - Reporting Bugs](#6-reporting-bugs)
+[2 - Installation](#2-installation) |
+[3 - Using DeMark](#3-using-demark) |
+[4 - Specific Behaviors](#4-specific-behaviors-of-functionality) |
+[5 - Reporting Bugs](#5-reporting-bugs) |
+[6 - Contributing](#6-contributing)
 ## 1 Introduction
 
 One common way for a developers to debug through their code is by adding temporary, non-production
@@ -32,27 +32,7 @@ of temporary code.
 
 <sup>[back to top](#demark)</sup>
 
-## 2 Build Instructions
-
-### 2.1 Prerequisites
-- Java 8
-- Gradle 2.1+
-- Linux
-- Git
-- Command line using Bash
-- Note: University of Washington CSE Students or faculty may use a CSE VM or a Lab Computer to build
-
-### 2.2 Building
-To build DeMark, make sure all the prerequisites are installed. Afterwards, run the following commands on the command  line.
-```
- git clone https://github.com/DeFacto-UW/DeMark.git
- cd DeMark/DeMark
- gradle build
-```
-
-<sup>[back to top](#demark)</sup>
-
-## 3 Installation
+## 2 Installation
 
 This section provides the instruction for installing DeMark. It is a modified version of the official IntelliJ help documentation on the JetBrains website[1]:
 
@@ -61,82 +41,85 @@ This section provides the instruction for installing DeMark. It is a modified ve
 2. Click the **Install JetBrains plugin** or the **Browse repositories** button.
 3. In the dialog that opens, search for the plugin by typing “DeMark” into the search bar.
     Right-click the plugin labeled “DeMark” and select **Download and Install**.
+    - If you are unable to find DeMark through the built-in plugin installer, download the latest version of 
+    DeMark [here](https://plugins.jetbrains.com/plugin/10712-demark).
+    - Then from the Plugins window in Settings, click **Install plugin from disk**. 
+
 4. Confirm your intention to download and install DeMark.
 5. Close the plugin window and click **OK** in the **Settings** dialog.
 6. Restart IntelliJ IDEA.
 
-DeMark will appear as a drop down menu on the top tool bar. There will also be a toggle button
-next to the quick tools area.
+DeMark will appear as a drop down menu on the top tool bar before the **Help** menu. There will also be a toggle button at the 
+beginning of the quick tools area.
 
 <sup>[back to top](#demark)</sup>
 
-## 4 Using DeMark
+## 3 Using DeMark
 
 For each behavior, the keyboard shortcuts listed are their default shortcuts, the user can change
 the key bindings to any functions of DeMark if they choose to. To configure keyboard shortcuts
 for IntelliJ, please follow the instructions on this page: https://www.jetbrains.com/help/idea/
 configuring-keyboard-and-mouse-shortcuts.html.
 
-### 4.1 Mark and Unmark
+### 3.1 Mark and Unmark
 
 Marking a line will highlight the line and put a check mark next to its line number. There are two
 ways to mark a line:
 
-- Click on the line number located to the right of the code editor of the line you want to mark.
+- Place the cursor on the line you want to mark and chooe **DeMark|Mark** from the main menu.
 - Place the cursor on the line you want to mark and press `[Alt + M]`.
 
 Unmarking a line will remove the highlight on the line and the check mark next to its line number.
 There are two ways to unmark a line:
 
-- Click on the line number located to the right of the code editor of the currently marked line.
+- Place the cursor on the line you want to mark and chooe **DeMark|Mark** from the main menu.
 - Place the cursor on the marked line you want to unmark and press `[Alt + M]`.
     
-For specific behaviors of marking and unmarking, please refer to section 5.1 on page 3.
+For specific behaviors of marking and unmarking, please refer to section [4](#4-specific-behaviors-of-functionality).
 
 <sup>[back to top](#demark)</sup>
 
-### 4.2 Clear and Unclear
+### 3.2 Clear and Unclear
 Clear will remove all currently marked lines from the current file. There are two ways to clear all
 marked lines:
 
-- Choose **DeMark|Clear ** in the toolbar.
-- Press `[Alt + N]`.
+- Choose **DeMark|Clear All Marked Lines** from the main menu.
+- Press `[Alt + D]`.
 
 Unclear will restore all previously cleared lines for a file. There are two ways to unclear all previously
 cleared lines:
 
-- Choose **DeMark|Unclear**.
+- Choose **DeMark|Unclea All Marked Linesr** from the main menu.
 - Press `[Alt + Shift + D]`.
 
-For specific behaviors of clear and unclear, please refer to section 5.2 on page 3.
+For specific behaviors of marking and unmarking, please refer to section [4](#4-specific-behaviors-of-functionality).
 
 <sup>[back to top](#demark)</sup>
 
-### 4.3 Toggle
+### 3.3 Toggle
 
 The Toggle feature allows the user to comment/uncomment all the marked lines at a time.
 
-- Choose **DeMark|Toggle**.
-- Click the green and white toggle button located in the quick tools bar.
+- Click the <img src="https://github.com/DeFacto-UW/DeMark/blob/master/DeMark/src/main/resources/icons/eye.png" alt="toggle" width="16"> button located in the quick tools bar.
     
-For specific behaviors of toggle, please refer to section 5.3 on page 4.
+For specific behaviors of marking and unmarking, please refer to section [4](#4-specific-behaviors-of-functionality).
 
 <sup>[back to top](#demark)</sup>
 
-### 4.4 Display
+### 3.4 Display
 
 Display allows the user to view all marked lines in a file from a more project overview level by only
 displaying the marked lines along with a range of lines above and below to provide context:
 
-- Choose **DeMark|Display** in the toolbar.
+- Choose **DeMark|Display** from the main menu.
     
-For specific behaviors of display, please refer to section 5.4 on page 4.
+For specific behaviors of marking and unmarking, please refer to section [4](#4-specific-behaviors-of-functionality).
 
 <sup>[back to top](#demark)</sup>
 
-## 5 Specific Behaviors of Functionality
+## 4 Specific Behaviors of Functionality
 
-### 5.1 Marking and unmarking:
+### 4.1 Marking and unmarking:
 
 - Marked lines will have a description that says “DeMark”.
 - Marking and unmarking can only be done in IntelliJ and the marked lines will not show up
@@ -152,7 +135,7 @@ For specific behaviors of display, please refer to section 5.4 on page 4.
 
 <sup>[back to top](#demark)</sup>
 
-### 5.2 Clearing and unclearing:
+### 4.2 Clearing and unclearing:
 
 - Clearing will remove all marked lines with descriptions containing “DeMark” from the current
     file, regardless of whether the file is commented or not.
@@ -174,12 +157,12 @@ For specific behaviors of display, please refer to section 5.4 on page 4.
 
 <sup>[back to top](#demark)</sup>
 
-### 5.3 Toggle
+### 4.3 Toggle
 
 Because toggling will put the plugin into two separate states, each state will have their own specific
 behaviors with some overlapping features.
 
-#### 5.3.1 Both states of toggle:
+#### 4.3.1 Both states of toggle:
 
 - Lines would still be able to be individually uncommented.
 - Lines would still be able to be manually deleted.
@@ -187,7 +170,7 @@ behaviors with some overlapping features.
 
 <sup>[back to top](#demark)</sup>
 
-#### 5.3.2 “Off ” state:
+#### 4.3.2 “Off ” state:
 
 - Marked lines that were already commented will gain an extra level of comment. This is similar
     to saying that the line will be commented twice.
@@ -198,7 +181,7 @@ behaviors with some overlapping features.
 
 <sup>[back to top](#demark)</sup>
 
-#### 5.3.3 “On” state:
+#### 4.3.3 “On” state:
 
 - Marked lines having more than one level of comment will lose one level.
 - Marked lines that were uncommented during “off” state will stay uncommented.
@@ -208,7 +191,7 @@ behaviors with some overlapping features.
 
 <sup>[back to top](#demark)</sup>
 
-### 5.4 Display:
+### 4.4 Display:
 
 - Only marked lines for the current file will be displayed.
 - Display will provide 3 extra lines of code above and below each marked line for context
@@ -218,7 +201,7 @@ behaviors with some overlapping features.
 
 <sup>[back to top](#demark)</sup>
 
-## 6 Reporting Bugs
+## 5 Reporting Bugs
 
 If you find any bugs in our plugin, please submit an issue to our GitHub page:https://github.com/DeFacto-UW/DeMark/issues with the following information:
 
@@ -226,6 +209,12 @@ If you find any bugs in our plugin, please submit an issue to our GitHub page:ht
 - A brief description of the bug.
 - Specific steps to recreate the bug.
 - (Optional) A screen shot of the bug.
+
+<sup>[back to top](#demark)</sup>
+
+## 6 Contributing
+
+If you want to contribute to DeMark, please refer to the [contributing instructions](https://github.com/DeFacto-UW/DeMark/blob/master/CONTRIBUTING.md).
 
 <sup>[back to top](#demark)</sup>
 
