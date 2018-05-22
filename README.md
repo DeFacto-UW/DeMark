@@ -30,6 +30,8 @@ this by letting the user putting a special bookmark on lines of code and highlig
 It aims to increase software developers’ programming productivity by facilitating the management
 of temporary code.
 
+![DeMo](https://thumbs.gfycat.com/BasicUnfitGrebe-size_restricted.gif)
+
 <sup>[back to top](#demark)</sup>
 
 ## 2 Installation
