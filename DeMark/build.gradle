@@ -62,6 +62,21 @@ sourceSets {
 patchPluginXml {
     version = "Beta-0.1"
     sinceBuild = "173"
+
+    changeNotes =
+    """
+    Version Beta-0.1
+    - Now compatible with older versions of IntelliJ.
+    - Changed look of Toggle button. 
+    - Highlighting is less janky.  
+    """
+
+    pluginDescription =
+    """
+    One common way for a developers to debug through their code is by adding temporary, non-production lines of code, such as print statements, to understand the program’s state, but it can be a tedious task to manage them manually.
+    DeMark is a plugin that is used to keep track of temporary debug code. It allows this by letting the user putting a special bookmark on lines of code and highligting them, essentially "marking" them as debug code.
+    It aims to increase software developers’ programming productivity by facilitating the management of temporary code.
+    """
 }
 
 // Example task
