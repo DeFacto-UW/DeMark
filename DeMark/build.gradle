@@ -60,7 +60,7 @@ sourceSets {
 }
 
 patchPluginXml {
-    version = "Alpha-0.2"
+    version = "Beta-0.1"
     sinceBuild = "173"
 }
 
