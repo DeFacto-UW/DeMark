@@ -22,7 +22,7 @@ repositories {
 
 
 group 'DeFacto-UW'
-version 'Beta-0.2'
+version 'Beta-0.3'
 
 apply plugin: 'java'
 apply plugin: 'idea'
@@ -60,7 +60,7 @@ sourceSets {
 }
 
 patchPluginXml {
-    version = "Beta-0.2"
+    version = "Beta-0.3"
     sinceBuild = "173"
 
     changeNotes =
