@@ -64,7 +64,6 @@ public class HighlightUtil {
                     && highlight.getEndOffset() == offset) {
 
                 editor.getMarkupModel().removeHighlighter(highlight);
-                return;
             }
         }
     }
