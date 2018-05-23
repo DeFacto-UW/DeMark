@@ -1,0 +1,41 @@
+Status Report: Week 8
+
+Last week's goal:
+    - Continue to revise our proposal and making it more concise.
+        - Meet with Calvin to talk about maybe more specific parts that need to be strengthened.
+    - Continue to solve bugs in our plugin.
+    - Increase code coverage by at least 10%. (The more the better)
+    - Spread the word about our plugin on forums and begin stage 2 results soon.
+
+Progress Made:
+    Accomplished:
+        - Proposal revised properly.
+        - Mulitple bugs and issues have been fixed for the plugin. 
+        - Code base reactored significantly. 
+          - More documentation and better style. 
+        - Added tests for utils and components classes. 
+          - Code coverage now at around 60%. 
+        - Uploaded Beta version to plugin repository. 
+        - Survey made. 
+        - User manual updated to match with current features. 
+
+    Learned:
+        - How to work better with JaCoCo. 
+        - How listeners work in IntelliJ. 
+        - Importance of code review, good code style, and documentation. 
+        - How to do presentations well.
+
+    Challenges:
+        - Getting some features working as intended. 
+        - Distribution of plugin. 
+          - Waiting for JetBrains approval for plugin to be public. 
+        - Collecting data in a timely manner. 
+        - Good participation numbers. 
+
+Plans:
+    - Further implement features. 
+    - Start working on finalizing report. 
+    - Collecting and analyzing data. 
+    - Advertising plugin and survey.
+    - Add more tests. 
+    - Take plugin out of Beta. 
