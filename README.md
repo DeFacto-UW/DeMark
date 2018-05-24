@@ -43,8 +43,8 @@ This section provides the instruction for installing DeMark. It is a modified ve
 2. Click the **Install JetBrains plugin** or the **Browse repositories** button.
 3. In the dialog that opens, search for the plugin by typing “DeMark” into the search bar.
     Right-click the plugin labeled “DeMark” and select **Download and Install**.
-    - If you are unable to find DeMark through the built-in plugin installer, download the latest version of 
-    DeMark [here](https://plugins.jetbrains.com/plugin/10712-demark).
+    - If you are unable to find the latest version of DeMark through the built-in plugin installer, 
+    download the latest version of DeMark [here](https://plugins.jetbrains.com/plugin/10712-demark).
     - Then from the Plugins window in Settings, click **Install plugin from disk**. 
 
 4. Confirm your intention to download and install DeMark.
