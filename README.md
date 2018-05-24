@@ -17,6 +17,9 @@
 [4 - Specific Behaviors](#4-specific-behaviors-of-functionality) |
 [5 - Reporting Bugs](#5-reporting-bugs) |
 [6 - Contributing](#6-contributing)
+
+### Current survey: http://bit.ly/DeMarkStage2
+
 ## 1 Introduction
 
 One common way for a developers to debug through their code is by adding temporary, non-production
