@@ -88,7 +88,7 @@ public class DeMarkUtilTests extends LightCodeInsightFixtureTestCase {
         DemarkUtil.removeDemarkBookmark(editor, lineNum);
 
         List<Bookmark> demarkBookmarks = TestingUtility.getDeMarkBookmarks(myFixture);
-        assertEquals("Bookmaark was not removed", 0, demarkBookmarks.size());
+        assertEquals("Bookmark was not removed", 0, demarkBookmarks.size());
     }
 
     public void testRemoveDemarkBookmarkLineStays() {
