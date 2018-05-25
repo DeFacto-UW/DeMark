@@ -112,8 +112,8 @@ public class DemarkProjectComponent implements ProjectComponent {
     /**
      * Push the history onto the stack
      *
-     * @param file, the name of the current file
-     * @param cr, the collection of cleared lines
+     * @param file  the name of the current file
+     * @param cr    the collection of cleared lines
      */
     public void pushHistory(String file, ClearRecord cr) {
         this.history.addSingleHistory(file, cr);
@@ -122,7 +122,7 @@ public class DemarkProjectComponent implements ProjectComponent {
     /**
      * Gives the record of the most recently cleared lines
      *
-     * @param file, the name of the current file
+     * @param file  the name of the current file
      * @return {@link ClearRecord} containing most recently cleared lines
      */
     public ClearRecord popHistory(String file) {

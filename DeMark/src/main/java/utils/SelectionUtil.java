@@ -77,7 +77,7 @@ public class SelectionUtil {
     /**
      * Adds a comment to the line at a passed line number.
      *
-     * @param editor  , The editor to add the comment to.
+     * @param editor  The editor to add the comment to.
      * @param lineNum The line number to add a comment to.
      */
     public static void addComment(@Nonnull Editor editor,
@@ -101,8 +101,8 @@ public class SelectionUtil {
     /**
      * Remove a comment from a line given a line number.
      *
-     * @param editor, the editor to remove the comment from.
-     * @param lineNum The line number to remove the comment marker from.
+     * @param editor    the editor to remove the comment from.
+     * @param lineNum   the line number to remove the comment marker from.
      */
     public static void removeComment(@Nonnull Editor editor,
                                      @Nonnegative int lineNum) {
@@ -129,7 +129,7 @@ public class SelectionUtil {
     /**
      * Adds a line of text at a line number.
      *
-     * @param editor, the editor to add the line to.
+     * @param editor  the editor to add the line to.
      * @param lineNum The line number to add the text at.
      * @param text    The nonnull line of text to add to the document.
      */
@@ -154,7 +154,7 @@ public class SelectionUtil {
     /**
      * Removes a line of text from a document using the line number.
      *
-     * @param editor, the editor to remove the line from.
+     * @param editor  the editor to remove the line from.
      * @param lineNum The line number to delete.
      * @return the String that is deleted from the document,
      *          empty string if line could not be removed.

@@ -45,8 +45,8 @@ public class HighlightUtil {
     /**
      * Remove a highlight from a line
      *
-     * @param editor,  the editor to remove the highlight from
-     * @param lineNum, the line number to remove the highlight from
+     * @param editor    the editor to remove the highlight from
+     * @param lineNum   the line number to remove the highlight from
      */
     public static void removeHighlight(@Nonnull Editor editor, int lineNum) {
 
@@ -72,8 +72,8 @@ public class HighlightUtil {
     /**
      * Add a highlight to a line
      *
-     * @param editor,  the editor to add the highlight to
-     * @param lineNum, the line number to add the highlight to
+     * @param editor    the editor to add the highlight to
+     * @param lineNum   the line number to add the highlight to
      */
     public static void addHighlight(@Nonnull Editor editor, int lineNum) {
         TextAttributes textAttributes = new TextAttributes();
@@ -122,8 +122,8 @@ public class HighlightUtil {
     /**
      * On file open, re-highlight all DeMark bookmarks.
      *
-     * @param editor The editor to add highlights to
-     * @param file The virtual file to add highlights to
+     * @param editor    The editor to add highlights to
+     * @param file      The virtual file to add highlights to
      */
     public static void addHighlightsOnFileOpen(@Nonnull Editor editor,
                                                @Nonnull VirtualFile file) {

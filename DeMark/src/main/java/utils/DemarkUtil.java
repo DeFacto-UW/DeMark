@@ -46,8 +46,8 @@ public class DemarkUtil {
      * Creates a bookmark at the current line number and adds
      * a highlight to the line.
      *
-     * @param editor the editor to add the mark to
-     * @param lineNum the line number to add the mark to
+     * @param editor    the editor to add the mark to
+     * @param lineNum   the line number to add the mark to
      */
     public static void addDemarkBookmark(@Nonnull Editor editor, int lineNum) {
         Project project = editor.getProject();
@@ -71,8 +71,8 @@ public class DemarkUtil {
     /**
      * Removes the bookmark and the highlight associated with the line number
      *
-     * @param editor, the editor to remove the mark from
-     * @param lineNum, the line number to remove the mark from
+     * @param editor    the editor to remove the mark from
+     * @param lineNum   the line number to remove the mark from
      */
     public static void removeDemarkBookmark(@Nonnull Editor editor,
                                             int lineNum) {
@@ -96,7 +96,7 @@ public class DemarkUtil {
     /**
      * Comment or uncomments the text on a line that is marked by DeMark
      *
-     * @param editor, the editor to toggle the comments from
+     * @param editor    the editor to toggle the comments from
      */
     public static void toggleDemarkComment(@NotNull Editor editor) {
         Project project = editor.getProject();
@@ -124,7 +124,7 @@ public class DemarkUtil {
      * Display the marked lines for the current file that is opened
      * in a separate window by IntelliJ
      *
-     * @param editor, the current editor that contains all the bookmarks
+     * @param editor    the current editor that contains all the bookmarks
      */
     public static void displayDemarkedLines(@Nonnull Editor editor) {
         // TODO: Make this prettier
@@ -156,7 +156,7 @@ public class DemarkUtil {
      * Removes all DeMark bookmarks and deletes the corresponding lines
      * with it from the current file
      *
-     * @param editor, the editor that contains the marked lines
+     * @param editor    the editor that contains the marked lines
      *
      * @return {@link ClearRecord} of all cleared marked lines.
      */
@@ -188,8 +188,8 @@ public class DemarkUtil {
     /**
      * Add all lines from last clear
      *
-     * @param editor, the editor the unclear from
-     * @param last, a collection that stores last clearAll action
+     * @param editor    the editor the unclear from
+     * @param last      a collection that stores last clearAll action
      */
     public static void unclearLastClearAll(@Nonnull Editor editor,
                                            @NotNull ClearRecord last) {
@@ -214,7 +214,7 @@ public class DemarkUtil {
     /**
      * Get all DeMark Bookmarks
      *
-     * @param editor, the current editor to get Demark bookmarks from
+     * @param editor    the current editor to get Demark bookmarks from
      * @return All bookmarks labeled with the {@link #DEMARK_INDICATOR} in
      *          the form of a Treemap containing line numbers
      *          to their respective text body
@@ -251,8 +251,8 @@ public class DemarkUtil {
      * Determine if a line is marked or not by the Demark plugin
      * using the description of the bookmakr
      *
-     * @param editor, the editor that contains the checked line
-     * @param lineNum, the line num to check
+     * @param editor    the editor that contains the checked line
+     * @param lineNum   the line num to check
      * @return true if the bookmark on the line has description
      *         containing {@link #DEMARK_INDICATOR}
      */
@@ -275,7 +275,7 @@ public class DemarkUtil {
     /**
      * Get the name of the given document
      *
-     * @param document, the document to get the name of
+     * @param document  the document to get the name of
      * @return the document's file name, empty string if cannot get name
      */
     @NotNull
@@ -292,8 +292,8 @@ public class DemarkUtil {
     /**
      * Construct a new clear record from a list of bookmarks.
      *
-     * @param editor The editor to put the clear record in
-     * @param bookmarkList The bookmark list to add into the clear record
+     * @param editor        The editor to put the clear record in
+     * @param bookmarkList  The bookmark list to add into the clear record
      * @return A new Clear Record containing bookmarks (line number -> text)
      */
     private static ClearRecord getClearRecord(@NotNull Editor editor,
