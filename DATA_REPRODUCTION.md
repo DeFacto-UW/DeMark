@@ -1,5 +1,8 @@
 ### Reproducing experimentation data: 
 - To reproduce the data for stage one, see [this survey](http://bit.ly/DeMarkPrelimSurvey})'s previous responses
   for the questions that were asked as well as the general form of the survey.
+  - This survey was distributed to 6 people who were all Computer Sciencce major University students. 
 - To reproduce the data for stage two, see [this survey](http://bit.ly/DeMarkStage2)'s previous responses for 
   the questions that were asked as well as the general form of the survey. 
+  - This survey was distributed through the UW CSE Facebook group, one of the team member's personal Facebook, as well as 
+  the subreddit SampleSize.
