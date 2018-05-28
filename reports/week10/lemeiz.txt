@@ -1,0 +1,27 @@
+Name: Lemei Zhang
+CSE netID: lemeiz
+CSE 403 Software Engineering
+Week 10 individual report
+
+Goals from last week:
+  - Write more tests (both simple and complex)
+  - Discuss with team members about the state 2 of user trial 
+    experimentation
+  - Work with team members to finalize the proposal
+
+Progress of this week:
+  - Accomplished:
+    - Fixed more issues that are listed on GitHub
+    - Created the survey for stage 2 of user trial experimentation
+    - Worked with teammates to finish a draft version of the
+      final report
+  - Learned:
+    - Not all issues are easy to resolve
+  - Challenges:
+    - How to collect enough useful data in a timely manner
+
+Goals and plans for next week:
+  - Analyze the results gathered from the stage 2 of user trial
+    experimentation
+  - Start creating the slides for the final presentation
+  - Revise and finalize the final report
