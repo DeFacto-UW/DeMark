@@ -1,0 +1,34 @@
+Anh (Andrew) Tran
+atran35
+CSE 403
+Team DeFacto
+
+Last week's goals:
+    * Get next public survey up and running. 
+    * Get at least one more feature implemented before public distribution.
+    * Write more tests. 
+    * Test distribution to see if compability issues are fixed. 
+
+Progress made:
+    Accomplished:
+      * Public survey up and running and collecting responses. 
+      * One more feature implemented, though was not done in time for public 
+      distribution.
+      * A few more tests were added. 
+      * Compability issues fixed. 
+
+    Learned:
+      * Basics on how to promote a product. 
+      * Managing customer feedback and the general public. 
+      * Keeping good track of things so that they are all linked together. 
+
+    Challenges:
+      * General public is generally uncooperative.
+      * Surveys are hard to get responses for. 
+      * Collecting enough data. 
+
+Personal plans:
+    * Establish a back-up plan in case survey doesn't plan out.
+      * Case study of member usage. 
+    * Revise final report draft. 
+    * Write more tests, fix bugs. 
