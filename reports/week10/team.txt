@@ -1,0 +1,41 @@
+Status Report: Week 10
+
+Last week's goal:
+    - Further implement features.
+    - Start working on finalizing report.
+    - Collecting and analyzing data.
+    - Advertising plugin and survey.
+    - Add more tests.
+    - Take plugin out of Beta.
+
+Progress Made:
+    Accomplished:
+        - Developed scope deletion
+            - On separate branch for now
+        - Plugin released on Official Intellij Plugin Repository
+            - Can be downloaded via Intellij IDE now
+        - Continuous revision of final report
+            - Minor tweaks in overall
+            - Addition Lessons learned and discussion section
+        - Finalized Stage 2 Survery
+        - Advertised Plugin on various sources
+            - Facebook CSE Page
+            - Reddit
+            - Online forums
+
+    Learned:
+        - How to advertise
+        - Regex for scope deletion
+        - Getting Plugin on Intellij IDE for local download
+
+    Challenges:
+        - Advertising can be challenge
+            - Collecting data can be hard as a result
+        - There was a time where we were waiting for Intellij to approve Plugin
+
+Plans:
+    - Prepare for final presentation
+    - Continue collecting data and analyze data
+    - Make final edits to project report
+    - Try and increase code coverage
+
