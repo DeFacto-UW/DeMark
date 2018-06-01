@@ -1,20 +1,20 @@
- ## Build Instructions
- ### Prerequisites
- - Java 8
- - Gradle 2.1+
- - Linux
- - Git
- - Command line using Bash
+## Build Instructions
+### Prerequisites
+- Java 8
+- Gradle 2.1+
+- Git
+- Command line using Bash
+- A machine with a graphical interface. 
  
- Note: University of Washington CSE Students or faculty may use a CSE VM or a Lab Computer to build.
+Note: University of Washington CSE Students or faculty may use a CSE VM or a Lab Computer to build.
  
- ### Building
- To build DeMark, make sure all the prerequisites are installed. Afterwards, run the following commands on the command line.
- ```
- git clone https://github.com/DeFacto-UW/DeMark.git
- cd DeMark/DeMark
- gradle build
- ```
+### Building
+Make sure all prerequisites are met, then run
+```
+git clone https://github.com/DeFacto-UW/DeMark.git
+cd DeMark/DeMark
+gradle build
+```
 
 All instructions and documentation below requires the working directory to be `DeMark/DeMark`.
 
@@ -55,6 +55,7 @@ All instructions and documentation below requires the working directory to be `D
 - Reports can be found under `${BUILD_DIR}/reports/jacoco/report`
 
 ## Running the IDE
+Requires a graphical interface (won't work on terminal-only systems).
 - Run `gradle runIde`
 
 ## Distributions

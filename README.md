@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/DeFacto-UW/DeMark.svg?branch=master)](https://travis-ci.org/DeFacto-UW/DeMark)
 [![Coverage Status](https://coveralls.io/repos/github/DeFacto-UW/DeMark/badge.svg?branch=master)](https://coveralls.io/github/DeFacto-UW/DeMark?branch=master)
 
-# DeMark Beta-0.3
+# DeMark Beta-0.3 Introduction and User Manual
 
 ### Team DeFacto-UW:  
 - [Andrew Tran](https://www.linkedin.com/in/atranatuw/)
@@ -18,11 +18,10 @@
 [5 - Reporting Bugs](#5-reporting-bugs) |
 [6 - Contributing](#6-contributing)
 
-### Current survey: http://bit.ly/DeMarkStage2
 
 ## 1 Introduction
 
-One common way for a developers to debug through their code is by adding temporary, non-production
+One common way for a developers to debug throu:gh their code is by adding temporary, non-production
 lines of code, such as print statements, to understand the program’s state, but it can be a tedious
 task to manage them manually.
 
