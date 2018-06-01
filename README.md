@@ -35,7 +35,7 @@ of temporary code.
 
 ![DeMo](https://thumbs.gfycat.com/BasicUnfitGrebe-size_restricted.gif)
 
-<sup>[back to top](#demark)</sup>
+<sup>[back to top](#demark-beta-03)</sup>
 
 ## 2 Installation
 
@@ -57,7 +57,7 @@ This section provides the instruction for installing DeMark. It is a modified ve
 DeMark will appear as a drop down menu on the top tool bar before the **Help** menu. There will also be a toggle button at the 
 beginning of the quick tools area.
 
-<sup>[back to top](#demark)</sup>
+<sup>[back to top](#demark-beta-03)</sup>
 
 ## 3 Using DeMark
 
@@ -82,7 +82,7 @@ There are two ways to unmark a line:
     
 For specific behaviors of marking and unmarking, please refer to section [4](#4-specific-behaviors-of-functionality).
 
-<sup>[back to top](#demark)</sup>
+<sup>[back to top](#demark-beta-03)</sup>
 
 ### 3.2 Clear and Unclear
 Clear will remove all currently marked lines from the current file. There are two ways to clear all
@@ -99,7 +99,7 @@ cleared lines:
 
 For specific behaviors of marking and unmarking, please refer to section [4](#4-specific-behaviors-of-functionality).
 
-<sup>[back to top](#demark)</sup>
+<sup>[back to top](#demark-beta-03)</sup>
 
 ### 3.3 Toggle
 
@@ -109,7 +109,7 @@ The Toggle feature allows the user to comment/uncomment all the marked lines at 
     
 For specific behaviors of marking and unmarking, please refer to section [4](#4-specific-behaviors-of-functionality).
 
-<sup>[back to top](#demark)</sup>
+<sup>[back to top](#demark-beta-03)</sup>
 
 ### 3.4 Display
 
@@ -120,7 +120,7 @@ displaying the marked lines along with a range of lines above and below to provi
     
 For specific behaviors of marking and unmarking, please refer to section [4](#4-specific-behaviors-of-functionality).
 
-<sup>[back to top](#demark)</sup>
+<sup>[back to top](#demark-beta-03)</sup>
 
 ## 4 Specific Behaviors of Functionality
 
@@ -138,7 +138,7 @@ For specific behaviors of marking and unmarking, please refer to section [4](#4-
 - Lines deleted in other IDEs or text editor will have the correct behavior as deleted in IntelliJ
     as well. This will also remove the mark for said line.
 
-<sup>[back to top](#demark)</sup>
+<sup>[back to top](#demark-beta-03)</sup>
 
 ### 4.2 Clearing and unclearing:
 
@@ -160,7 +160,7 @@ For specific behaviors of marking and unmarking, please refer to section [4](#4-
 - Lines that are added and marked after clear will not be removed by unclear. This allows for
     the following pattern of use and any similar: “mark-clear-mark-unclear.”
 
-<sup>[back to top](#demark)</sup>
+<sup>[back to top](#demark-beta-03)</sup>
 
 ### 4.3 Toggle
 
@@ -173,7 +173,7 @@ behaviors with some overlapping features.
 - Lines would still be able to be manually deleted.
 - Lines deleted in other text editors or IDEs will still be represented correctly as deleted.
 
-<sup>[back to top](#demark)</sup>
+<sup>[back to top](#demark-beta-03)</sup>
 
 #### 4.3.2 “Off ” state:
 
@@ -184,7 +184,7 @@ behaviors with some overlapping features.
 - Marking and unmarking in this state is permitted, the lines with their marking changed will
     retain their current levels of comment.
 
-<sup>[back to top](#demark)</sup>
+<sup>[back to top](#demark-beta-03)</sup>
 
 #### 4.3.3 “On” state:
 
@@ -194,7 +194,7 @@ behaviors with some overlapping features.
 - Marking and unmarking in this state is permitted, the lines with their marking changed will
     retain their current levels of comment.
 
-<sup>[back to top](#demark)</sup>
+<sup>[back to top](#demark-beta-03)</sup>
 
 ### 4.4 Display:
 
@@ -204,7 +204,7 @@ behaviors with some overlapping features.
 - Displayed lines will be read-only. This includes the inability to mark, unmark, insert, or
     delete.
 
-<sup>[back to top](#demark)</sup>
+<sup>[back to top](#demark-beta-03)</sup>
 
 ## 5 Reporting Bugs
 
@@ -215,16 +215,16 @@ If you find any bugs in our plugin, please submit an issue to our GitHub page:ht
 - Specific steps to recreate the bug.
 - (Optional) A screen shot of the bug.
 
-<sup>[back to top](#demark)</sup>
+<sup>[back to top](#demark-beta-03)</sup>
 
 ## 6 Contributing
 
 If you want to contribute to DeMark, please refer to the [contributing instructions](https://github.com/DeFacto-UW/DeMark/blob/master/CONTRIBUTING.md).
 
-<sup>[back to top](#demark)</sup>
+<sup>[back to top](#demark-beta-03)</sup>
 
 ## References
 
 [1] Installing, updating and uninstalling repository plugins. Available at https://www.jetbrains.com/help/idea/installing-updating-and-uninstalling-repository-plugins.html.
 
-<sup>[back to top](#demark)</sup>
+<sup>[back to top](#demark-beta-03)</sup>
