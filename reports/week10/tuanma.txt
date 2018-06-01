@@ -1,0 +1,19 @@
+Tuan Ma
+tuanma
+CSE 403 Software Engineering
+Team Defacto
+
+Last Week Goals:
+    * Work on final report.
+    * Finalize any issues with DeMark.
+
+Progress made:
+    Accomplished:
+    * Completed final report due as a team
+    * Created a new section in final report which acts as an overview and lesson learned.
+        * Reflected on what we learned in class
+        * Reflected on how we grew as a team and as programmers.
+    * Discussed what technologies we have learned in this class and added it to the reflection.
+Plans:
+    * Gather any data wer can on our plugin usage.
+    * Study for exam.

@@ -1,0 +1,14 @@
+Ranhao Xu
+xrh1997
+CSE403 week10 individual status report
+5/28/2018
+
+Last week's goals:
+ • Continue debug issues
+ • Implement clear only selected marked lines feature
+
+Accomplished:
+ • Finished final report as a team
+
+Plans:
+ • Prepare for final presentation

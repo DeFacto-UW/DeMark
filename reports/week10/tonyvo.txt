@@ -1,0 +1,33 @@
+Tony Vo
+tonyvo
+CSE 403 Software Engineering
+Team DeFacto
+
+Last Week's Goals
+    - Write more tests to increase code coverage
+    - Talk with team mates and see if any additional features want to be added.
+    - Continue using the plugin myself and if any bugs occur, post new issues.
+    - Discuss stage two testing.
+    - Help finalize proposal.
+
+Progress:
+	Accomplished:
+        - Helped with finalizing proposal.
+        - Helped with lessons learned portion
+        - Continued using product for other classes
+        - Help promote our product and ask users for reviews.
+
+	Learned
+        - How to write sub sections in Latex
+        - How to stay positive when the tough gets going (other classes, rejection, asking others for help)
+
+	Challenges:
+        - Technical writing is difficult and having the audience in mind is
+          essential
+
+
+Personal Plans:
+    - Help team with final presentation
+    - Try to promote project and get more reviews
+    - Continue to use the plugin and find more bugs.
+    - Settle down on the quarter and prepare for final edits.
