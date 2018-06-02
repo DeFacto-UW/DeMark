@@ -4,6 +4,7 @@ plugins {
     id 'com.github.kt3k.coveralls' version '2.8.2'
 }
 
+// setting up jacoco to use all sources for report
 jacocoTestReport {
     additionalSourceDirs = files(sourceSets.main.java.srcDirs)
     reports {
@@ -12,6 +13,7 @@ jacocoTestReport {
     }
 }
 
+// making sure coveralls sees the sources that it needs.
 coveralls {
     sourceDirs = files(sourceSets.main.java.srcDirs).files.absolutePath
 }
@@ -26,7 +28,7 @@ version 'Beta-0.3'
 
 apply plugin: 'java'
 apply plugin: 'idea'
-apply plugin: 'org.jetbrains.intellij'
+apply plugin: 'org.jetbrains.intellij'      // applying the gradle intellij plugin
 
 sourceCompatibility = 1.8
 
@@ -34,6 +36,7 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
+// setting up the runIde task
 intellij {
     version 'IC-2018.1.2'
     plugins 'coverage'
@@ -59,6 +62,7 @@ sourceSets {
     }
 }
 
+// stuff for the generated plugin xml
 patchPluginXml {
     version = "Beta-0.3"
     sinceBuild = "173"
@@ -75,11 +79,4 @@ patchPluginXml {
     DeMark is a plugin that is used to keep track of temporary debug code. It allows this by letting the user putting a special bookmark on lines of code and highligting them, essentially "marking" them as debug code.
     It aims to increase software developers’ programming productivity by facilitating the management of temporary code.
     """
-}
-
-// Example task
-task hello {
-    doLast {
-        println 'Hello'
-    }
 }
